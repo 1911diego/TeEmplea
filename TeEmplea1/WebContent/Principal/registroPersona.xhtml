@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<title>Registrese</title>
+</h:head> 
+<h:body> 
+	<h:outputStylesheet library ="css" name="index.css"/>
+	<h:form>
+	<p:wizard>
+		<p:tab id="infoPersonal" title="Personal">
+			<p:panel header="Datos Personales">
+				<p:messages/>
+					<p:panelGrid columns="6" layout="grid">
+						<p:inputText id="primerApellido" required="true"/>
+						<p:watermark for="primerApellido" value="Primer Apellido *"/>
+						<p:inputText id="segundoApellido"/>
+						<p:watermark for="segundoApellido" value="Segundo Apellido"/>
+						<p:inputText id="primerNombre" required="true"/>
+						<p:watermark for="primerNombre" value="Primer Nombre *"/>
+						<p:inputText id="segundoNombre"/>
+						<p:watermark for="segundoNombre" value="Segundo Nombre"/>
+						<p:calendar id="fechaNacimiento" pattern="dd/MM/yyyy" mask="true" required="true"/>
+						<p:watermark for="fechaNacimiento" value="Fecha de Nacimiento *"/>
+						<p:inputText id="lugarNacimiento" required="true"/>
+						<p:watermark for="lugarNacimiento" value="Lugar de Nacimiento *"/>
+						<p:inputText id="direccion"/>
+						<p:watermark for="direccion" value="Dirección"/>
+						<p:inputMask id="telefono" mask="(999) 999-9999"/>
+						<p:watermark for="telefono" value="Teléfono"/>
+						<p:inputText id="correo"/>
+						<p:watermark for="correo" value="Correo electrónico"/>
+						<p:selectOneMenu id="estadoCivil">
+           	 				<f:selectItem itemLabel="Soltero(a)" itemValue="soltero" />
+           	 				<f:selectItem itemLabel="Casado(a)" itemValue="casado" />
+            				<f:selectItem itemLabel="Unión Libre" itemValue="unionLibre" />
+            				<f:selectItem itemLabel="Viudo(a)" itemValue="viudo" />
+       		 			</p:selectOneMenu>
+					</p:panelGrid>
+			</p:panel>
+		</p:tab>
+		
+		<p:tab id="descripción" title="Perfil Profesional">
+			<p:panel header="Perfil Profesional">
+				<p:messages/>
+					<p:inputTextarea id="descripcionTextArea" rows="5" cols="50"/>
+					<p:watermark for="descripcionTextArea" value="Introduzca una breve descripción de su perfil Profesional"/>
+			</p:panel>
+		</p:tab>
+		
+		<p:tab id="educacion" title="Educación">
+			<p:panel header="Información Académica">
+				<p:messages/>
+			</p:panel>
+		</p:tab>
+		
+		<p:tab id="expLaboral" title="Exp Laboral">
+			<p:panel header="Experiencia Laboral">
+				<p:messages/>
+			</p:panel>
+		</p:tab>
+		
+		<p:tab id="referencias" title="Referencias">
+			<p:panel header="Experiencia Laboral">
+				<p:messages/>
+			</p:panel>
+		</p:tab>
+		
+		<p:tab id="infoLaboral" title="Info Laboral">
+			<p:panel header="Información Laboral">
+				<p:messages/>
+			</p:panel>
+		</p:tab>
+		
+		<p:tab id="confirmacion" title="Confirmación">
+			<p:panel header="Información Laboral">
+				<p:messages/>
+				
+				<p:commandButton value="Registrarse" />
+			</p:panel>
+		</p:tab>
+			
+	</p:wizard>
+
+	</h:form>
+
+</h:body> 
+</html>

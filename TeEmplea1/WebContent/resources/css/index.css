@@ -1,0 +1,208 @@
+@charset "ISO-8859-1";
+
+.body
+{
+	margin: 0px;
+}
+
+.div1
+{
+	position: relative;
+	margin: 0px;
+}
+
+.divfondo
+{
+	position: absolute;
+	z-index: 1;
+	left: 0px;
+	top: 0px;
+}
+
+.imagenFondo {
+	width:100%;
+	height:100%;
+	transform:none;
+	z-index:1;
+	position: absolute;
+}
+
+.divlogo
+{
+	z-index:2;
+	top: 0px;
+	left: 20px; 
+	position: absolute;
+}
+
+.logo
+{
+	width: 250px;
+	height: 125px;
+}
+
+.divbotones
+{
+	z-index:2;
+	top: 40px;
+	left: 1000px;
+	 position: absolute;
+}
+
+.divingreso
+{
+	z-index: 2;
+	top: 40px;
+	left: 1180px;
+	 position: absolute;
+}
+
+.botoningresar
+{
+	height:41px;
+}
+
+.divtexto
+{
+	z-index: 2;
+	top: 320px;
+	left: 70px;
+	position: absolute;
+}
+
+.panelTexto
+{
+	text-align:right;
+}
+.texto1
+{
+	font-family: helvetica;
+	font-weight: bold;
+	font-size: 55px;
+	color: orange;
+}
+
+.texto2
+{
+	font-family: helvetica;
+	font-size: 20px;
+	color: white;
+}
+
+.divlogin
+{
+	z-index: 3;
+	top: 250px;
+	left: 800px;
+	position: absolute;
+	text-align:center;
+}
+.panelLogueo
+{
+	align-items: center;
+	background-color: white;
+
+	
+	-webkit-box-shadow: 6px 10px 8px -4px rgba(0,0,0,0.75);
+	-moz-box-shadow: 6px 10px 8px -4px rgba(0,0,0,0.75);
+	box-shadow: 6px 10px 8px -4px rgba(0,0,0,0.75);
+	}
+
+.textoUsuario
+{
+	width: 300px;
+	height: 40px;
+}
+
+.ui-widget-content .botonRegistrarse
+{
+	width: 300px;
+	height: 40px;
+	background: #FFA500;
+	background-color:#FFA500;
+	border:none;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:helvetica;
+	font-size:20px;
+	padding:5px 12px;
+	text-decoration:none;
+	text-shadow: none;
+}
+.botonRegistrarse:hover {
+	background:#FFB700;
+	background-color:#FFB700;
+}
+.botonRegistrarse:active {
+	position:relative;
+	top:1px;
+}
+
+.ui-widget-content .botonInicioSesion
+{
+	width: 300px;
+	height: 40px;
+	background:#49423F;
+	background-color:#49423F;
+	border:none;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:helvetica;
+	font-size:20px;
+	padding:5px 12px;
+	text-decoration:none;
+	text-shadow: none;
+}
+.botonInicioSesion:hover {
+	background:#433832;
+	background-color:#433832;
+}
+.botonInicioSesion:active {
+	position:relative;
+	top:1px;
+}
+
+.ui-widget-content .labelRegistro
+{
+
+	font-family:helvetica;
+	font-size:24px;
+	
+}
+
+
+
+.ui-wizard-step-title {
+
+	background:linear-gradient(to bottom, #433832 5%, #433832 100%);
+	background-color:#49423F;
+	border-radius:2px;
+	border:1px solid #433832;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:helvetica;
+	font-weight: normal;
+	font-size:20px;
+	padding:5px 12px;
+	text-decoration:none;
+	text-shadow: none;
+}
+
+.ui-state-highlight
+{
+	background: #000000 -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0.0)),to(rgba(0,0,0,0)));
+	border: 1px solid #666;
+	color: white;
+    text-shadow: none;
+}
+
+.ui-widget-header 
+{
+	background: #000000 -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0.0)),to(rgba(0,0,0,0)));
+	border: 1px solid #666;
+	color: white;
+    text-shadow: none;
+}
