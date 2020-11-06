@@ -4,11 +4,11 @@
 <hibernate-configuration>
  <session-factory>
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-  <property name="hibernate.connection.password">Nico3141592654</property>
-  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/teempleabd</property>
-  <property name="hibernate.connection.username">root</property>
+  <property name="hibernate.connection.password">WTi7HMseV6</property>
+  <property name="hibernate.connection.url">jdbc:mysql://sql10.freesqldatabase.com:3306/sql10374782</property>
+  <property name="hibernate.connection.username">sql10374782</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <property name="current_session_context_class">thread</property>
-  <mapping class="com.edu.ubosque.model.Usuarios" />
+  <mapping class="com.edu.ubosque.model.Usuarios"/>
  </session-factory>
 </hibernate-configuration>

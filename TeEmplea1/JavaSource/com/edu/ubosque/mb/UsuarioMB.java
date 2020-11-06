@@ -14,22 +14,24 @@ public class UsuarioMB {
 
 	private UsuarioLogica ul; 
 	private List<Usuarios> listaUsuarios;
-	private Usuarios usr;
+	private String usuario;
+	private String clave;
 	
 	public UsuarioMB() {
 		
 		ul = new UsuarioLogica();
 		listaUsuarios = ul.readUsuario();
 		
+		
 	}
 	
 	public String validarUsuario() {
 		
-		if(usr.getNombreUsuario() != null && usr.getContrasena() != null) {
+		if(usuario != null && clave != null) {
 			for (int i = 0; i < listaUsuarios.size(); i++) {
 				System.out.println(listaUsuarios);
-				if(usr.getNombreUsuario().equalsIgnoreCase(listaUsuarios.get(i).getNombreUsuario()) && usr.getContrasena().equalsIgnoreCase(listaUsuarios.get(i).getContrasena())) {
-					return "Ingreso";
+				if(usuario.equalsIgnoreCase(listaUsuarios.get(i).getNombreUsuario()) && clave.equals(listaUsuarios.get(i).getContrasena())) {
+					return "ingreso";
 				}
 			}
 		}
@@ -45,12 +47,22 @@ public class UsuarioMB {
 		this.listaUsuarios = listaUsuarios;
 	}
 
-	public Usuarios getUsr() {
-		return usr;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setUsr(Usuarios usr) {
-		this.usr = usr;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
+
+	public String getClave() {
+		return clave;
+	}
+
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
+
+	
 
 }
