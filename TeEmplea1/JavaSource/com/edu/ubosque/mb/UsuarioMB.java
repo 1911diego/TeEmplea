@@ -9,7 +9,7 @@ import com.edu.ubosque.logica.UsuarioLogica;
 import com.edu.ubosque.model.Usuarios;
 
 @ManagedBean
-@SessionScoped
+//@SessionScoped
 public class UsuarioMB {
 
 	private UsuarioLogica ul; 
@@ -25,12 +25,15 @@ public class UsuarioMB {
 	
 	public String validarUsuario() {
 		
-		for (int i = 0; i < listaUsuarios.size(); i++) {
-			if(usr.getNombreUsuario().equalsIgnoreCase(listaUsuarios.get(i).getNombreUsuario()) && usr.getContrasena().equalsIgnoreCase(listaUsuarios.get(i).getContrasena())) {
-				return "Ingreso";
+		if(usr.getNombreUsuario() != null && usr.getContrasena() != null) {
+			for (int i = 0; i < listaUsuarios.size(); i++) {
+				System.out.println(listaUsuarios);
+				if(usr.getNombreUsuario().equalsIgnoreCase(listaUsuarios.get(i).getNombreUsuario()) && usr.getContrasena().equalsIgnoreCase(listaUsuarios.get(i).getContrasena())) {
+					return "Ingreso";
+				}
 			}
 		}
-		
+		System.out.println("No entro");
 		return null;
 	}
 

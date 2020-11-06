@@ -44,4 +44,9 @@ public class Usuarios implements java.io.Serializable {
 		this.contrasena = contrasena;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuarios [nombreUsuario=" + nombreUsuario + ", contrasena=" + contrasena + "]";
+	}
+
 }

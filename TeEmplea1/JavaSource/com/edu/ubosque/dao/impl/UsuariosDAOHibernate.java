@@ -1,10 +1,9 @@
 package com.edu.ubosque.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import com.edu.ubosque.baseDatos.SesionHibernate;
 import com.edu.ubosque.dao.IUsuarioDAO;
 import com.edu.ubosque.model.Usuarios;

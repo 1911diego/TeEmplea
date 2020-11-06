@@ -17,31 +17,31 @@
 			</div>
 			
 			<h:form id="panelPrincipal">
-			<div class="divtexto">
-				<h:panelGrid styleClass="panelTexto">
-					<h:outputText
-						value="Miles de ofertas Para ti"
-						styleClass="texto1"
-					/>
-					<h:outputText
-						value="Encuentra ofertas de empleo en colombia y en el mundo."
-						styleClass="texto2"
-					/>
-				</h:panelGrid>
-			</div>
+				<div class="divtexto">
+					<h:panelGrid styleClass="panelTexto">
+						<h:outputText
+							value="Miles de ofertas Para ti"
+							styleClass="texto1"
+						/>
+						<h:outputText
+							value="Encuentra ofertas de empleo en colombia y en el mundo."
+							styleClass="texto2"
+						/>
+					</h:panelGrid>
+				</div>
 			
 			
-			<div class="divlogin">
-				<p:panelGrid id="loginPersona" layout="grid" columns="1" styleClass="panelLogueo">
-					<p:inputText id="usuario" styleClass="textoUsuario" value="#{usuarioMB.usr.nombreUsuario}"/>
-					<p:watermark for="usuario" value="Usuario"/>
-					<p:password id="clave" feedback="true" styleClass="textoUsuario" value="#{usuarioMB.usr.contrasena}"/>
-					<p:watermark for="clave" value="Contraseña"/>
-					<p:commandButton id="ingreso" value="Iniciar Sesión" styleClass="botonInicioSesion" actionListener="#{usuarioMB.validarUsuario()}"/>
-					<p:commandButton id="registro" value="Crear una Cuenta" styleClass="botonRegistrarse" action="#{mostrarRegistroMB.ventanaRegistro()}" update="panelPrincipal"/>
-				</p:panelGrid>
-			
-			</div>	
+				<div class="divlogin">
+					<p:panelGrid id="loginPersona" layout="grid" columns="1" styleClass="panelLogueo">
+						<p:inputText id="usuario" styleClass="textoUsuario" value="#{usuarioMB.usr.nombreUsuario}"/>
+						<p:watermark for="usuario" value="Usuario"/>
+						<p:password id="clave" feedback="true" styleClass="textoUsuario" value="#{usuarioMB.usr.contrasena}"/>
+						<p:watermark for="clave" value="Contraseña"/>
+						<p:commandButton id="ingreso" value="Iniciar Sesión" styleClass="botonInicioSesion" actionListener="#{usuarioMB.validarUsuario()}"/>
+						<p:commandButton id="registro" value="Crear una Cuenta" styleClass="botonRegistrarse" action="#{mostrarRegistroMB.ventanaRegistro()}" update="panelPrincipal"/>
+					</p:panelGrid>
+				
+				</div>	
 			
 			</h:form>
 	</div>

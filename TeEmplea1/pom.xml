@@ -49,12 +49,11 @@
 
 		
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
-		<dependency>
-  			<groupId>org.hibernate</groupId>
-  			<artifactId>hibernate-agroal</artifactId>
-  			<version>5.4.22.Final</version>
-  			<type>pom</type>
-		</dependency>
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>5.4.14.Final</version>
+	</dependency>
 	
   </dependencies>
 </project>
