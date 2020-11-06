@@ -18,7 +18,7 @@ public class UsuariosDAOHibernate implements IUsuarioDAO{
 
 	@Override
 	public List<Usuarios> readUsuarios() {
-		Session sesion = SesionHibernate.getSessionFactory();
+		Session sesion = SesionHibernate.getSf().getCurrentSession();
 		
 		sesion.beginTransaction();
 		Query<Usuarios> query = sesion.createQuery("Select u FROM Usuarios u");
