@@ -206,3 +206,13 @@
 	color: white;
     text-shadow: none;
 }
+
+.ui-widget-content .credencialCorrecta
+{
+	color: blue;
+}
+
+.ui-widget-content .credencialIncorrecta
+{
+	color: red;
+}

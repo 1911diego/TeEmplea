@@ -5,8 +5,22 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"> 
 
-<h:head></h:head> 
+<h:head>
+	<h:outputStylesheet library ="css" name="index.css"/>
+</h:head> 
 <body> 
-	<p:outputLabel>Credenciales correctas</p:outputLabel>
+
+	<p:panelGrid columns="2" rendered="#{usuarioMB.salida == true}">
+		<f:facet name="header">
+			<p:outputLabel value="Credenciales Correctas" StyleClass="credencialCorrecta" />
+		</f:facet>
+		<p:outputLabel value="Usuario: "/>
+		<p:outputLabel value="#{usuarioMB.usuarioEncontrado}"/>
+		<p:outputLabel value="Contraseña: "/>
+		<p:outputLabel value="#{usuarioMB.claveEncontrada}"/>
+	</p:panelGrid>
+	
+	<p:outputLabel value="Credenciales Incorrectas" StyleClass="credencialIncorrecta" rendered="#{usuarioMB.salida == false}"/>
+	
 </body> 
 </html>

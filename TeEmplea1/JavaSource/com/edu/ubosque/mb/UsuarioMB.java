@@ -16,6 +16,9 @@ public class UsuarioMB {
 	private List<Usuarios> listaUsuarios;
 	private String usuario;
 	private String clave;
+	private String usuarioEncontrado;
+	private String claveEncontrada;
+	private boolean salida = false;
 	
 	public UsuarioMB() {
 		
@@ -31,12 +34,19 @@ public class UsuarioMB {
 			for (int i = 0; i < listaUsuarios.size(); i++) {
 				System.out.println(listaUsuarios);
 				if(usuario.equalsIgnoreCase(listaUsuarios.get(i).getNombreUsuario()) && clave.equals(listaUsuarios.get(i).getContrasena())) {
-					return "ingreso";
+					usuarioEncontrado = listaUsuarios.get(i).getNombreUsuario();
+					claveEncontrada = listaUsuarios.get(i).getContrasena();
+					salida = true;
 				}
 			}
 		}
-		System.out.println("No entro");
-		return null;
+		else
+		{
+			salida = false;
+		}
+		
+		return "ingreso";
+
 	}
 
 	public List<Usuarios> getListaUsuarios() {
@@ -63,6 +73,31 @@ public class UsuarioMB {
 		this.clave = clave;
 	}
 
+	public boolean isSalida() {
+		return salida;
+	}
+
+	public void setSalida(boolean salida) {
+		this.salida = salida;
+	}
+
+	public String getUsuarioEncontrado() {
+		return usuarioEncontrado;
+	}
+
+	public void setUsuarioEncontrado(String usuarioEncontrado) {
+		this.usuarioEncontrado = usuarioEncontrado;
+	}
+
+	public String getClaveEncontrada() {
+		return claveEncontrada;
+	}
+
+	public void setClaveEncontrada(String claveEncontrada) {
+		this.claveEncontrada = claveEncontrada;
+	}
+
+	
 	
 
 }
