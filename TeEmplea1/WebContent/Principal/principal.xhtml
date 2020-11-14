@@ -38,7 +38,7 @@
 						<p:password id="clave" feedback="true" styleClass="textoUsuario" value="#{usuarioMB.clave}"/>
 						<p:watermark for="clave" value="Contraseña"/>
 						<p:commandButton id="ingreso" value="Iniciar Sesión" styleClass="botonInicioSesion" action="#{usuarioMB.validarUsuario()}"/>
-						<p:commandButton id="registro" value="Crear una Cuenta" styleClass="botonRegistrarse" action="#{mostrarRegistroMB.ventanaRegistro()}" update="panelPrincipal"/>
+						<p:commandButton id="registro" value="Crear una Cuenta" styleClass="botonRegistrarse" action="#{ventanasEmergentesMB.ventanaRegistro()}" update="panelPrincipal"/>
 					</p:panelGrid>
 				
 				</div>	

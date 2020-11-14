@@ -97,11 +97,13 @@
 	position: absolute;
 	text-align:center;
 }
-.panelLogueo
+
+.ui-panelgrid .panelLogueo
 {
 	align-items: center;
 	background-color: white;
-
+	text-align: center;
+	
 	
 	-webkit-box-shadow: 6px 10px 8px -4px rgba(0,0,0,0.75);
 	-moz-box-shadow: 6px 10px 8px -4px rgba(0,0,0,0.75);
@@ -216,3 +218,4 @@
 {
 	color: red;
 }
+

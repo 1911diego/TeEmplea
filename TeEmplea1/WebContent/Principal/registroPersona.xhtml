@@ -15,26 +15,17 @@
 		<p:tab id="infoPersonal" title="Personal">
 			<p:panel header="Datos Personales">
 				<p:messages/>
-					<p:panelGrid columns="6" layout="grid">
-						<p:inputText id="primerApellido" required="true"/>
-						<p:watermark for="primerApellido" value="Primer Apellido *"/>
-						<p:inputText id="segundoApellido"/>
-						<p:watermark for="segundoApellido" value="Segundo Apellido"/>
-						<p:inputText id="primerNombre" required="true"/>
-						<p:watermark for="primerNombre" value="Primer Nombre *"/>
-						<p:inputText id="segundoNombre"/>
-						<p:watermark for="segundoNombre" value="Segundo Nombre"/>
-						<p:calendar id="fechaNacimiento" pattern="dd/MM/yyyy" mask="true" required="true"/>
-						<p:watermark for="fechaNacimiento" value="Fecha de Nacimiento *"/>
-						<p:inputText id="lugarNacimiento" required="true"/>
-						<p:watermark for="lugarNacimiento" value="Lugar de Nacimiento *"/>
-						<p:inputText id="direccion"/>
-						<p:watermark for="direccion" value="Dirección"/>
-						<p:inputMask id="telefono" mask="(999) 999-9999"/>
-						<p:watermark for="telefono" value="Teléfono"/>
-						<p:inputText id="correo"/>
-						<p:watermark for="correo" value="Correo electrónico"/>
-						<p:selectOneMenu id="estadoCivil">
+					<p:panelGrid columns="4" layout="grid">
+						<p:inputText id="primerApellido" required="true" placeholder="Primer Apellido"/>
+						<p:inputText id="segundoApellido" placeholder="Segundo Apellido"/>
+						<p:inputText id="primerNombre" required="true" placeholder="Primer Nombre"/>
+						<p:inputText id="segundoNombre" placeholder="Segundo Nombre"/>
+						<p:calendar id="fechaNacimiento" pattern="dd/MM/yyyy" mask="true" required="true" placeholder="Fecha de Nacimiento"/>
+						<p:inputText id="lugarNacimiento" required="true" placeholder="Lugar de Nacimiento"/>
+						<p:inputText id="direccion" placeholder="Dirección"/>
+						<p:inputMask id="telefono" mask="(999) 999-9999" placeholder="Teléfono"/>
+						<p:inputText id="correo" placeholder="Correo"/>
+						<p:selectOneMenu id="estadoCivil" placeholder="Estado Civil">
            	 				<f:selectItem itemLabel="Soltero(a)" itemValue="soltero" />
            	 				<f:selectItem itemLabel="Casado(a)" itemValue="casado" />
             				<f:selectItem itemLabel="Unión Libre" itemValue="unionLibre" />
