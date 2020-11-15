@@ -1,5 +1,7 @@
 @charset "ISO-8859-1";
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 .body
 {
 	margin: 0px;
@@ -76,7 +78,7 @@
 }
 .texto1
 {
-	font-family: helvetica;
+	font-family: 'nunito', sans-serif;
 	font-weight: bold;
 	font-size: 55px;
 	color: orange;
@@ -84,7 +86,7 @@
 
 .texto2
 {
-	font-family: helvetica;
+	font-family: 'nunito', sans-serif;
 	font-size: 20px;
 	color: white;
 }
@@ -145,8 +147,8 @@
 {
 	width: 300px;
 	height: 40px;
-	background:#49423F;
-	background-color:#49423F;
+	background:#33393E;
+	background-color:#33393E;
 	border:none;
 	display:inline-block;
 	cursor:pointer;

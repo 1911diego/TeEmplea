@@ -1,5 +1,5 @@
 package com.edu.ubosque.model;
-// Generated 13/11/2020, 9:41:30 p. m. by Hibernate Tools 5.2.12.Final
+// Generated 14/11/2020, 11:42:56 a. m. by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import java.util.HashSet;

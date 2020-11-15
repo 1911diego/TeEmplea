@@ -28,7 +28,7 @@ public class CiudadanoDAOHibernate implements ICiudadanoDAO {
 
 	@Override
 	public List<Ciudadano> readCiudadano() {
-		String hql = "Select c FROM ciudadanos c";
+		String hql = "Select c FROM Ciudadano c";
 		Session session = SesionHibernate.getSf().getCurrentSession();
 		session.beginTransaction();
 		
@@ -57,6 +57,51 @@ public class CiudadanoDAOHibernate implements ICiudadanoDAO {
 		session.delete(ciudadanoAEliminar);
 		session.getTransaction().commit();
 		return true;
+	}
+
+	@Override
+	public Ciudadano buscarCiudadanoPorId(int id) {
+		String hql = "Select c FROM Ciudadano c WHERE c.id = "+id;
+		Session session = SesionHibernate.getSf().getCurrentSession();
+		session.beginTransaction();
+		
+		try {
+		Query<Ciudadano> query = session.createQuery(hql);
+		Ciudadano ciudadanoBuscado = query.getSingleResult();
+		
+		session.getTransaction().commit();
+		session.close();
+		
+		return ciudadanoBuscado;
+		}
+		catch(Exception e)
+		{
+			session.close();
+			return null;
+		}
+	}
+
+
+	@Override
+	public Ciudadano buscarCiudadanoPorUsuario(String usuario) {
+		String hql = "Select c FROM Ciudadano c WHERE c.usuario= '"+usuario+"'";
+		Session session = SesionHibernate.getSf().getCurrentSession();
+		session.beginTransaction();
+		
+		try {
+		Query<Ciudadano> query = session.createQuery(hql);
+		Ciudadano ciudadanoBuscado = query.getSingleResult();
+		
+		session.getTransaction().commit();
+		session.close();
+		
+		return ciudadanoBuscado;
+		}
+		catch(Exception e)
+		{
+			session.close();
+			return null;
+		}
 	}
 
 }

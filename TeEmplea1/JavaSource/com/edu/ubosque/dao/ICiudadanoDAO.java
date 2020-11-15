@@ -14,4 +14,8 @@ boolean createCiudadano(Ciudadano ciudadanoACrear);
 	boolean updateCiudadano(Ciudadano ciudadanoAModificar);
 	
 	boolean deleteCiudadano(Ciudadano ciudadanoAEliminar);
+	
+	Ciudadano buscarCiudadanoPorId(int id);
+	
+	Ciudadano buscarCiudadanoPorUsuario(String usuario);
 }

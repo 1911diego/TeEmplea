@@ -12,9 +12,9 @@
         <property name="hibernate.default_schema">teemplea_BD</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="current_session_context_class">thread</property> 
-  		<mapping class="com.ubosque.edu.model.Ciudadano" />
-  		<mapping class="com.ubosque.edu.model.ExperienciaLaboral" />
-  		<mapping class="com.ubosque.edu.model.InformacionAcademica" />
-  		<mapping class="com.ubosque.edu.model.Referencias" />
+  		<mapping class="com.edu.ubosque.model.Ciudadano" />
+  		<mapping class="com.edu.ubosque.model.ExperienciaLaboral" />
+  		<mapping class="com.edu.ubosque.model.InformacionAcademica" />
+  		<mapping class="com.edu.ubosque.model.Referencias" />
     </session-factory>
 </hibernate-configuration>

@@ -19,7 +19,7 @@ public class CiudadanoLogica {
 	}
 
 	
-	public boolean createSector(Ciudadano ciudadanoACrear)
+	public boolean createCiudadano(Ciudadano ciudadanoACrear)
 	{
 		boolean resultado = dao.createCiudadano(ciudadanoACrear);
 		
@@ -30,6 +30,20 @@ public class CiudadanoLogica {
 	{
 		return dao.readCiudadano();
 	}
+	
+	
+	public Ciudadano buscarCiudadanoPorId(int id)
+	{
+		
+		return dao.buscarCiudadanoPorId(id);
+	}
+	
+	public Ciudadano buscarCiudadanoPorUsuario(String usuario)
+	{
+		
+		return dao.buscarCiudadanoPorUsuario(usuario);
+	}
+	
 	
 	public boolean updateCiudadano(Ciudadano ciudadanoAModificar)
 	{
@@ -42,5 +56,29 @@ public class CiudadanoLogica {
 		boolean resultado = dao.deleteCiudadano(ciudadanoAEliminar);
 		return resultado;
 	}
+	
+	public Ciudadano validarUsuarioClave(String usuario, String clave)
+	{
+		Ciudadano ciudadanoEncontrado = buscarCiudadanoPorUsuario(usuario);
+		
+		if(ciudadanoEncontrado!=null)
+		{
+			if(ciudadanoEncontrado.getClave().equals(clave))
+			{
+				return ciudadanoEncontrado;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return null;
+		}
+		
+	}
+	
+	
 	
 }

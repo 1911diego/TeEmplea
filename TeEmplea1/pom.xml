@@ -23,7 +23,30 @@
       </plugin>
     </plugins>
   </build>
+  
+   <repositories>
+        <repository>
+            <id>prime-repo</id>
+            <name>Prime Repo</name>
+            <url>http://repository.primefaces.org</url>
+        </repository>
+    </repositories>
+    
   <dependencies>
+  
+  	 <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>afterdark</artifactId>
+            <version>1.0.8</version>
+      </dependency>
+        
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>dot-luv</artifactId>
+            <version>1.0.8</version>
+        </dependency>
+  
+  
   
   	<!-- https://mvnrepository.com/artifact/javax.faces/javax.faces-api -->
 	<dependency>
@@ -47,6 +70,7 @@
    			<version>8.0.22</version>
 		</dependency>
 
+	
 		
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 	<dependency>
@@ -54,6 +78,7 @@
 	    <artifactId>hibernate-core</artifactId>
 	    <version>5.4.14.Final</version>
 	</dependency>
+	
 	
   </dependencies>
 </project>

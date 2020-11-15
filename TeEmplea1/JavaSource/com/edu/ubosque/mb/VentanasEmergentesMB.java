@@ -37,18 +37,7 @@ public class VentanasEmergentesMB {
 	      PrimeFaces.current().dialog().openDynamic("regPer", opciones, null);
 	 }
 	 
-	 public void ventanaRegistroPersonasDatosAdicionales()
-	 {
-		 Map<String, Object> opciones = new HashMap<String,Object>();
-		 	opciones.put("modal", true);
-		 	opciones.put("resizable", false);
-		 	opciones.put("width", 340);
-		 	opciones.put("height", 360);
-		 	opciones.put("contentWidth", "100%");
-		 	opciones.put("contentHeight", "100%");
-		 	opciones.put("headerElement", "customheader");
-	      PrimeFaces.current().dialog().openDynamic("registroPersona", opciones, null);
-	 }
+	 
 	 
 	 public void showMessage() {
 		 System.out.println("entra");

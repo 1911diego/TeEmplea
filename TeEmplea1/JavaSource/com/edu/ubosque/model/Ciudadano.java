@@ -1,5 +1,5 @@
 package com.edu.ubosque.model;
-// Generated 13/11/2020, 9:41:30 p. m. by Hibernate Tools 5.2.12.Final
+// Generated 14/11/2020, 11:42:56 a. m. by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -32,7 +32,7 @@ public class Ciudadano implements java.io.Serializable {
 	private Date fechaNacimiento;
 	private String lugarNacimiento;
 	private String direccion;
-	private int telefono;
+	private String telefono;
 	private String estadoCivil;
 	private String correoElectronico;
 	private String perfilProfesional;
@@ -42,14 +42,10 @@ public class Ciudadano implements java.io.Serializable {
 	public Ciudadano() {
 	}
 
-	public Ciudadano(int id, ExperienciaLaboral experienciaLaboral, InformacionAcademica informacionAcademica,
-			Referencias referencias, String usuario, String clave, String primerNombre, String primerApellido,
-			Date fechaNacimiento, String lugarNacimiento, String direccion, int telefono, String estadoCivil,
+	public Ciudadano(int id, String usuario, String clave, String primerNombre, String primerApellido,
+			Date fechaNacimiento, String lugarNacimiento, String direccion, String telefono, String estadoCivil,
 			String correoElectronico, String perfilProfesional, double aspiracionLaboral, String horario) {
 		this.id = id;
-		this.experienciaLaboral = experienciaLaboral;
-		this.informacionAcademica = informacionAcademica;
-		this.referencias = referencias;
 		this.usuario = usuario;
 		this.clave = clave;
 		this.primerNombre = primerNombre;
@@ -68,7 +64,7 @@ public class Ciudadano implements java.io.Serializable {
 	public Ciudadano(int id, ExperienciaLaboral experienciaLaboral, InformacionAcademica informacionAcademica,
 			Referencias referencias, String usuario, String clave, String primerNombre, String segundoNombre,
 			String primerApellido, String segundoApellido, Date fechaNacimiento, String lugarNacimiento,
-			String direccion, int telefono, String estadoCivil, String correoElectronico, String perfilProfesional,
+			String direccion, String telefono, String estadoCivil, String correoElectronico, String perfilProfesional,
 			double aspiracionLaboral, String horario) {
 		this.id = id;
 		this.experienciaLaboral = experienciaLaboral;
@@ -103,7 +99,7 @@ public class Ciudadano implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_exp_laboral", nullable = false)
+	@JoinColumn(name = "id_exp_laboral")
 	public ExperienciaLaboral getExperienciaLaboral() {
 		return this.experienciaLaboral;
 	}
@@ -113,7 +109,7 @@ public class Ciudadano implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_info_academica", nullable = false)
+	@JoinColumn(name = "id_info_academica")
 	public InformacionAcademica getInformacionAcademica() {
 		return this.informacionAcademica;
 	}
@@ -123,7 +119,7 @@ public class Ciudadano implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_referencias", nullable = false)
+	@JoinColumn(name = "id_referencias")
 	public Referencias getReferencias() {
 		return this.referencias;
 	}
@@ -214,12 +210,12 @@ public class Ciudadano implements java.io.Serializable {
 		this.direccion = direccion;
 	}
 
-	@Column(name = "telefono", nullable = false)
-	public int getTelefono() {
+	@Column(name = "telefono", nullable = false, length = 15)
+	public String getTelefono() {
 		return this.telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 

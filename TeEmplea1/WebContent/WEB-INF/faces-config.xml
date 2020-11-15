@@ -7,6 +7,16 @@
   <managed-bean-class>com.edu.ubosque.mb.VentanasEmergentesMB</managed-bean-class>
   <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
+ <managed-bean>
+  <managed-bean-name>validacionDeRegistroMB</managed-bean-name>
+  <managed-bean-class>com.edu.ubosque.mb.ValidacionDeRegistroMB</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>inicioSesionCiudadanoMB</managed-bean-name>
+  <managed-bean-class>com.edu.ubosque.mb.InicioSesionCiudadanoMB</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
  <application>
   <action-listener>org.primefaces.application.DialogActionListener</action-listener>
   <navigation-handler>org.primefaces.application.DialogNavigationHandler</navigation-handler>

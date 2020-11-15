@@ -11,26 +11,35 @@
 <h:body> 
 	<h:outputStylesheet library ="css" name="index.css"/>
 	<h:form>
+	<p:growl id="growl" showDetail="true"/> 
 	<p:wizard>
 		<p:tab id="infoPersonal" title="Personal">
 			<p:panel header="Datos Personales">
 				<p:messages/>
-					<p:panelGrid columns="4" layout="grid">
-						<p:inputText id="primerApellido" required="true" placeholder="Primer Apellido"/>
-						<p:inputText id="segundoApellido" placeholder="Segundo Apellido"/>
-						<p:inputText id="primerNombre" required="true" placeholder="Primer Nombre"/>
-						<p:inputText id="segundoNombre" placeholder="Segundo Nombre"/>
-						<p:calendar id="fechaNacimiento" pattern="dd/MM/yyyy" mask="true" required="true" placeholder="Fecha de Nacimiento"/>
-						<p:inputText id="lugarNacimiento" required="true" placeholder="Lugar de Nacimiento"/>
-						<p:inputText id="direccion" placeholder="Dirección"/>
-						<p:inputMask id="telefono" mask="(999) 999-9999" placeholder="Teléfono"/>
-						<p:inputText id="correo" placeholder="Correo"/>
-						<p:selectOneMenu id="estadoCivil" placeholder="Estado Civil">
+					
+					<p:panelGrid columns="2" layout="grid">
+						<p:outputLabel value="N de Documento: "/>
+						<p:outputLabel value="#{validacionDeRegistroMB.id}"/>
+						<p:outputLabel value="Usuario: "/>
+						<p:outputLabel value="#{validacionDeRegistroMB.usuario}"/>
+					</p:panelGrid>
+					<p:panelGrid columns="3" layout="grid">
+						<p:inputText id="primerApellido" required="true" placeholder="Primer Apellido" value="#{validacionDeRegistroMB.primerApellido}"/>
+						<p:inputText id="segundoApellido" placeholder="Segundo Apellido" value="#{validacionDeRegistroMB.segundoApellido}"/>
+						<p:inputText id="primerNombre" required="true" placeholder="Primer Nombre" value="#{validacionDeRegistroMB.primerNombre}"/>
+						<p:inputText id="segundoNombre" placeholder="Segundo Nombre" value="#{validacionDeRegistroMB.segundoNombre}"/>
+						<p:calendar id="fechaNacimiento" pattern="yyyy/MM/dd" mask="true" required="true" placeholder="Fecha de Nacimiento" value="#{validacionDeRegistroMB.fechaNacimiento}"/>
+						<p:inputText id="lugarNacimiento" required="true" placeholder="Lugar de Nacimiento" value="#{validacionDeRegistroMB.lugarNacimiento}"/>
+						<p:inputText id="direccion" placeholder="Dirección" value="#{validacionDeRegistroMB.direccion}"/>
+						<p:inputMask id="telefono" required="true" placeholder="Teléfono" mask="9999999999" value="#{validacionDeRegistroMB.telefono}"/>
+						<p:inputText id="correo" placeholder="Correo" value="#{validacionDeRegistroMB.correoElectronico}"/>
+						<p:selectOneMenu id="estadoCivil" placeholder="Estado Civil" value="#{validacionDeRegistroMB.estadoCivil}">
            	 				<f:selectItem itemLabel="Soltero(a)" itemValue="soltero" />
            	 				<f:selectItem itemLabel="Casado(a)" itemValue="casado" />
             				<f:selectItem itemLabel="Unión Libre" itemValue="unionLibre" />
             				<f:selectItem itemLabel="Viudo(a)" itemValue="viudo" />
        		 			</p:selectOneMenu>
+       		 			<p:password id="clave" placeholder="Constraseña" required="true" value="#{validacionDeRegistroMB.clave}"/>
 					</p:panelGrid>
 			</p:panel>
 		</p:tab>
@@ -38,40 +47,67 @@
 		<p:tab id="descripción" title="Perfil Profesional">
 			<p:panel header="Perfil Profesional">
 				<p:messages/>
-					<p:inputTextarea id="descripcionTextArea" rows="5" cols="50"/>
+					<p:inputTextarea id="descripcionTextArea" rows="5" cols="50" value="#{validacionDeRegistroMB.perfilProfesional}"/>
 					<p:watermark for="descripcionTextArea" value="Introduzca una breve descripción de su perfil Profesional"/>
-			</p:panel>
-		</p:tab>
-		
-		<p:tab id="educacion" title="Educación">
-			<p:panel header="Información Académica">
-				<p:messages/>
-			</p:panel>
-		</p:tab>
-		
-		<p:tab id="expLaboral" title="Exp Laboral">
-			<p:panel header="Experiencia Laboral">
-				<p:messages/>
-			</p:panel>
-		</p:tab>
-		
-		<p:tab id="referencias" title="Referencias">
-			<p:panel header="Experiencia Laboral">
-				<p:messages/>
 			</p:panel>
 		</p:tab>
 		
 		<p:tab id="infoLaboral" title="Info Laboral">
 			<p:panel header="Información Laboral">
 				<p:messages/>
+				<p:panelGrid columns="3" layout="grid">
+					<p:outputLabel value="Aspiración Salarial"/>
+					 <p:inputNumber id="salario" symbol="$" value="#{validacionDeRegistroMB.aspiracionLaboral}" >
+            		 <p:ajax process="@this"/>
+       				 </p:inputNumber>
+        			 <p:slider for="salario" step="200000" maxValue="20000000"/>
+        			
+        			<p:outputLabel value="Horario: "/>
+        			  <p:selectOneRadio id="horario" value="#{validacionDeRegistroMB.horario}" unselectable="true">
+           				 <f:selectItem itemLabel="Medio Tiempo" itemValue="Medio Tiempo" />
+            			 <f:selectItem itemLabel="Tiempo Completo" itemValue="Tiempo Completo" />
+        			  </p:selectOneRadio>
+				</p:panelGrid>
 			</p:panel>
 		</p:tab>
 		
 		<p:tab id="confirmacion" title="Confirmación">
-			<p:panel header="Información Laboral">
+			<p:panel header="Confirma tu información">
 				<p:messages/>
+				<p:panelGrid layout="grid" columns="4">
+				<p:outputLabel value="N de Documento: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.id}"/>
+				<p:outputLabel value="Usuario: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.usuario}"/>
+				<p:outputLabel value="Primer apellido: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.primerApellido}"/>
+				<p:outputLabel value="Segundo apellido: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.segundoApellido}"/>
+				<p:outputLabel value="Primer Nombre: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.primerNombre}"/>
+				<p:outputLabel value="Segundo nombre: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.segundoNombre}"/>
+				<p:outputLabel value="Fecha de nacimiento: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.fechaNacimiento}"/>
+				<p:outputLabel value="Lugar de Nacimiento: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.lugarNacimiento}"/>
+				<p:outputLabel value="Dirección: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.direccion}"/>
+				<p:outputLabel value="Teléfono: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.telefono}"/>
+				<p:outputLabel value="Estado Civil: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.estadoCivil}"/>
+				<p:outputLabel value="Correo Electrónico: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.correoElectronico}"/>
+				<p:outputLabel value="Aspiración Laboral: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.aspiracionLaboral}"/>
+				<p:outputLabel value="Horario: "/>
+				<p:outputLabel value="#{validacionDeRegistroMB.horario}"/>
+				</p:panelGrid>
 				
-				<p:commandButton value="Registrarse" />
+				<p:commandButton value="Registrarse" action="#{validacionDeRegistroMB.registrarCiudadano()}">
+					<p:ajax event="dialogReturn" listener="#{validacionDeRegistroMB.mensajes()}" update="growl" />
+				</p:commandButton>
 			</p:panel>
 		</p:tab>
 			

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<h:outputStylesheet library ="css" name="sesion.css"/>
+</h:head> 
+<body>	
+
+	<div class="sidenav">
+  		<p:commandLink id="info">
+  			<p:outputLabel value="Mi Cuenta"/>
+  		</p:commandLink>
+  		
+  		<p:commandLink id="info">
+  			<p:outputLabel value="Postularme"/>
+  		</p:commandLink> 
+  		
+  		<p:commandLink id="info">
+  			<p:outputLabel value="Mis postulaciones"/>
+  		</p:commandLink> 	
+  		
+	</div> 
+
+	<div class="main">
+		<p:toolbar>
+			<f:facet name="right">
+			<p:outputLabel value="Mi Cuenta"/>
+			<span class="ui-separator">
+                <span class="ui-icon pi pi-ellipsis-v" />
+            </span>
+			<p:outputLabel value="Nombre"/>
+			</f:facet>
+		</p:toolbar>
+	</div>
+
+	<div class="infoPersonal">
+		<h:panelGrid columns="2">
+			<h:outputText value="Información Personal" styleClass="tituloInfoPersonal"/>
+			<p:outputLabel/>
+			<h:outputText value="Primer nombre" styleClass="textInfo"/>
+			<h:outputText value="Segundo Nombre" styleClass="textInfo"/>
+			<p:inputText/>
+			<p:inputText/>
+			<h:outputText value="Primer Apellido" styleClass="textInfo"/>
+			<h:outputText value="Segundo Apellido" styleClass="textInfo"/>
+			<p:inputText/>
+			<p:inputText/>
+			<h:outputText value="Fecha de Nacimiento" styleClass="textInfo"/>
+			<h:outputText value="Lugar de Nacimiento" styleClass="textInfo"/>
+			<p:inputText/>
+			<p:inputText/>
+			<h:outputText value="Estado civil" styleClass="textInfo"/>
+			<p:outputLabel/>
+			<p:inputText/>
+			
+				
+		
+		</h:panelGrid>
+	</div>
+	
+	<div class="infoDatos">
+		<h:panelGrid columns="1">
+		<h:outputText value="Datos de Contacto" styleClass="tituloInfoPersonal"/>
+		<h:outputText value="Dirección" styleClass="textInfo"/>
+		<p:inputText/>
+		<h:outputText value="Correo Electrónico" styleClass="textInfo"/>
+		<p:inputText/>
+		<h:outputText value="Teléfono" styleClass="textInfo"/>
+		<p:inputText/>
+		</h:panelGrid>
+	</div>
+	
+	<div class="infoAspiracionLaboral">
+		<h:panelGrid columns="2">
+		<h:outputText value="Información Laboral" styleClass="tituloInfoPersonal"/>
+			<p:outputLabel/>
+			<h:outputText value="Aspiración Salarial" styleClass="textInfo"/>
+			<h:outputText value="Horario de Preferencia" styleClass="textInfo"/>
+			<p:inputText/>
+			<p:inputText disabled="true"/>
+		</h:panelGrid>
+	</div>
+	
+	<div class="infoPerfilProfesional">
+		<h:panelGrid columns="1">
+		<h:outputText value="Perfil Profesional" styleClass="tituloInfoPersonal"/>
+			<p:inputTextarea rows="4" cols="35"/>
+		</h:panelGrid>
+	</div>
+	
+	<div class="divInfoAcademica">
+		<h:panelGrid columns="1">
+		<f:facet name="header">
+			<h:outputText value="Información Académica" styleClass="tituloInfoAcademica"/>
+		</f:facet>
+		</h:panelGrid>
+	</div>
+	
+</body> 
+</html>

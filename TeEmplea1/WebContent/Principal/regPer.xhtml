@@ -9,23 +9,16 @@
 </h:head> 
 <body> 
 	<h:form>
-		<p:panelGrid columns="2" layout="grid" styleClass="border: none;" >
+			<p:messages id="messages" showDetail="true" closable="true">
+       		 <p:autoUpdate />
+   		 </p:messages>
+		<p:panelGrid columns="1" layout="grid" styleClass="border: none;" >
 			<f:facet name="header">
 				<p:outputLabel value="Crea tu Cuenta Gratis"/>
 			</f:facet>
-			<p:inputText id="documento" styleClass="nombre" required="true"/>
-						<p:watermark for="documento" value="Número de Documento *"/>
-			
-			<p:inputText id="usuario" styleClass="nombre" required="true"/>
-						<p:watermark for="usuario" value="Nombre de Usuario *"/>
-						
-			<p:inputText id="correo" styleClass="nombre" required="true"/>
-						<p:watermark for="correo" value="Correo Electrónico *"/>
-						
-			<p:password id="clave" feedback="true" styleClass="nombre" required="true"/>
-						<p:watermark for="clave" value="Contraseña *"/>
-			
-			<p:commandButton id="registro" value="Registrarse" styleClass="botonRegistrarse"/>
+			<p:inputText id="documento" styleClass="nombre" required="true" value="#{validacionDeRegistroMB.id}" placeholder="N de Documento"/>
+			<p:inputText id="usuario" styleClass="nombre" required="true" value="#{validacionDeRegistroMB.usuario}" placeholder="Usuario"/>					
+			<p:commandButton id="registro" value="Registrarse" styleClass="botonRegistrarse" action="#{validacionDeRegistroMB.validarCiudadano()}"/>
 						
 		</p:panelGrid>
 	
