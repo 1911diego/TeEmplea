@@ -7,35 +7,39 @@
 
 <h:head>
 	<h:outputStylesheet library ="css" name="sesion.css"/>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
 </h:head> 
 <body>	
-
+	<h:form>
 	<div class="sidenav">
-  		<p:commandLink id="info">
-  			<p:outputLabel value="Mi Cuenta"/>
-  		</p:commandLink>
-  		
-  		<p:commandLink id="info">
-  			<p:outputLabel value="Postularme"/>
-  		</p:commandLink> 
-  		
-  		<p:commandLink id="info">
-  			<p:outputLabel value="Mis postulaciones"/>
-  		</p:commandLink> 	
-  		
+		<div style="text-align:center;">
+		<h:graphicImage value="/img/logo_te_emplea.svg" style="width:190px;height:100px;"/>
+		<hr style="width:210px;height:1px; background-color:#5C6165;border:0;" />
+		<h:graphicImage value="/img/avatar.svg" style="width:125px;height:125px;"/>
+		<br/>
+		<h:outputText value="Bienvenido" styleClass="bienvenido"/>
+		<hr style="width:210px;height:1px; background-color:#5C6165; border:0" />
+		<br/>
+		</div>
+		<p:commandButton value="Mi Cuenta" icon="pi pi-user" />
+		<p:commandButton value="Experiencia Laboral" icon="pi pi-briefcase" />
+		<p:commandButton value="Mis Postulaciones" icon="pi pi-id-card" />
+		<p:commandButton value="Postularme" icon="pi pi-user-plus" />		
 	</div> 
-
+	</h:form>
+	<h:form>
 	<div class="main">
 		<p:toolbar>
 			<f:facet name="right">
-			<p:outputLabel value="Mi Cuenta"/>
+			<h:outputText value="Nombre del Usuario" styleClass="textoBarraSuperior"/>
 			<span class="ui-separator">
                 <span class="ui-icon pi pi-ellipsis-v" />
             </span>
-			<p:outputLabel value="Nombre"/>
+			<h:commandLink value="Cerrar Sesión" styleClass="textoBarraSuperior"/>
 			</f:facet>
 		</p:toolbar>
 	</div>
+	</h:form>
 
 	<div class="infoPersonal">
 		<h:panelGrid columns="2">
@@ -98,6 +102,69 @@
 			<h:outputText value="Información Académica" styleClass="tituloInfoAcademica"/>
 		</f:facet>
 		</h:panelGrid>
+	</div>
+	
+	
+	<div>
+		<h:panelGrid columns="7">
+		<h:outputText value="Fecha Inicial"/>
+		<h:outputText value="Fecha Final"/>
+		<h:outputText value="Institución"/>
+		<h:outputText value="Título Adquirido"/>
+		<h:outputText value="Nivel de Estudios"/>
+		<h:outputText/>
+		<h:outputText/>
+		
+		<h:dataTable var="academicaFila">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Fecha Inicial"/>
+				</f:facet>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Fecha Final"/>
+				</f:facet>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Institución"/>
+				</f:facet>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Título Adquirido"/>
+				</f:facet>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nivel de Estudios"/>
+				</f:facet>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Editar"/>
+				</f:facet>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Eliminar"/>
+				</f:facet>
+			</h:column>
+		
+		</h:dataTable>
+		
+		
+		</h:panelGrid>
+	
+	
+	
 	</div>
 	
 </body> 

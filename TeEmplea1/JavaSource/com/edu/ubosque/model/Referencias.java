@@ -1,13 +1,12 @@
 package com.edu.ubosque.model;
-// Generated 14/11/2020, 11:42:56 a. m. by Hibernate Tools 5.2.12.Final
+// Generated 16/11/2020, 12:57:07 a. m. by Hibernate Tools 5.2.12.Final
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -18,38 +17,27 @@ import javax.persistence.Table;
 public class Referencias implements java.io.Serializable {
 
 	private int id;
+	private Ciudadano ciudadano;
 	private String tipoReferencia;
 	private String nombre;
 	private String relacion;
 	private String cargo;
 	private int telefono;
 	private String direccion;
-	private Set<Ciudadano> ciudadanos = new HashSet<Ciudadano>(0);
 
 	public Referencias() {
 	}
 
-	public Referencias(int id, String tipoReferencia, String nombre, String relacion, String cargo, int telefono,
-			String direccion) {
+	public Referencias(int id, Ciudadano ciudadano, String tipoReferencia, String nombre, String relacion, String cargo,
+			int telefono, String direccion) {
 		this.id = id;
+		this.ciudadano = ciudadano;
 		this.tipoReferencia = tipoReferencia;
 		this.nombre = nombre;
 		this.relacion = relacion;
 		this.cargo = cargo;
 		this.telefono = telefono;
 		this.direccion = direccion;
-	}
-
-	public Referencias(int id, String tipoReferencia, String nombre, String relacion, String cargo, int telefono,
-			String direccion, Set<Ciudadano> ciudadanos) {
-		this.id = id;
-		this.tipoReferencia = tipoReferencia;
-		this.nombre = nombre;
-		this.relacion = relacion;
-		this.cargo = cargo;
-		this.telefono = telefono;
-		this.direccion = direccion;
-		this.ciudadanos = ciudadanos;
 	}
 
 	@Id
@@ -61,6 +49,16 @@ public class Referencias implements java.io.Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_ciudadano", nullable = false)
+	public Ciudadano getCiudadano() {
+		return this.ciudadano;
+	}
+
+	public void setCiudadano(Ciudadano ciudadano) {
+		this.ciudadano = ciudadano;
 	}
 
 	@Column(name = "tipo_referencia", nullable = false, length = 45)
@@ -115,15 +113,6 @@ public class Referencias implements java.io.Serializable {
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "referencias")
-	public Set<Ciudadano> getCiudadanos() {
-		return this.ciudadanos;
-	}
-
-	public void setCiudadanos(Set<Ciudadano> ciudadanos) {
-		this.ciudadanos = ciudadanos;
 	}
 
 }

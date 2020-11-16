@@ -48,8 +48,8 @@ public class ValidacionDeRegistroMB {
 	{
 		
 
-			Ciudadano ciudadanoNuevo = new Ciudadano(id,null,null, null,usuario,clave,primerNombre,segundoNombre, primerApellido,
-			segundoApellido,fechaNacimiento,lugarNacimiento,direccion,telefono,estadoCivil,correoElectronico,perfilProfesional,aspiracionLaboral,horario); 
+			Ciudadano ciudadanoNuevo = new Ciudadano(id,usuario,clave,primerNombre,segundoNombre, primerApellido,
+			segundoApellido,fechaNacimiento,lugarNacimiento,direccion,telefono,estadoCivil,correoElectronico,perfilProfesional,aspiracionLaboral,horario, null,null,null); 
 			
 			boolean registrado = ciudadanoLogica.createCiudadano(ciudadanoNuevo);
 

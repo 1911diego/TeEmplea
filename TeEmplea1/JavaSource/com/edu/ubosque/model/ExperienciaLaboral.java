@@ -1,14 +1,13 @@
 package com.edu.ubosque.model;
-// Generated 14/11/2020, 11:42:56 a. m. by Hibernate Tools 5.2.12.Final
+// Generated 16/11/2020, 12:57:07 a. m. by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,20 +20,21 @@ import javax.persistence.TemporalType;
 public class ExperienciaLaboral implements java.io.Serializable {
 
 	private int id;
+	private Ciudadano ciudadano;
 	private Date fechaInicial;
 	private Date fechaFinal;
 	private String empresa;
 	private String sector;
 	private String cargo;
 	private String funciones;
-	private Set<Ciudadano> ciudadanos = new HashSet<Ciudadano>(0);
 
 	public ExperienciaLaboral() {
 	}
 
-	public ExperienciaLaboral(int id, Date fechaInicial, String empresa, String sector, String cargo,
-			String funciones) {
+	public ExperienciaLaboral(int id, Ciudadano ciudadano, Date fechaInicial, String empresa, String sector,
+			String cargo, String funciones) {
 		this.id = id;
+		this.ciudadano = ciudadano;
 		this.fechaInicial = fechaInicial;
 		this.empresa = empresa;
 		this.sector = sector;
@@ -42,16 +42,16 @@ public class ExperienciaLaboral implements java.io.Serializable {
 		this.funciones = funciones;
 	}
 
-	public ExperienciaLaboral(int id, Date fechaInicial, Date fechaFinal, String empresa, String sector, String cargo,
-			String funciones, Set<Ciudadano> ciudadanos) {
+	public ExperienciaLaboral(int id, Ciudadano ciudadano, Date fechaInicial, Date fechaFinal, String empresa,
+			String sector, String cargo, String funciones) {
 		this.id = id;
+		this.ciudadano = ciudadano;
 		this.fechaInicial = fechaInicial;
 		this.fechaFinal = fechaFinal;
 		this.empresa = empresa;
 		this.sector = sector;
 		this.cargo = cargo;
 		this.funciones = funciones;
-		this.ciudadanos = ciudadanos;
 	}
 
 	@Id
@@ -63,6 +63,16 @@ public class ExperienciaLaboral implements java.io.Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_ciudadano", nullable = false)
+	public Ciudadano getCiudadano() {
+		return this.ciudadano;
+	}
+
+	public void setCiudadano(Ciudadano ciudadano) {
+		this.ciudadano = ciudadano;
 	}
 
 	@Temporal(TemporalType.DATE)
@@ -119,15 +129,6 @@ public class ExperienciaLaboral implements java.io.Serializable {
 
 	public void setFunciones(String funciones) {
 		this.funciones = funciones;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "experienciaLaboral")
-	public Set<Ciudadano> getCiudadanos() {
-		return this.ciudadanos;
-	}
-
-	public void setCiudadanos(Set<Ciudadano> ciudadanos) {
-		this.ciudadanos = ciudadanos;
 	}
 
 }

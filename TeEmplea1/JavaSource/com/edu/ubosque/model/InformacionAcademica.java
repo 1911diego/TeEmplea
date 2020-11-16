@@ -1,14 +1,13 @@
 package com.edu.ubosque.model;
-// Generated 14/11/2020, 11:42:56 a. m. by Hibernate Tools 5.2.12.Final
+// Generated 16/11/2020, 12:57:07 a. m. by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,33 +20,35 @@ import javax.persistence.TemporalType;
 public class InformacionAcademica implements java.io.Serializable {
 
 	private int id;
+	private Ciudadano ciudadano;
 	private Date fechaInicial;
 	private Date fechaFinal;
 	private String institucion;
 	private String titulo;
 	private String nivelEstudio;
-	private Set<Ciudadano> ciudadanos = new HashSet<Ciudadano>(0);
 
 	public InformacionAcademica() {
 	}
 
-	public InformacionAcademica(int id, Date fechaInicial, String institucion, String titulo, String nivelEstudio) {
+	public InformacionAcademica(int id, Ciudadano ciudadano, Date fechaInicial, String institucion, String titulo,
+			String nivelEstudio) {
 		this.id = id;
+		this.ciudadano = ciudadano;
 		this.fechaInicial = fechaInicial;
 		this.institucion = institucion;
 		this.titulo = titulo;
 		this.nivelEstudio = nivelEstudio;
 	}
 
-	public InformacionAcademica(int id, Date fechaInicial, Date fechaFinal, String institucion, String titulo,
-			String nivelEstudio, Set<Ciudadano> ciudadanos) {
+	public InformacionAcademica(int id, Ciudadano ciudadano, Date fechaInicial, Date fechaFinal, String institucion,
+			String titulo, String nivelEstudio) {
 		this.id = id;
+		this.ciudadano = ciudadano;
 		this.fechaInicial = fechaInicial;
 		this.fechaFinal = fechaFinal;
 		this.institucion = institucion;
 		this.titulo = titulo;
 		this.nivelEstudio = nivelEstudio;
-		this.ciudadanos = ciudadanos;
 	}
 
 	@Id
@@ -59,6 +60,16 @@ public class InformacionAcademica implements java.io.Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_ciudadano", nullable = false)
+	public Ciudadano getCiudadano() {
+		return this.ciudadano;
+	}
+
+	public void setCiudadano(Ciudadano ciudadano) {
+		this.ciudadano = ciudadano;
 	}
 
 	@Temporal(TemporalType.DATE)
@@ -106,15 +117,6 @@ public class InformacionAcademica implements java.io.Serializable {
 
 	public void setNivelEstudio(String nivelEstudio) {
 		this.nivelEstudio = nivelEstudio;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "informacionAcademica")
-	public Set<Ciudadano> getCiudadanos() {
-		return this.ciudadanos;
-	}
-
-	public void setCiudadanos(Set<Ciudadano> ciudadanos) {
-		this.ciudadanos = ciudadanos;
 	}
 
 }

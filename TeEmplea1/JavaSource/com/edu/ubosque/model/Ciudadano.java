@@ -1,13 +1,14 @@
 package com.edu.ubosque.model;
-// Generated 14/11/2020, 11:42:56 a. m. by Hibernate Tools 5.2.12.Final
+// Generated 16/11/2020, 12:57:07 a. m. by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,9 +21,6 @@ import javax.persistence.TemporalType;
 public class Ciudadano implements java.io.Serializable {
 
 	private int id;
-	private ExperienciaLaboral experienciaLaboral;
-	private InformacionAcademica informacionAcademica;
-	private Referencias referencias;
 	private String usuario;
 	private String clave;
 	private String primerNombre;
@@ -38,6 +36,9 @@ public class Ciudadano implements java.io.Serializable {
 	private String perfilProfesional;
 	private double aspiracionLaboral;
 	private String horario;
+	private Set<ExperienciaLaboral> experienciaLaborals = new HashSet<ExperienciaLaboral>(0);
+	private Set<Referencias> referenciases = new HashSet<Referencias>(0);
+	private Set<InformacionAcademica> informacionAcademicas = new HashSet<InformacionAcademica>(0);
 
 	public Ciudadano() {
 	}
@@ -61,15 +62,12 @@ public class Ciudadano implements java.io.Serializable {
 		this.horario = horario;
 	}
 
-	public Ciudadano(int id, ExperienciaLaboral experienciaLaboral, InformacionAcademica informacionAcademica,
-			Referencias referencias, String usuario, String clave, String primerNombre, String segundoNombre,
+	public Ciudadano(int id, String usuario, String clave, String primerNombre, String segundoNombre,
 			String primerApellido, String segundoApellido, Date fechaNacimiento, String lugarNacimiento,
 			String direccion, String telefono, String estadoCivil, String correoElectronico, String perfilProfesional,
-			double aspiracionLaboral, String horario) {
+			double aspiracionLaboral, String horario, Set<ExperienciaLaboral> experienciaLaborals,
+			Set<Referencias> referenciases, Set<InformacionAcademica> informacionAcademicas) {
 		this.id = id;
-		this.experienciaLaboral = experienciaLaboral;
-		this.informacionAcademica = informacionAcademica;
-		this.referencias = referencias;
 		this.usuario = usuario;
 		this.clave = clave;
 		this.primerNombre = primerNombre;
@@ -85,6 +83,9 @@ public class Ciudadano implements java.io.Serializable {
 		this.perfilProfesional = perfilProfesional;
 		this.aspiracionLaboral = aspiracionLaboral;
 		this.horario = horario;
+		this.experienciaLaborals = experienciaLaborals;
+		this.referenciases = referenciases;
+		this.informacionAcademicas = informacionAcademicas;
 	}
 
 	@Id
@@ -96,36 +97,6 @@ public class Ciudadano implements java.io.Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_exp_laboral")
-	public ExperienciaLaboral getExperienciaLaboral() {
-		return this.experienciaLaboral;
-	}
-
-	public void setExperienciaLaboral(ExperienciaLaboral experienciaLaboral) {
-		this.experienciaLaboral = experienciaLaboral;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_info_academica")
-	public InformacionAcademica getInformacionAcademica() {
-		return this.informacionAcademica;
-	}
-
-	public void setInformacionAcademica(InformacionAcademica informacionAcademica) {
-		this.informacionAcademica = informacionAcademica;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_referencias")
-	public Referencias getReferencias() {
-		return this.referencias;
-	}
-
-	public void setReferencias(Referencias referencias) {
-		this.referencias = referencias;
 	}
 
 	@Column(name = "usuario", nullable = false, length = 45)
@@ -262,6 +233,33 @@ public class Ciudadano implements java.io.Serializable {
 
 	public void setHorario(String horario) {
 		this.horario = horario;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ciudadano")
+	public Set<ExperienciaLaboral> getExperienciaLaborals() {
+		return this.experienciaLaborals;
+	}
+
+	public void setExperienciaLaborals(Set<ExperienciaLaboral> experienciaLaborals) {
+		this.experienciaLaborals = experienciaLaborals;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ciudadano")
+	public Set<Referencias> getReferenciases() {
+		return this.referenciases;
+	}
+
+	public void setReferenciases(Set<Referencias> referenciases) {
+		this.referenciases = referenciases;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ciudadano")
+	public Set<InformacionAcademica> getInformacionAcademicas() {
+		return this.informacionAcademicas;
+	}
+
+	public void setInformacionAcademicas(Set<InformacionAcademica> informacionAcademicas) {
+		this.informacionAcademicas = informacionAcademicas;
 	}
 
 }

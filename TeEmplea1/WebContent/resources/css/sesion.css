@@ -59,7 +59,7 @@ body
 .ui-widget-header {
     border: none;
     background: white;
-    color: blue;
+    color: #33393E;
     font-family: 'Nunito', sans-serif;
     font-weight: normal;
     font-size: 15px;
@@ -67,6 +67,7 @@ body
     -webkit-box-shadow: 0px 7px 5px -6px rgba(173,173,173,1);
 	-moz-box-shadow: 0px 7px 5px -6px rgba(173,173,173,1);
 	box-shadow: 0px 7px 5px -6px rgba(173,173,173,1);
+	display:list-item;
 }
 
 @media screen and (max-height: 450px) {
@@ -190,3 +191,48 @@ body
 }
 
 
+.linksDeAcceso
+{
+	font-family: 'nunito',sans-serif;
+	font-size: 20px;
+	color: white;
+}
+
+.bienvenido
+{
+	font-family: 'nunito',sans-serif;
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
+
+.ui-button .ui-button-text{
+    display: block;
+    line-height: normal;
+    font-family: 'nunito',sans-serif;
+	font-size: 15px;
+	color: #D5D6D7;
+	font-weight: normal;
+	background-color: #33393E;
+	border: none;
+}
+
+.ui-state-default
+{
+	border:none;
+}
+
+.ui-state:hover
+{
+	background-color: gray;
+}
+
+.textoBarraSuperior
+{
+	font-family: 'nunito',sans-serif;
+	font-size: 20px;
+	color:  #33393E;
+	justify-content: center;
+  	align-items: center;
+}
