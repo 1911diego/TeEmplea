@@ -1,5 +1,5 @@
 package com.edu.ubosque.model;
-// Generated 16/11/2020, 12:57:07 a. m. by Hibernate Tools 5.2.12.Final
+// Generated 16 nov. 2020 22:30:43 by Hibernate Tools 5.2.12.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
