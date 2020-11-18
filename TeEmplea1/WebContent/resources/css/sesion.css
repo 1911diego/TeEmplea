@@ -236,3 +236,58 @@ body
 	justify-content: center;
   	align-items: center;
 }
+
+.tablaInformacionAcademica
+{
+
+	
+	position: absolute;
+	top : 740px;
+	left: 320px;
+	background-color:white;
+	-webkit-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	-moz-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+}
+
+.botonAdd
+{
+	position: absolute;
+	top : 680px;
+	left: 320px;
+}
+
+
+.headerInfoAcademica
+{
+	font-family: 'nunito',sans-serif;
+	font-size: 20px;
+	color: orange;
+}
+
+.contenidoInfoAcademica
+{
+	font-family: 'nunito',sans-serif;
+	font-size: 15px;
+	color: #33393E;
+	font-weight: normal;
+}
+
+
+
+.editarEliminarImagen
+{
+	width: 20px;
+	height: 20px;
+}
+
+.labelAgregarInfoAcademica
+{
+	font-family: 'nunito',sans-serif;
+	font-size: 15px;
+	color: white;
+	font-weight: normal;
+}

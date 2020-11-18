@@ -1,6 +1,5 @@
 package com.edu.ubosque.mb;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,9 +11,6 @@ import org.primefaces.PrimeFaces;
 
 import com.edu.ubosque.logica.CiudadanoLogica;
 import com.edu.ubosque.model.Ciudadano;
-import com.edu.ubosque.model.ExperienciaLaboral;
-import com.edu.ubosque.model.InformacionAcademica;
-import com.edu.ubosque.model.Referencias;
 
 public class ValidacionDeRegistroMB {
 
@@ -49,7 +45,7 @@ public class ValidacionDeRegistroMB {
 		
 
 			Ciudadano ciudadanoNuevo = new Ciudadano(id,usuario,clave,primerNombre,segundoNombre, primerApellido,
-			segundoApellido,fechaNacimiento,lugarNacimiento,direccion,telefono,estadoCivil,correoElectronico,perfilProfesional,aspiracionLaboral,horario, null,null,null); 
+			segundoApellido,fechaNacimiento,lugarNacimiento,direccion,telefono,estadoCivil,correoElectronico,perfilProfesional,aspiracionLaboral,horario); 
 			
 			boolean registrado = ciudadanoLogica.createCiudadano(ciudadanoNuevo);
 

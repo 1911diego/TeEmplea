@@ -37,13 +37,31 @@ public class VentanasEmergentesMB {
 	      PrimeFaces.current().dialog().openDynamic("regPer", opciones, null);
 	 }
 	 
+	 public void ventanaAgregarInfoAcademica()
+	 {
+		 Map<String, Object> opciones = new HashMap<String,Object>();
+		 	opciones.put("modal", true);
+		 	opciones.put("resizable", false);
+		 	opciones.put("width", 600);
+		 	opciones.put("height", 500);
+		 	opciones.put("contentWidth", "100%");
+		 	opciones.put("contentHeight", "100%");
+		 	opciones.put("headerElement", "customheader");
+	      PrimeFaces.current().dialog().openDynamic("agregarInfoAcademica", opciones, null);
+	 }
+	 
+	 public void ventanaEditarInfoAcademica()
+	 {
+		 Map<String, Object> opciones = new HashMap<String,Object>();
+		 	opciones.put("modal", true);
+		 	opciones.put("resizable", false);
+		 	opciones.put("width", 340);
+		 	opciones.put("height", 360);
+		 	opciones.put("contentWidth", "100%");
+		 	opciones.put("contentHeight", "100%");
+		 	opciones.put("headerElement", "customheader");
+	      PrimeFaces.current().dialog().openDynamic("editarInfoAcademica", opciones, null);
+	 }
 	 
 	 
-	 public void showMessage() {
-		 System.out.println("entra");
-	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "What we do in life", "Echoes in eternity.");
-	         
-	        PrimeFaces.current().dialog().showMessageDynamic(message);
-	    }
-	
 }

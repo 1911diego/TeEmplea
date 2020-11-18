@@ -1,10 +1,13 @@
 package com.edu.ubosque.model;
-// Generated 16 nov. 2020 22:30:43 by Hibernate Tools 5.2.12.Final
+// Generated 17/11/2020, 8:53:57 p. m. by Hibernate Tools 5.2.12.Final
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -31,20 +34,9 @@ public class ExperienciaLaboral implements java.io.Serializable {
 	public ExperienciaLaboral() {
 	}
 
-	public ExperienciaLaboral(int id, Ciudadano ciudadano, Date fechaInicial, String empresa, String sector,
-			String cargo, String funciones) {
-		this.id = id;
-		this.ciudadano = ciudadano;
-		this.fechaInicial = fechaInicial;
-		this.empresa = empresa;
-		this.sector = sector;
-		this.cargo = cargo;
-		this.funciones = funciones;
-	}
-
-	public ExperienciaLaboral(int id, Ciudadano ciudadano, Date fechaInicial, Date fechaFinal, String empresa,
+	public ExperienciaLaboral(Ciudadano ciudadano, Date fechaInicial, Date fechaFinal, String empresa,
 			String sector, String cargo, String funciones) {
-		this.id = id;
+		
 		this.ciudadano = ciudadano;
 		this.fechaInicial = fechaInicial;
 		this.fechaFinal = fechaFinal;
@@ -55,7 +47,7 @@ public class ExperienciaLaboral implements java.io.Serializable {
 	}
 
 	@Id
-
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {
 		return this.id;

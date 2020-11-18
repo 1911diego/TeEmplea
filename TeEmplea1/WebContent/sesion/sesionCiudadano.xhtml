@@ -47,19 +47,19 @@
 			<p:outputLabel/>
 			<h:outputText value="Primer nombre" styleClass="textInfo"/>
 			<h:outputText value="Segundo Nombre" styleClass="textInfo"/>
-			<p:inputText/>
-			<p:inputText/>
+			<p:inputText disabled="true" value="#{inicioSesionCiudadanoMB.ciudadanoSesion.primerNombre}"/>
+			<p:inputText disabled="true" value="#{inicioSesionCiudadanoMB.ciudadanoSesion.segundoNombre}"/>
 			<h:outputText value="Primer Apellido" styleClass="textInfo"/>
 			<h:outputText value="Segundo Apellido" styleClass="textInfo"/>
-			<p:inputText/>
-			<p:inputText/>
+			<p:inputText disabled="true" value="#{inicioSesionCiudadanoMB.ciudadanoSesion.primerApellido}"/>
+			<p:inputText disabled="true" value="#{inicioSesionCiudadanoMB.ciudadanoSesion.segundoApellido}"/>
 			<h:outputText value="Fecha de Nacimiento" styleClass="textInfo"/>
 			<h:outputText value="Lugar de Nacimiento" styleClass="textInfo"/>
-			<p:inputText/>
-			<p:inputText/>
+			<p:inputText disabled="true" value="#{inicioSesionCiudadanoMB.ciudadanoSesion.fechaNacimiento}"/>
+			<p:inputText disabled="true" value="#{inicioSesionCiudadanoMB.ciudadanoSesion.lugarNacimiento}"/>
 			<h:outputText value="Estado civil" styleClass="textInfo"/>
 			<p:outputLabel/>
-			<p:inputText/>
+			<p:inputText disabled="true" value="#{inicioSesionCiudadanoMB.ciudadanoSesion.estadoCivil}"/>
 			
 				
 		
@@ -70,11 +70,11 @@
 		<h:panelGrid columns="1">
 		<h:outputText value="Datos de Contacto" styleClass="tituloInfoPersonal"/>
 		<h:outputText value="Dirección" styleClass="textInfo"/>
-		<p:inputText/>
+		<p:inputText disabled="true" value="#{inicioSesionCiudadanoMB.ciudadanoSesion.direccion}"/>
 		<h:outputText value="Correo Electrónico" styleClass="textInfo"/>
-		<p:inputText/>
+		<p:inputText disabled="true" value="#{inicioSesionCiudadanoMB.ciudadanoSesion.correoElectronico}"/>
 		<h:outputText value="Teléfono" styleClass="textInfo"/>
-		<p:inputText/>
+		<p:inputText disabled="true" value="#{inicioSesionCiudadanoMB.ciudadanoSesion.telefono}"/>
 		</h:panelGrid>
 	</div>
 	
@@ -84,15 +84,15 @@
 			<p:outputLabel/>
 			<h:outputText value="Aspiración Salarial" styleClass="textInfo"/>
 			<h:outputText value="Horario de Preferencia" styleClass="textInfo"/>
-			<p:inputText/>
-			<p:inputText disabled="true"/>
+			<p:inputText disabled="true" value="#{inicioSesionCiudadanoMB.ciudadanoSesion.aspiracionLaboral}"/>
+			<p:inputText disabled="true" value="#{inicioSesionCiudadanoMB.ciudadanoSesion.horario}"/>
 		</h:panelGrid>
 	</div>
 	
 	<div class="infoPerfilProfesional">
 		<h:panelGrid columns="1">
 		<h:outputText value="Perfil Profesional" styleClass="tituloInfoPersonal"/>
-			<p:inputTextarea rows="4" cols="35"/>
+			<p:inputTextarea rows="4" cols="35" disabled="true" value="#{inicioSesionCiudadanoMB.ciudadanoSesion.perfilProfesional}"/>
 		</h:panelGrid>
 	</div>
 	
@@ -105,57 +105,74 @@
 	</div>
 	
 	
-	<div>
-		<h:panelGrid columns="7">
-		<h:outputText value="Fecha Inicial"/>
-		<h:outputText value="Fecha Final"/>
-		<h:outputText value="Institución"/>
-		<h:outputText value="Título Adquirido"/>
-		<h:outputText value="Nivel de Estudios"/>
-		<h:outputText/>
-		<h:outputText/>
-		
-		<h:dataTable var="academicaFila">
+	
+	
+	<h:form>
+	
+	<div class="botonAdd">
+		<h:panelGrid>
+			<p:commandLink action="#{ventanasEmergentesMB.ventanaAgregarInfoAcademica()}">
+				<h:graphicImage value="/img/add.svg" style="width:40px;height:40px;" />
+			</p:commandLink>
+		</h:panelGrid>
+	</div>
+	
+	<div class="tablaInformacionAcademica">
+	<h:panelGrid >
+		<h:dataTable var="academicaFila" value="#{inicioSesionCiudadanoMB.informacionAcademica}">
 			<h:column>
 				<f:facet name="header">
-					<h:outputText value="Fecha Inicial"/>
+					<h:outputText value="  Fecha Inicial  " styleClass="headerInfoAcademica"/>
 				</f:facet>
+				<h:outputText value="#{academicaFila.fechaInicial}" styleClass="contenidoInfoAcademica"/>
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">
-					<h:outputText value="Fecha Final"/>
+					<h:outputText value="  Fecha Final  " styleClass="headerInfoAcademica"/>
 				</f:facet>
+				<h:outputText value="#{academicaFila.fechaFinal}" styleClass="contenidoInfoAcademica"/>
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">
-					<h:outputText value="Institución"/>
+					<h:outputText value="  Institución  " styleClass="headerInfoAcademica"/>
 				</f:facet>
+					<h:outputText value="#{academicaFila.institucion}" styleClass="contenidoInfoAcademica"/>
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">
-					<h:outputText value="Título Adquirido"/>
+					<h:outputText value="  Título Adquirido  " styleClass="headerInfoAcademica"/>
 				</f:facet>
+					<h:outputText value="#{academicaFila.titulo}" styleClass="contenidoInfoAcademica"/>
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">
-					<h:outputText value="Nivel de Estudios"/>
+					<h:outputText value="  Nivel de Estudios  " styleClass="headerInfoAcademica"/>
 				</f:facet>
+					<h:outputText value="#{academicaFila.nivelEstudio}" styleClass="contenidoInfoAcademica"/>
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">
-					<h:outputText value="Editar"/>
+					<h:outputText value="" styleClass="headerInfoAcademica"/>
 				</f:facet>
+					<h:commandLink>
+						<h:graphicImage value="/img/edit.svg" style="width:50px;height:50px;"/>
+					<!-- 	<f:setPropertyActionListener value="#{academicaFila}"/> -->
+					</h:commandLink>
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">
-					<h:outputText value="Eliminar"/>
+					<h:outputText value="" styleClass="headerInfoAcademica"/>
 				</f:facet>
+					<h:commandLink>
+						<h:graphicImage value="/img/delete.svg" style="width:50px;height:50px;"/>
+					<!--  	<f:setPropertyActionListener value="#{academicaFila}"/> -->
+					</h:commandLink>
 			</h:column>
 		
 		</h:dataTable>
@@ -163,9 +180,8 @@
 		
 		</h:panelGrid>
 	
-	
-	
 	</div>
+	</h:form>
 	
 </body> 
 </html>

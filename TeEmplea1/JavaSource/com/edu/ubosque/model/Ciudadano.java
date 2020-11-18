@@ -1,5 +1,5 @@
 package com.edu.ubosque.model;
-// Generated 16 nov. 2020 22:30:43 by Hibernate Tools 5.2.12.Final
+// Generated 17/11/2020, 8:53:57 p. m. by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -43,30 +43,11 @@ public class Ciudadano implements java.io.Serializable {
 	public Ciudadano() {
 	}
 
-	public Ciudadano(int id, String usuario, String clave, String primerNombre, String primerApellido,
-			Date fechaNacimiento, String lugarNacimiento, String direccion, String telefono, String estadoCivil,
-			String correoElectronico, String perfilProfesional, double aspiracionLaboral, String horario) {
-		this.id = id;
-		this.usuario = usuario;
-		this.clave = clave;
-		this.primerNombre = primerNombre;
-		this.primerApellido = primerApellido;
-		this.fechaNacimiento = fechaNacimiento;
-		this.lugarNacimiento = lugarNacimiento;
-		this.direccion = direccion;
-		this.telefono = telefono;
-		this.estadoCivil = estadoCivil;
-		this.correoElectronico = correoElectronico;
-		this.perfilProfesional = perfilProfesional;
-		this.aspiracionLaboral = aspiracionLaboral;
-		this.horario = horario;
-	}
 
 	public Ciudadano(int id, String usuario, String clave, String primerNombre, String segundoNombre,
 			String primerApellido, String segundoApellido, Date fechaNacimiento, String lugarNacimiento,
 			String direccion, String telefono, String estadoCivil, String correoElectronico, String perfilProfesional,
-			double aspiracionLaboral, String horario, Set<ExperienciaLaboral> experienciaLaborals,
-			Set<Referencias> referenciases, Set<InformacionAcademica> informacionAcademicas) {
+			double aspiracionLaboral, String horario) {
 		this.id = id;
 		this.usuario = usuario;
 		this.clave = clave;
@@ -83,9 +64,6 @@ public class Ciudadano implements java.io.Serializable {
 		this.perfilProfesional = perfilProfesional;
 		this.aspiracionLaboral = aspiracionLaboral;
 		this.horario = horario;
-		this.experienciaLaborals = experienciaLaborals;
-		this.referenciases = referenciases;
-		this.informacionAcademicas = informacionAcademicas;
 	}
 
 	@Id
@@ -235,7 +213,7 @@ public class Ciudadano implements java.io.Serializable {
 		this.horario = horario;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ciudadano")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ciudadano")
 	public Set<ExperienciaLaboral> getExperienciaLaborals() {
 		return this.experienciaLaborals;
 	}
@@ -244,7 +222,7 @@ public class Ciudadano implements java.io.Serializable {
 		this.experienciaLaborals = experienciaLaborals;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ciudadano")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ciudadano")
 	public Set<Referencias> getReferenciases() {
 		return this.referenciases;
 	}
@@ -253,7 +231,7 @@ public class Ciudadano implements java.io.Serializable {
 		this.referenciases = referenciases;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ciudadano")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ciudadano")
 	public Set<InformacionAcademica> getInformacionAcademicas() {
 		return this.informacionAcademicas;
 	}

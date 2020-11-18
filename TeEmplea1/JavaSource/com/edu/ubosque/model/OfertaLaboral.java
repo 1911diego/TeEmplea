@@ -1,5 +1,5 @@
 package com.edu.ubosque.model;
-// Generated 16 nov. 2020 22:30:43 by Hibernate Tools 5.2.12.Final
+// Generated 17/11/2020, 8:53:57 p. m. by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import javax.persistence.Column;

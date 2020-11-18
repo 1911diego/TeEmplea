@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<h:outputStylesheet library ="css" name="sesion.css"/>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+</h:head> 
+<body> 
+
+<h:form>
+	<h:panelGrid>
+		<h:outputText value="Fecha Inicial" styleClass="labelAgregarInfoAcademica"/>
+		<p:calendar pattern="yyyy/MM/dd" mask="true" required="true" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.fechaInicial}"/>
+		
+		<h:outputText value="Fecha Final" styleClass="labelAgregarInfoAcademica" />
+		<p:calendar pattern="yyyy/MM/dd" mask="true" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.fechaFinal}" />
+		
+		<h:outputText value="Institución" styleClass="labelAgregarInfoAcademica"/>
+		<h:inputText required="true" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.institucion}"/>
+		
+		<h:outputText value="Título" styleClass="labelAgregarInfoAcademica"/>
+		<h:inputText  required="true" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.titulo}"/>
+		
+		<h:outputText value="Nivel de Estudio" styleClass="labelAgregarInfoAcademica"/>
+		<h:inputText required="true" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.nivelEstudio}"/>
+		
+		<h:commandButton value="Agregar" action="#{inicioSesionCiudadanoMB.agregarInformacionAcademica()}"/>
+	</h:panelGrid>
+
+
+</h:form>
+
+</body> 
+</html>
