@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+	<h:form>
+		<p:growl id="gr" showDetail="true"/>
+		<p:wizard>
+			<p:tab id="infoEmpresa" title="informacion de la empresa">
+				<p:panel header="info. de la empresa">
+					<p:panelGrid columns="2" layout = "grid">
+						<p:outputLabel value = "NIT"/>
+						<p:outputLabel value = "#{registroEmpresaMB.id}"/>
+						<p:outputLabel value = "Nombre de la empresa"/>
+						<p:outputLabel value = "#{registroEmpresaMB.nombre}"/>
+					</p:panelGrid>
+					<p:panelGrid columns ="2" layout="grid">
+						<p:inputText id="sector" required="true" placeholder="Sector" value="#{registroEmpresaMB.sector}"/>
+						<p:inputText id="telefono" required="true" placeholder="Telefono" value="#{registroEmpresaMB.telefono}"/>
+						<p:inputText id="correo" required="true" placeholder="Correo" value="#{registroEmpresaMB.correo}"/>
+						<p:password id="contrasena" required="true" placeholder="Contraseña" value="#{registroEmpresaMB.contrasena}"/>
+					</p:panelGrid>
+				</p:panel>
+			</p:tab>
+			<p:tab>
+				<p:panel header="Perfil empresa">
+					<p:inputTextarea id="descripcionEmpresa" rows="10" cols="50" value="#{registroEmpresaMB.perfil}"/>
+					<p:watermark for="descripcionEmpresa" value="Introduzaca una descripcion de la empresa"/>
+				</p:panel>
+			</p:tab>
+			<p:tab id="confirmacion" title="Confirmacion">
+				<p:panelGrid columns="4" layout="grid">
+					<p:outputLabel value="NIT: "/>
+					<p:outputLabel value="#{registroEmpresaMB.id}"/>
+					<p:outputLabel value="Nombre de la empresa: "/>
+					<p:outputLabel value="#{registroEmpresaMB.nombre}"/>
+					<p:outputLabel value="Sector: "/>
+					<p:outputLabel value="#{registroEmpresaMB.sector}"/>
+					<p:outputLabel value="Telefono: "/>
+					<p:outputLabel value="#{registroEmpresaMB.telefono}"/>
+					<p:outputLabel value="Correo"/>
+					<p:outputLabel value="#{registroEmpresaMB.correo}"/>
+				</p:panelGrid>
+				<p:commandButton value="Registrarse" action="#{registroEmpresaMB.regEmpresa()}"/>
+			</p:tab>
+		</p:wizard>
+	</h:form>
+</body> 
+</html>

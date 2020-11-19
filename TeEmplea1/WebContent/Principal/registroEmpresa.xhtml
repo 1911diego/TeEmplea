@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+	<h:form>
+		<p:panelGrid>
+			<f:facet name="header">
+				<p:outputLabel value="Crea tu Cuenta Gratis"/>
+			</f:facet>
+			<p:inputText id="nit" styleClass="empresa" required="true" value = "#{registroEmpresaMB.id}" placeholder="NIT"/>
+			<p:inputText id="nombre" styleClass="empresa" required="true" value = "#{registroEmpresaMB.nombre}" placeholder="Nombre de la empresa"/>
+			<p:commandButton id="registro" value="Registrarse" styleClass="botonRegistrarse" action="#{registroEmpresaMB.validarEmpresa()}"/>
+		</p:panelGrid> 
+	</h:form>
+</body> 
+</html>

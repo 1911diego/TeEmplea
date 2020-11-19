@@ -56,4 +56,52 @@ public class EmpresaDAOHibernate implements IEmpresaDAO {
 		return true;
 	}
 
+	@Override
+	public Empresa readEmpresaPorId(int id) {
+		
+		String hql = "Select e FROM Empresa e WHERE e.id =" + id;
+		Session sesion = SesionHibernate.getSf().getCurrentSession();
+		sesion.beginTransaction();
+		
+		try {
+			
+			Query<Empresa> query = sesion.createQuery(hql);
+			Empresa empresaEncontrada = query.getSingleResult();
+			
+			sesion.getTransaction().commit();
+			sesion.close();
+			
+			return empresaEncontrada;
+			
+		} catch (Exception e) {
+
+			sesion.close();
+			return null;
+		}
+	}
+
+	@Override
+	public Empresa readEmpresaPorNombre(String nombre) {
+		
+		String hql = "Select e FROM Empresa e WHERE e.nombre = '" + nombre + "'"; 
+		Session sesion = SesionHibernate.getSf().getCurrentSession();
+		sesion.beginTransaction();
+		
+		try {
+			
+			Query<Empresa> query = sesion.createQuery(hql);
+			Empresa empresaEncontrada = query.getSingleResult();
+			
+			sesion.getTransaction().commit();
+			sesion.close();
+			
+			return empresaEncontrada;
+			
+		} catch (Exception e) {
+			sesion.close();
+			return null;
+		}
+		
+	}
+
 }

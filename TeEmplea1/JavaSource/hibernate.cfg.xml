@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC
-		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory name="te_emplea_config">
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">PROG@2020</property>
-        <property name="hibernate.connection.url">jdbc:mysql://68.168.220.235:3306/teemplea_BD</property>
-        <property name="hibernate.connection.username">teemplea_user</property>
-        <property name="hibernate.default_catalog">teemplea_BD</property>
-        <property name="hibernate.default_schema">teemplea_BD</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="current_session_context_class">thread</property> 
-  		<mapping class="com.edu.ubosque.model.Ciudadano" />
-  		<mapping class="com.edu.ubosque.model.ExperienciaLaboral" />
-  		<mapping class="com.edu.ubosque.model.InformacionAcademica" />
-  		<mapping class="com.edu.ubosque.model.Referencias" />
-    </session-factory>
+ <session-factory name="te_emplea_config">
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.password">PROG@2020</property>
+  <property name="hibernate.connection.url">jdbc:mysql://68.168.220.235:3306/teemplea_BD</property>
+  <property name="hibernate.connection.username">teemplea_user</property>
+  <property name="hibernate.default_catalog">teemplea_BD</property>
+  <property name="hibernate.default_schema">teemplea_BD</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="current_session_context_class">thread</property>
+  <mapping class="com.edu.ubosque.model.Ciudadano"/>
+  <mapping class="com.edu.ubosque.model.ExperienciaLaboral"/>
+  <mapping class="com.edu.ubosque.model.InformacionAcademica"/>
+  <mapping class="com.edu.ubosque.model.Referencias"/>
+  <mapping class="com.edu.ubosque.model.Empresa"/>
+  <mapping class="com.edu.ubosque.model.OfertaLaboral"/>
+ </session-factory>
 </hibernate-configuration>

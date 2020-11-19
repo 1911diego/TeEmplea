@@ -14,4 +14,8 @@ public interface IEmpresaDAO {
 	
 	boolean deleteEmpresa(Empresa empresaAEliminar);
 	
+	Empresa readEmpresaPorId(int id);
+	
+	Empresa readEmpresaPorNombre(String nombre);
+	
 }

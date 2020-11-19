@@ -23,21 +23,23 @@ public class Empresa implements java.io.Serializable {
 	private String sector;
 	private String telefono;
 	private String correo;
+	private String contrasena;
 	private Set<OfertaLaboral> ofertaLaborals = new HashSet<OfertaLaboral>(0);
 
 	public Empresa() {
 	}
 
-	public Empresa(int idempresa, String nombre, String perfil, String sector, String telefono, String correo) {
+	public Empresa(int idempresa, String nombre, String perfil, String sector, String telefono, String correo, String contrasena) {
 		this.idempresa = idempresa;
 		this.nombre = nombre;
 		this.perfil = perfil;
 		this.sector = sector;
 		this.telefono = telefono;
 		this.correo = correo;
+		this.contrasena = contrasena;
 	}
 
-	public Empresa(int idempresa, String nombre, String perfil, String sector, String telefono, String correo,
+	public Empresa(int idempresa, String nombre, String perfil, String sector, String telefono, String correo, String contrasena,
 			Set<OfertaLaboral> ofertaLaborals) {
 		this.idempresa = idempresa;
 		this.nombre = nombre;
@@ -45,6 +47,7 @@ public class Empresa implements java.io.Serializable {
 		this.sector = sector;
 		this.telefono = telefono;
 		this.correo = correo;
+		this.contrasena = contrasena;
 		this.ofertaLaborals = ofertaLaborals;
 	}
 
@@ -102,6 +105,15 @@ public class Empresa implements java.io.Serializable {
 
 	public void setCorreo(String correo) {
 		this.correo = correo;
+	}
+	
+	@Column(name = "contrasena", nullable = false, length = 45)
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa")

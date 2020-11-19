@@ -3,7 +3,7 @@ package com.edu.ubosque.dao;
 import java.util.List;
 import com.edu.ubosque.model.OfertaLaboral;
 
-public interface IOfertaLaboral {
+public interface IOfertaLaboralDAO {
 	
 	boolean createOferta(OfertaLaboral ofertaACrear);
 	

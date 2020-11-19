@@ -5,10 +5,10 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import com.edu.ubosque.baseDatos.SesionHibernate;
-import com.edu.ubosque.dao.IOfertaLaboral;
+import com.edu.ubosque.dao.IOfertaLaboralDAO;
 import com.edu.ubosque.model.OfertaLaboral;
 
-public class OfertaLaboralDAOHibernate implements IOfertaLaboral {
+public class OfertaLaboralDAOHibernate implements IOfertaLaboralDAO {
 
 	public OfertaLaboralDAOHibernate() {
 		// TODO Auto-generated constructor stub

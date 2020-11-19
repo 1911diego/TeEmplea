@@ -17,6 +17,11 @@
   <managed-bean-class>com.edu.ubosque.mb.InicioSesionCiudadanoMB</managed-bean-class>
   <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
+ <managed-bean>
+  <managed-bean-name>registroEmpresaMB</managed-bean-name>
+  <managed-bean-class>com.edu.ubosque.mb.RegistroEmpresaMB</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
  <application>
   <action-listener>org.primefaces.application.DialogActionListener</action-listener>
   <navigation-handler>org.primefaces.application.DialogNavigationHandler</navigation-handler>
