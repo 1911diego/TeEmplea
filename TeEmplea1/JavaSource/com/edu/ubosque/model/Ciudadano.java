@@ -231,7 +231,7 @@ public class Ciudadano implements java.io.Serializable {
 		this.referenciases = referenciases;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ciudadano")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ciudadano", orphanRemoval = true)
 	public Set<InformacionAcademica> getInformacionAcademicas() {
 		return this.informacionAcademicas;
 	}

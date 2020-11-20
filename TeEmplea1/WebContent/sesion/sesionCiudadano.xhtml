@@ -107,19 +107,27 @@
 	
 	
 	
-	<h:form>
+	<h:form id="formInfoAcademica">
+	<p:growl id="growl" showDetail="true"/>
 	
 	<div class="botonAdd">
 		<h:panelGrid>
 			<p:commandLink action="#{ventanasEmergentesMB.ventanaAgregarInfoAcademica()}">
 				<h:graphicImage value="/img/add.svg" style="width:40px;height:40px;" />
+				<p:ajax event="dialogReturn" listener= "#{inicioSesionCiudadanoMB.mensajeInfoAgregada}" update="@form"/>
 			</p:commandLink>
 		</h:panelGrid>
 	</div>
 	
-	<div class="tablaInformacionAcademica">
-	<h:panelGrid >
+	<div class="tablaInformacionAcademica" >
+	<h:panelGrid id="dataTableInfoAcademica">
 		<h:dataTable var="academicaFila" value="#{inicioSesionCiudadanoMB.informacionAcademica}">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="  Id  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+				<h:outputText value="#{academicaFila.id}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
 			<h:column>
 				<f:facet name="header">
 					<h:outputText value="  Fecha Inicial  " styleClass="headerInfoAcademica"/>
@@ -169,10 +177,15 @@
 				<f:facet name="header">
 					<h:outputText value="" styleClass="headerInfoAcademica"/>
 				</f:facet>
-					<h:commandLink>
+					<p:commandLink action="#{inicioSesionCiudadanoMB.eliminarInformacionAcademica()}" update="@form">
 						<h:graphicImage value="/img/delete.svg" style="width:50px;height:50px;"/>
-					<!--  	<f:setPropertyActionListener value="#{academicaFila}"/> -->
-					</h:commandLink>
+					  	<f:setPropertyActionListener value="#{academicaFila.id}" target="#{inicioSesionCiudadanoMB.idInfoAcademicaAEliminar}"/>
+						 <p:confirm header="Confirmación" message="¿Está Seguro?"/>
+					</p:commandLink>
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+       				 	<p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" update="@form"  />
+       				 	<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" />
+   					 </p:confirmDialog>   
 			</h:column>
 		
 		</h:dataTable>
@@ -181,6 +194,8 @@
 		</h:panelGrid>
 	
 	</div>
+	
+	
 	</h:form>
 	
 </body> 

@@ -7,6 +7,8 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.PrimeFaces;
+import org.primefaces.event.SelectEvent;
 
 import com.edu.ubosque.logica.CiudadanoLogica;
 import com.edu.ubosque.logica.DatosAcademicosLogica;
@@ -22,7 +24,14 @@ public class InicioSesionCiudadanoMB {
 	private CiudadanoLogica ciudadanoLogica;
 	private DatosAcademicosLogica datosAcademicosLogica;
 	private List<InformacionAcademica>  informacionAcademica;
+	
 	private InformacionAcademica nuevaInformacionAcademica;
+	private InformacionAcademica informacionAcademicaAModificar;
+	
+	private int idInfoAcademicaAEliminar;
+	private int idInfoAcademicaABuscar;
+	
+	
 	
 	public InicioSesionCiudadanoMB() {
 		ciudadanoLogica = new CiudadanoLogica();
@@ -60,19 +69,42 @@ public class InicioSesionCiudadanoMB {
 		nuevaInformacionAcademica.setCiudadano(ciudadanoSesion);
 		
 		boolean resultado = datosAcademicosLogica.createDatoAcademico(nuevaInformacionAcademica);
+		ciudadanoSesion = ciudadanoLogica.buscarCiudadanoPorId(ciudadanoSesion.getId());
 		informacionAcademica = new ArrayList<InformacionAcademica>(ciudadanoSesion.getInformacionAcademicas());
 		
-		if(resultado)
-		{
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Proceso Exitoso","Información Agregada Exitosamente"));
-		}
-		
-		else
-		{
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "No se puede Agregar","Información Incorrecta"));
-		}
+		PrimeFaces.current().dialog().closeDynamic(nuevaInformacionAcademica);
 		
 	}
+	
+	public void eliminarInformacionAcademica()
+	{	
+		datosAcademicosLogica.deleteInfoAcademica(idInfoAcademicaAEliminar,ciudadanoSesion);
+		ciudadanoSesion = ciudadanoLogica.buscarCiudadanoPorId(ciudadanoSesion.getId());
+		informacionAcademica = new ArrayList<InformacionAcademica>(ciudadanoSesion.getInformacionAcademicas());
+		  FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Proceso Éxitoso","Información Académica Eliminada"); 
+	        FacesContext.getCurrentInstance().addMessage(null, message);
+	}
+	
+	
+	
+	 public void mensajeInfoAgregada(SelectEvent event) {
+	        InformacionAcademica info = (InformacionAcademica) event.getObject();
+	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Información Académica Agregada",info.getInstitucion());
+	         
+	        FacesContext.getCurrentInstance().addMessage(null, message);
+	 }
+	 
+	 
+	 public void asignarInfoAcademicaAEditar()
+	 {
+		 informacionAcademicaAModificar = datosAcademicosLogica.buscarInfoAcademicaPorId(idInfoAcademicaABuscar);
+		 
+	 }
+	 
+	 public void editarInfoAcademica()
+	 {
+		 datosAcademicosLogica.updateInfoAcademica(informacionAcademicaAModificar);
+	 }
 	
 	
 	
@@ -126,6 +158,27 @@ public class InicioSesionCiudadanoMB {
 	}
 
 
+	public InformacionAcademica getInformacionAcademicaAModificar() {
+		return informacionAcademicaAModificar;
+	}
+
+
+	public void setInformacionAcademicaAModificar(InformacionAcademica informacionAcademicaAModificar) {
+		informacionAcademicaAModificar = informacionAcademicaAModificar;
+	}
+
+
+	public int getIdInfoAcademicaAEliminar() {
+		return idInfoAcademicaAEliminar;
+	}
+
+
+	public void setIdInfoAcademicaAEliminar(int idInfoAcademicaAEliminar) {
+		this.idInfoAcademicaAEliminar = idInfoAcademicaAEliminar;
+	}
+
+
+	
 
 	
 	

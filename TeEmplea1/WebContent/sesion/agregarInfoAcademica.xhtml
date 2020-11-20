@@ -9,30 +9,32 @@
 	<h:outputStylesheet library ="css" name="sesion.css"/>
 	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
 </h:head> 
-<body> 
-
+<body style="text-align: center;" > 
+<div style="display: flex; justify-content: center; ">
 <h:form>
+
 	<h:panelGrid>
 		<h:outputText value="Fecha Inicial" styleClass="labelAgregarInfoAcademica"/>
-		<p:calendar pattern="yyyy/MM/dd" mask="true" required="true" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.fechaInicial}"/>
+		<p:calendar pattern="yyyy/MM/dd" mask="true" required="true" placeholder="yyyy/mm/dd" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.fechaInicial}"/>
 		
 		<h:outputText value="Fecha Final" styleClass="labelAgregarInfoAcademica" />
-		<p:calendar pattern="yyyy/MM/dd" mask="true" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.fechaFinal}" />
+		<p:calendar pattern="yyyy/MM/dd" mask="true" placeholder="yyyy/mm/dd" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.fechaFinal}" />
 		
 		<h:outputText value="Institución" styleClass="labelAgregarInfoAcademica"/>
-		<h:inputText required="true" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.institucion}"/>
+		<p:inputText required="true" placeholder="Colegio, Universidad, Etc" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.institucion}"/>
 		
 		<h:outputText value="Título" styleClass="labelAgregarInfoAcademica"/>
-		<h:inputText  required="true" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.titulo}"/>
+		<p:inputText  required="true" placeholder="Título Obtenido" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.titulo}"/>
 		
 		<h:outputText value="Nivel de Estudio" styleClass="labelAgregarInfoAcademica"/>
-		<h:inputText required="true" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.nivelEstudio}"/>
+		<p:inputText required="true" placeholder="Técnico, Profesional, etc" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.nivelEstudio}"/>
 		
-		<h:commandButton value="Agregar" action="#{inicioSesionCiudadanoMB.agregarInformacionAcademica()}"/>
+		<p:commandButton value="Agregar" action="#{inicioSesionCiudadanoMB.agregarInformacionAcademica()}"/>
+		
 	</h:panelGrid>
 
 
 </h:form>
-
+</div>
 </body> 
 </html>

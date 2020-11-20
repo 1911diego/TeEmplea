@@ -15,4 +15,6 @@ public interface IDatosAcademicosDAO {
 	
 	boolean deleteInfoAcademica(InformacionAcademica inforAcademicaAEliminar);
 	
+	InformacionAcademica buscarInfoAcademicaPorId(int idInfoAcademica);
+	
 }
