@@ -1,11 +1,11 @@
 package com.edu.ubosque.mb;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import org.primefaces.PrimeFaces;
 import org.primefaces.event.SelectEvent;
@@ -15,15 +15,13 @@ import com.edu.ubosque.logica.DatosAcademicosLogica;
 import com.edu.ubosque.model.Ciudadano;
 import com.edu.ubosque.model.InformacionAcademica;
 
+public class InformacionAcademicaMB {
 
-public class InicioSesionCiudadanoMB {
-
-	private String usuario;
-	private String clave;
-	private Ciudadano ciudadanoSesion;
+	private Ciudadano ciudadano;
+	private HttpSession session;
+	private List<InformacionAcademica>  listaInformacionAcademica;
 	private CiudadanoLogica ciudadanoLogica;
 	private DatosAcademicosLogica datosAcademicosLogica;
-	private List<InformacionAcademica>  informacionAcademica;
 	
 	private InformacionAcademica nuevaInformacionAcademica;
 	private InformacionAcademica informacionAcademicaAModificar;
@@ -31,43 +29,23 @@ public class InicioSesionCiudadanoMB {
 	private int idInfoAcademicaAEliminar;
 	private int idInfoAcademicaABuscar;
 	
-	
-	
-	public InicioSesionCiudadanoMB() {
-		ciudadanoLogica = new CiudadanoLogica();
+	public InformacionAcademicaMB() {
+		
+		session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		ciudadano = (Ciudadano) session.getAttribute("ciudadanoLogeado");
+		listaInformacionAcademica = new ArrayList<InformacionAcademica>(ciudadano.getInformacionAcademicas());
 		datosAcademicosLogica = new DatosAcademicosLogica();
 		nuevaInformacionAcademica = new InformacionAcademica();
-
+		ciudadanoLogica = new CiudadanoLogica();
 	}
-
-	
-	public String validarInicioSesion()
-	{
-		ciudadanoSesion = ciudadanoLogica.validarUsuarioClave(usuario, clave);
-		
-		if(ciudadanoSesion!= null)
-		{
-			informacionAcademica = new ArrayList<InformacionAcademica>(ciudadanoSesion.getInformacionAcademicas());
-			return "/sesion/sesionCiudadano";
-		}
-		else
-		{
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "No se puede Iniciar Sesión","Usuario y/o Contraseña incorrectas"));
-			return null;
-		}
-		
-	}
-
 	
 	
 	public void agregarInformacionAcademica()
 	{
-		
-		nuevaInformacionAcademica.setCiudadano(ciudadanoSesion);
-		
-		boolean resultado = datosAcademicosLogica.createDatoAcademico(nuevaInformacionAcademica);
-		ciudadanoSesion = ciudadanoLogica.buscarCiudadanoPorId(ciudadanoSesion.getId());
-		informacionAcademica = new ArrayList<InformacionAcademica>(ciudadanoSesion.getInformacionAcademicas());
+		nuevaInformacionAcademica.setCiudadano(ciudadano);
+		datosAcademicosLogica.createDatoAcademico(nuevaInformacionAcademica);
+		ciudadano = ciudadanoLogica.buscarCiudadanoPorId(ciudadano.getId());
+		listaInformacionAcademica = new ArrayList<InformacionAcademica>(ciudadano.getInformacionAcademicas());
 		
 		PrimeFaces.current().dialog().closeDynamic(nuevaInformacionAcademica);
 		
@@ -75,9 +53,9 @@ public class InicioSesionCiudadanoMB {
 	
 	public void eliminarInformacionAcademica()
 	{	
-		datosAcademicosLogica.deleteInfoAcademica(idInfoAcademicaAEliminar,ciudadanoSesion);
-		ciudadanoSesion = ciudadanoLogica.buscarCiudadanoPorId(ciudadanoSesion.getId());
-		informacionAcademica = new ArrayList<InformacionAcademica>(ciudadanoSesion.getInformacionAcademicas());
+		datosAcademicosLogica.deleteInfoAcademica(idInfoAcademicaAEliminar,ciudadano);
+		ciudadano = ciudadanoLogica.buscarCiudadanoPorId(ciudadano.getId());
+		listaInformacionAcademica = new ArrayList<InformacionAcademica>(ciudadano.getInformacionAcademicas());
 		  FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Proceso Éxitoso","Información Académica Eliminada"); 
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	}
@@ -103,44 +81,21 @@ public class InicioSesionCiudadanoMB {
 	 }
 	
 	
-	
-	public String getUsuario() {
-		return usuario;
+	public Ciudadano getCiudadano() {
+		return ciudadano;
+	}
+	public void setCiudadano(Ciudadano ciudadano) {
+		this.ciudadano = ciudadano;
 	}
 
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public List<InformacionAcademica> getListaInformacionAcademica() {
+		return listaInformacionAcademica;
 	}
 
 
-	public String getClave() {
-		return clave;
-	}
-
-
-	public void setClave(String clave) {
-		this.clave = clave;
-	}
-
-
-	public Ciudadano getCiudadanoSesion() {
-		return ciudadanoSesion;
-	}
-
-
-	public void setCiudadanoSesion(Ciudadano ciudadanoSesion) {
-		this.ciudadanoSesion = ciudadanoSesion;
-	}
-
-
-	public List<InformacionAcademica> getInformacionAcademica() {
-		return informacionAcademica;
-	}
-
-
-	public void setInformacionAcademica(List<InformacionAcademica> informacionAcademica) {
-		this.informacionAcademica = informacionAcademica;
+	public void setListaInformacionAcademica(List<InformacionAcademica> listaInformacionAcademica) {
+		this.listaInformacionAcademica = listaInformacionAcademica;
 	}
 
 
@@ -183,11 +138,6 @@ public class InicioSesionCiudadanoMB {
 		this.idInfoAcademicaABuscar = idInfoAcademicaABuscar;
 	}
 
-	
-	
-
-	
-	
 	
 	
 }

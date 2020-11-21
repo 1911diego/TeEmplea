@@ -1,11 +1,13 @@
 package com.edu.ubosque.logica;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import com.edu.ubosque.dao.ICiudadanoDAO;
 import com.edu.ubosque.dao.impl.CiudadanoDAOHibernate;
 import com.edu.ubosque.model.Ciudadano;
+import com.edu.ubosque.model.InformacionAcademica;
 
 public class CiudadanoLogica {
 
@@ -79,6 +81,7 @@ public class CiudadanoLogica {
 		
 	}
 	
+
 	
 	
 }

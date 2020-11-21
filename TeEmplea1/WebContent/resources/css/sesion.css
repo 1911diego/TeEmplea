@@ -25,6 +25,7 @@ body
   -webkit-box-shadow: 3px 1px 10px -5px rgba(56,56,56,1);
   -moz-box-shadow: 3px 1px 10px -5px rgba(56,56,56,1);
    box-shadow: 3px 1px 10px -5px rgba(56,56,56,1);
+   z-index: 3;
 }
 
 .sidenav a {
@@ -51,9 +52,10 @@ body
     margin: 0px;
     top: 0px;
     left: 0px;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 60px;
+    z-index: 2;
 }
 
 .ui-widget-header {
@@ -90,6 +92,7 @@ body
 	border-radius: 6px 6px 6px 6px;
 	-moz-border-radius: 6px 6px 6px 6px;
 	-webkit-border-radius: 6px 6px 6px 6px;
+	z-index: 1;
 }
 
 .infoDatos
@@ -104,6 +107,7 @@ body
 	border-radius: 6px 6px 6px 6px;
 	-moz-border-radius: 6px 6px 6px 6px;
 	-webkit-border-radius: 6px 6px 6px 6px;
+	z-index: 1;
 }
 
 .infoAspiracionLaboral
@@ -118,6 +122,7 @@ body
 	border-radius: 6px 6px 6px 6px;
 	-moz-border-radius: 6px 6px 6px 6px;
 	-webkit-border-radius: 6px 6px 6px 6px;
+	z-index: 1;
 }
 
 .infoPerfilProfesional
@@ -132,6 +137,7 @@ body
 	border-radius: 6px 6px 6px 6px;
 	-moz-border-radius: 6px 6px 6px 6px;
 	-webkit-border-radius: 6px 6px 6px 6px;
+	z-index: 1;
 }
 
 
@@ -142,6 +148,7 @@ body
     color: #33393E;
     background: white;
     font-family: 'nunito',sans-serif;
+    
 	
     
 }
@@ -155,7 +162,7 @@ body
 .tituloInfoPersonal
 {
 	font-family: 'nunito',sans-serif;
-	font-size: 30px;
+	font-size: 20px;
 	color: orange;
 }
 
@@ -179,14 +186,31 @@ body
 	border-radius: 6px 6px 6px 6px;
 	-moz-border-radius: 6px 6px 6px 6px;
 	-webkit-border-radius: 6px 6px 6px 6px;
+	z-index: 1;
 	
+}
+
+.divExperienciaLaboral
+{
+	position: absolute;
+	top : 100px;
+	left: 250px;
+	width: 1100px;
+	background-color: orange;
+	 -webkit-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	-moz-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+	z-index: 1;
 }
 
 .tituloInfoAcademica
 {
 	text-align: center;
 	font-family: 'nunito',sans-serif;
-	font-size: 30px;
+	font-size: 25px;
 	color: white;
 }
 
@@ -243,7 +267,7 @@ body
 	
 	position: absolute;
 	top : 740px;
-	left: 320px;
+	left: 350px;
 	background-color:white;
 	-webkit-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
 	-moz-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
@@ -251,20 +275,45 @@ body
 	border-radius: 6px 6px 6px 6px;
 	-moz-border-radius: 6px 6px 6px 6px;
 	-webkit-border-radius: 6px 6px 6px 6px;
+	z-index: 1;
+	text-align: center;
+}
+
+.tablaExperienciaLaboral
+{
+	position: absolute;
+	top : 240px;
+	left: 300px;
+	background-color:white;
+	-webkit-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	-moz-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+	z-index: 1;
+	text-align: center;
 }
 
 .botonAdd
 {
 	position: absolute;
 	top : 680px;
-	left: 320px;
+	left: 350px;
+}
+
+.botonAddExpLaboral
+{
+	position: absolute;
+	top : 180px;
+	left: 300px;
 }
 
 
 .headerInfoAcademica
 {
 	font-family: 'nunito',sans-serif;
-	font-size: 20px;
+	font-size: 15px;
 	color: orange;
 }
 
@@ -290,4 +339,15 @@ body
 	font-size: 18px;
 	color: orange;
 	font-weight: normal;
+}
+
+
+.columnaId
+{
+	width: 30px;
+}
+
+.columnas
+{
+	width: 150px;
 }

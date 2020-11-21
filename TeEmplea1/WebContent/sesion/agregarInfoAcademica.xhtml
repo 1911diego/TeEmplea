@@ -15,21 +15,21 @@
 
 	<h:panelGrid>
 		<h:outputText value="Fecha Inicial" styleClass="labelAgregarInfoAcademica"/>
-		<p:calendar pattern="yyyy/MM/dd" mask="true" required="true" placeholder="yyyy/mm/dd" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.fechaInicial}"/>
+		<p:calendar pattern="yyyy/MM/dd" mask="true" required="true" placeholder="yyyy/mm/dd" value="#{informacionAcademicaMB.nuevaInformacionAcademica.fechaInicial}"/>
 		
 		<h:outputText value="Fecha Final" styleClass="labelAgregarInfoAcademica" />
-		<p:calendar pattern="yyyy/MM/dd" mask="true" placeholder="yyyy/mm/dd" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.fechaFinal}" />
+		<p:calendar pattern="yyyy/MM/dd" mask="true" placeholder="yyyy/mm/dd" value="#{informacionAcademicaMB.nuevaInformacionAcademica.fechaFinal}" />
 		
 		<h:outputText value="Institución" styleClass="labelAgregarInfoAcademica"/>
-		<p:inputText required="true" placeholder="Colegio, Universidad, Etc" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.institucion}"/>
+		<p:inputText required="true" placeholder="Colegio, Universidad, Etc" value="#{informacionAcademicaMB.nuevaInformacionAcademica.institucion}"/>
 		
 		<h:outputText value="Título" styleClass="labelAgregarInfoAcademica"/>
-		<p:inputText  required="true" placeholder="Título Obtenido" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.titulo}"/>
+		<p:inputText  required="true" placeholder="Título Obtenido" value="#{informacionAcademicaMB.nuevaInformacionAcademica.titulo}"/>
 		
 		<h:outputText value="Nivel de Estudio" styleClass="labelAgregarInfoAcademica"/>
-		<p:inputText required="true" placeholder="Técnico, Profesional, etc" value="#{inicioSesionCiudadanoMB.nuevaInformacionAcademica.nivelEstudio}"/>
+		<p:inputText required="true" placeholder="Técnico, Profesional, etc" value="#{informacionAcademicaMB.nuevaInformacionAcademica.nivelEstudio}"/>
 		
-		<p:commandButton value="Agregar" action="#{inicioSesionCiudadanoMB.agregarInformacionAcademica()}"/>
+		<p:commandButton value="Agregar" action="#{informacionAcademicaMB.agregarInformacionAcademica()}"/>
 		
 	</h:panelGrid>
 

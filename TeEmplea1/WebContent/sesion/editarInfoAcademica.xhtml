@@ -2,10 +2,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+ 	  xmlns:p="http://primefaces.org/ui"> 
 
-<h:head></h:head> 
-<body> 
+<h:head>
+	<h:outputStylesheet library ="css" name="sesion.css"/>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+</h:head> 
+<body style="text-align: center;" > 
+<div style="display: flex; justify-content: center; ">
+<h:form>
 
+	<h:panelGrid>
+		<f:facet name="header">
+			<h:outputText value="Editar Información" styleClass="labelAgregarInfoAcademica"/>
+		</f:facet>
+		
+		<h:outputText value="Institución" styleClass="labelAgregarInfoAcademica"/>
+		<p:inputText required="true" value="#{inicioSesionCiudadanoMB.informacionAcademicaAModificar.institucion}"/>
+		
+		<h:outputText value="Fecha Inicial" styleClass="labelAgregarInfoAcademica"/>
+		<p:calendar pattern="yyyy/MM/dd" mask="true" required="true" placeholder="yyyy/mm/dd" value="#{inicioSesionCiudadanoMB.informacionAcademicaAModificar.fechaInicial}"/>
+		
+		<h:outputText value="Fecha Final" styleClass="labelAgregarInfoAcademica" />
+		<p:calendar pattern="yyyy/MM/dd" mask="true" placeholder="yyyy/mm/dd" value="#{inicioSesionCiudadanoMB.informacionAcademicaAModificar.fechaFinal}" />
+		
+		<h:outputText value="Título" styleClass="labelAgregarInfoAcademica"/>
+		<p:inputText  required="true" placeholder="Título Obtenido" value="#{inicioSesionCiudadanoMB.informacionAcademicaAModificar.titulo}"/>
+		
+		<h:outputText value="Nivel de Estudio" styleClass="labelAgregarInfoAcademica"/>
+		<p:inputText required="true" placeholder="Técnico, Profesional, etc" value="#{inicioSesionCiudadanoMB.informacionAcademicaAModificar.nivelEstudio}"/>
+		
+		<p:commandButton value="Modificar" action="#{inicioSesionCiudadanoMB.editarInfoAcademica()}"/>
+		
+	</h:panelGrid>
+
+
+</h:form>
+</div>
 </body> 
 </html>

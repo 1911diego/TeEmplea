@@ -35,11 +35,11 @@
 			
 				<div class="divlogin">
 					<p:panelGrid id="loginPersona" layout="grid" columns="1" styleClass="panelLogueo">
-						<p:inputText id="usuario" styleClass="textoUsuario" value="#{inicioSesionCiudadanoMB.usuario}"/>
+						<p:inputText id="usuario" styleClass="textoUsuario" value="#{sesionMB.usuario}"/>
 						<p:watermark for="usuario" value="Usuario"/>
-						<p:password id="clave" feedback="true" styleClass="textoUsuario" value="#{inicioSesionCiudadanoMB.clave}" />
+						<p:password id="clave" feedback="true" styleClass="textoUsuario" value="#{sesionMB.clave}" />
 						<p:watermark for="clave" value="Contraseña"/>
-						<p:commandButton id="ingreso" value="Iniciar Sesión" styleClass="botonInicioSesion" action="#{inicioSesionCiudadanoMB.validarInicioSesion()}" update="@form"/>
+						<p:commandButton id="ingreso" value="Iniciar Sesión" styleClass="botonInicioSesion" action="#{sesionMB.iniciarSesionCiudadano()}" update="@form"/>
 						<p:commandButton id="registro" value="Crear una Cuenta" styleClass="botonRegistrarse" action="#{ventanasEmergentesMB.ventanaRegistro()}" update="panelPrincipal"/>
 					</p:panelGrid>
 				
