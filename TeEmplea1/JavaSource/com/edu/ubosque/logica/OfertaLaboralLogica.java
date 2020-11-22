@@ -1,9 +1,11 @@
 package com.edu.ubosque.logica;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.edu.ubosque.dao.IOfertaLaboralDAO;
 import com.edu.ubosque.dao.impl.OfertaLaboralDAOHibernate;
+import com.edu.ubosque.model.Empresa;
 import com.edu.ubosque.model.OfertaLaboral;
 
 public class OfertaLaboralLogica {
@@ -32,7 +34,19 @@ public class OfertaLaboralLogica {
 		
 	}
 	
-	public boolean deleteOferta(OfertaLaboral ofertaAEliminar) {
+	public boolean deleteOferta(int idOferta, Empresa empresaRelacionada) {
+		
+		List<OfertaLaboral> ofertas = new ArrayList<OfertaLaboral>(empresaRelacionada.getOfertaLaborals());
+		OfertaLaboral ofertaAEliminar = null;
+		
+		for (int i = 0; i < ofertas.size(); i++) {
+			
+			if(ofertas.get(i).getIdOferta() == idOferta) {
+				
+				ofertaAEliminar = ofertas.get(i);
+			}
+			
+		}
 		
 		return dao.deleteOferta(ofertaAEliminar);
 		

@@ -3,6 +3,7 @@ package com.edu.ubosque.mb;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
@@ -42,6 +43,15 @@ public class OfertaLaboralMB {
 		empresa = empresaLogica.empresaPorId(empresa.getIdempresa());
 		listaOfertasLaborales = new ArrayList<OfertaLaboral>(empresa.getOfertaLaborals());
 		PrimeFaces.current().dialog().closeDynamic(ofertaLaboralNueva);
+	}
+	
+	public void eliminarOfertaLaboral() {
+		
+		ofertaLogica.deleteOferta(idOfertaAEliminar, empresa);
+		empresa = empresaLogica.empresaPorId(empresa.getIdempresa());
+		listaOfertasLaborales = new ArrayList<OfertaLaboral>(empresa.getOfertaLaborals());
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Proceso Éxitoso","Oferta Laboral Eliminada"); 
+        FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 
 	public Empresa getEmpresa() {

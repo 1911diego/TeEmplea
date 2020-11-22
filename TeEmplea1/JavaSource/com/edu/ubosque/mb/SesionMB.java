@@ -109,7 +109,6 @@ public class SesionMB {
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
-	
-	
+
 	
 }

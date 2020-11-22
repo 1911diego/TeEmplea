@@ -12,5 +12,7 @@ public interface IOfertaLaboralDAO {
 	boolean updateOferta(OfertaLaboral ofertaAModificar);
 	
 	boolean deleteOferta(OfertaLaboral ofertaAEliminar);
+	
+	OfertaLaboral buscarOfertaPorId(int idOferta);
 
 }

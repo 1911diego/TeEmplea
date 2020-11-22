@@ -56,4 +56,29 @@ public class OfertaLaboralDAOHibernate implements IOfertaLaboralDAO {
 		return true;
 	}
 
+	@Override
+	public OfertaLaboral buscarOfertaPorId(int idOferta) {
+		
+		String hql = "Select ol FROM OfertaLaboral ol WHERE ol.idOferta = " + idOferta;
+		Session session = SesionHibernate.getSf().getCurrentSession();
+		session.beginTransaction();
+		
+		try {
+			
+			Query<OfertaLaboral> query = session.createQuery(hql);
+			OfertaLaboral oferta = query.getSingleResult();
+			
+			session.getTransaction().commit();
+			session.close();
+			
+			return oferta;
+			
+		} catch (Exception e) {
+			
+			session.close();
+			return null;
+		}
+		
+	}
+
 }

@@ -43,23 +43,32 @@
 			<p:outputLabel value="Informacion de la empresa"/>
 			<p:outputLabel/>
 			<p:outputLabel value="Nombre: "/>
-			<p:outputLabel value="#{inicioSesionCiudadanoMB.empresaSesion.nombre}"/>
+			<p:outputLabel value="#{empresaMB.empresa.nombre}"/>
 			<p:outputLabel value="Sector: "/>
-			<p:outputLabel value="#{inicioSesionCiudadanoMB.empresaSesion.sector}"/>
+			<p:outputLabel value="#{empresaMB.empresa.sector}"/>
 			<p:outputLabel value="Telefono: "/>
-			<p:outputLabel value="#{inicioSesionCiudadanoMB.empresaSesion.telefono}"/>
+			<p:outputLabel value="#{empresaMB.empresa.telefono}"/>
 			<p:outputLabel value="Correo"/>
-			<p:outputLabel value="#{inicioSesionCiudadanoMB.empresaSesion.correo}"/>
+			<p:outputLabel value="#{empresaMB.empresa.correo}"/>
 		</h:panelGrid>
 	</div>
 	
 	<div class="infoPerfil">
 		<p:panelGrid columns="1">
 			<h:outputText value="Perfil Empresa"/>
-			<p:inputTextarea rows="10" cols="50" disabled="true" value="#{inicioSesionCiudadanoMB.empresaSesion.perfil}"/>
+			<p:inputTextarea rows="10" cols="50" disabled="true" value="#{empresaMB.empresa.perfil}"/>
 		</p:panelGrid>
 	</div>
 	
+	<div class="divOfertas">
+		<h:panelGrid columns="1">
+		<f:facet name="header">
+			<h:outputText value="Ofertas laborales" styleClass="tituloOfertas"/>
+		</f:facet>
+		</h:panelGrid>
+	</div>
+	
+	<h:form>
 	<div class="botonAdd">
 		<h:panelGrid>
 			<p:commandLink action="#{ventanasEmergentesMB.ventanaAgregarOferta()}" update="@form">
@@ -141,12 +150,13 @@
 				<f:facet name="header">
 					<h:outputText value="" styleClass="headerOfertaLaboral"/>
 				</f:facet>
-					<p:commandLink update="@form">
+					<p:commandLink action="#{ofertaLaboralMB.eliminarOfertaLaboral()}" update="@form">
 						<h:graphicImage value="/img/delete.svg" style="width:50px;height:50px;"/>
+						<f:setPropertyActionListener value="#{ofertaFila.idOferta}" target="#{ofertaLaboralMB.idOfertaAEliminar}"/>
 						 <p:confirm header="Confirmación" message="¿Está Seguro?"/>
 					</p:commandLink>
 					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-       				 	<p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" update="@form"  />
+       				 	<p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" />
        				 	<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" />
    					 </p:confirmDialog>   
 			</h:column>
@@ -157,5 +167,6 @@
 		</h:panelGrid>
 	
 	</div>
+	</h:form>
 </body> 
 </html>

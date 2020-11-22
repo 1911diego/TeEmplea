@@ -111,7 +111,95 @@ body{
 	font-size: 10px;
 }
 
+.tablaOfertaLaboral{
+	position: absolute;
+	top : 740px;
+	left: 350px;
+	background-color:white;
+	-webkit-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	-moz-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+	z-index: 1;
+	text-align: center;
+}
 
+.tituloOfertas{
+	text-align: center;
+	font-family: 'nunito',sans-serif;
+	font-size: 25px;
+	color: white;
+}
 
+.columnaId
+{
+	width: 30px;
+}
+
+.columnas
+{
+	width: 150px;
+}
+
+.bienvenido
+{
+	font-family: 'nunito',sans-serif;
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
+
+.ui-button .ui-button-text{
+    display: block;
+    line-height: normal;
+    font-family: 'nunito',sans-serif;
+	font-size: 15px;
+	color: #D5D6D7;
+	font-weight: normal;
+	background-color: #33393E;
+	border: none;
+}
+
+.ui-state-default
+{
+	border:none;
+}
+
+.ui-state:hover
+{
+	background-color: gray;
+}
+
+.textoBarraSuperior
+{
+	font-family: 'nunito',sans-serif;
+	font-size: 20px;
+	color:  #33393E;
+	justify-content: center;
+  	align-items: center;
+}
+
+.headerOfertaLaboral{
+	font-family: 'nunito',sans-serif;
+	font-size: 15px;
+	color: orange;
+}
+
+.contenidoOfertaLaboral{
+	font-family: 'nunito',sans-serif;
+	font-size: 15px;
+	color: #33393E;
+	font-weight: normal;
+}
+
+.botonAdd
+{
+	position: absolute;
+	top : 6400px;
+	left: 350px;
+}
 
 
