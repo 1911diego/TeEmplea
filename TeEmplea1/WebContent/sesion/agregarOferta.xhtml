@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+	<div>
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputText value="Cargo" />
+				<p:inputText required="true" placeholder="Cargo" value="#{ofertaLaboralMB.ofertaLaboralNueva.cargo}"/>
+				
+				<h:outputText value="Area" />
+				<p:inputText required="true" placeholder="Area" value="#{ofertaLaboralMB.ofertaLaboralNueva.area}"/>
+				
+				<h:outputText value="Años de experiencia" />
+				<p:inputText required="true" placeholder="Años experiencia" value="#{ofertaLaboralMB.ofertaLaboralNueva.aniosExperiencia}"/>
+				
+				<h:outputText value="Profesion" />
+				<p:inputText required="true" placeholder="Profesion" value="#{ofertaLaboralMB.ofertaLaboralNueva.profesion}"/>
+				
+				<h:outputText value="Nivel de estudios" />
+				<p:inputText required="true" placeholder="Nivel de estudios" value="#{ofertaLaboralMB.ofertaLaboralNueva.nivelEstudios}"/>
+				
+				<h:outputText value="Tipo contrato" />
+				<p:inputText required="true" placeholder="Tipo contrato" value="#{ofertaLaboralMB.ofertaLaboralNueva.tipoContrato}"/>
+				
+				<h:outputText value="Salario" />
+				<p:inputNumber required="true" placeholder="Salario" value="#{ofertaLaboralMB.ofertaLaboralNueva.salario}"/>
+				
+				<p:commandButton value="Agregar" action="#{ofertaLaboralMB.agregarOfertaLaboral()}"/>
+			</h:panelGrid>  
+		</h:form>
+	</div>
+</body> 
+</html>

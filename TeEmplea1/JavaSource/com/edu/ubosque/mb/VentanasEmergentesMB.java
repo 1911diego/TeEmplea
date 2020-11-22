@@ -63,8 +63,8 @@ public class VentanasEmergentesMB {
 	      PrimeFaces.current().dialog().openDynamic("editarInfoAcademica", opciones, null);
 	 }
 	 
-	 public void registroEmpresa() {
-		 
+	 public void registroEmpresa() 
+	 {
 		 Map<String, Object> opciones = new HashMap<String, Object>();
 		 opciones.put("modal", true);
 		 opciones.put("resizable", false);
@@ -73,10 +73,20 @@ public class VentanasEmergentesMB {
 		 opciones.put("contentWidth", "100%");
 		 opciones.put("contentHeight", "100%");
 		 opciones.put("headerElement", "customheader");
-	     PrimeFaces.current().dialog().openDynamic("registroEmpresa", opciones, null);
-	     
+	     PrimeFaces.current().dialog().openDynamic("registroEmpresa", opciones, null);     
 	 }
 	 
-
+	 public void ventanaAgregarOferta() 
+	 {
+		 Map<String, Object> opciones = new HashMap<String, Object>();
+		 opciones.put("modal", true);
+		 opciones.put("resizable", false);
+		 opciones.put("width", 700);
+		 opciones.put("height", 600);
+		 opciones.put("contentWidth", "100%");
+		 opciones.put("contentHeight", "100%");
+		 opciones.put("headerElement", "customheader");
+		 PrimeFaces.current().dialog().openDynamic("agregarOferta", opciones, null);
+	 }
 	 
 }

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<h:outputStylesheet library ="css" name="sesionEmpresa.css"/>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+</h:head> 
+<body> 
+	<h:form>
+		<div class="opciones">
+			<div style="text-align:center;">
+			<h:graphicImage value="/img/logo_te_emplea.svg" style="width:190px;height:100px;"/>
+			<hr style="width:210px;height:1px; background-color:#5C6165;border:0;" />
+			<h:graphicImage value="/img/company.svg" style="width:125px;height:125px;"/>
+			<br/>
+			<h:outputText value="Bienvenido" styleClass="bienvenido"/>
+			<hr style="width:210px;height:1px; background-color:#5C6165; border:0" />
+			<br/>
+			</div>
+			<p:commandButton value="Mi Cuenta" icon="pi pi-user" />
+		</div>
+	</h:form>
+	<h:form>
+		<div class="main">
+			<p:toolbar>
+				<f:facet name="right">
+				<h:outputText value="Nombre del Usuario" styleClass="textoBarraSuperior"/>
+				<span class="ui-separator">
+	                <span class="ui-icon pi pi-ellipsis-v" />
+	            </span>
+				<h:commandLink value="Cerrar Sesión" styleClass="textoBarraSuperior"/>
+				</f:facet>
+			</p:toolbar>
+		</div>
+	</h:form>
+	
+	<div class="infoEmpresa">
+		<h:panelGrid columns="2">
+			<p:outputLabel value="Informacion de la empresa"/>
+			<p:outputLabel/>
+			<p:outputLabel value="Nombre: "/>
+			<p:outputLabel value="#{inicioSesionCiudadanoMB.empresaSesion.nombre}"/>
+			<p:outputLabel value="Sector: "/>
+			<p:outputLabel value="#{inicioSesionCiudadanoMB.empresaSesion.sector}"/>
+			<p:outputLabel value="Telefono: "/>
+			<p:outputLabel value="#{inicioSesionCiudadanoMB.empresaSesion.telefono}"/>
+			<p:outputLabel value="Correo"/>
+			<p:outputLabel value="#{inicioSesionCiudadanoMB.empresaSesion.correo}"/>
+		</h:panelGrid>
+	</div>
+	
+	<div class="infoPerfil">
+		<p:panelGrid columns="1">
+			<h:outputText value="Perfil Empresa"/>
+			<p:inputTextarea rows="10" cols="50" disabled="true" value="#{inicioSesionCiudadanoMB.empresaSesion.perfil}"/>
+		</p:panelGrid>
+	</div>
+	
+	<div class="botonAdd">
+		<h:panelGrid>
+			<p:commandLink action="#{ventanasEmergentesMB.ventanaAgregarOferta()}" update="@form">
+				<h:graphicImage value="/img/add.svg" style="width:40px;height:40px;" />
+				<p:ajax event="dialogReturn" update="@form"/>
+			</p:commandLink>
+		</h:panelGrid>
+	</div>
+	
+	<div class="tablaOfertaLaboral" >
+	<h:panelGrid id="dataTableOfertas" >
+		<h:dataTable var="ofertaFila" value="#{ofertaLaboralMB.listaOfertasLaborales}">
+			<h:column headerClass="columnaId">
+				<f:facet name="header">
+					<h:outputText value="  Id  " styleClass="headerOfertaLaboral"/>
+				</f:facet>
+				<h:outputText value="#{ofertaFila.idOferta}" styleClass="contenidoOfertaLaboral"/>
+			</h:column>
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Cargo  " styleClass="headerOfertaLaboral"/>
+				</f:facet>
+				<h:outputText value="#{ofertaFila.cargo}" styleClass="contenidoOfertaLaboral"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Area  " styleClass="headerOfertaLaboral"/>
+				</f:facet>
+				<h:outputText value="#{ofertaFila.area}" styleClass="contenidoOfertaLaboral"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Años de experiencia  " styleClass="headerOfertaLaboral"/>
+				</f:facet>
+					<h:outputText value="#{ofertaFila.aniosExperiencia}" styleClass="contenidoOfertaLaboral"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Profesion  " styleClass="headerOfertaLaboral"/>
+				</f:facet>
+					<h:outputText value="#{ofertaFila.profesion}" styleClass="contenidoOfertaLaboral"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Nivel de Estudios  " styleClass="headerOfertaLaboral"/>
+				</f:facet>
+					<h:outputText value="#{ofertaFila.nivelEstudios}" styleClass="contenidoOfertaLaboral"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Tipo contrato  " styleClass="headerOfertaLaboral"/>
+				</f:facet>
+					<h:outputText value="#{ofertaFila.tipoContrato}" styleClass="contenidoOfertaLaboral"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Tipo contrato  " styleClass="headerOfertaLaboral"/>
+				</f:facet>
+					<h:outputText value="#{ofertaFila.salario}" styleClass="contenidoOfertaLaboral"/>
+			</h:column>
+			
+			<h:column >
+				<f:facet name="header">
+					<h:outputText styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:commandLink>
+						<h:graphicImage value="/img/edit.svg" style="width:50px;height:50px;"/>
+					 			
+					</h:commandLink>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="" styleClass="headerOfertaLaboral"/>
+				</f:facet>
+					<p:commandLink update="@form">
+						<h:graphicImage value="/img/delete.svg" style="width:50px;height:50px;"/>
+						 <p:confirm header="Confirmación" message="¿Está Seguro?"/>
+					</p:commandLink>
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+       				 	<p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" update="@form"  />
+       				 	<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" />
+   					 </p:confirmDialog>   
+			</h:column>
+		
+		</h:dataTable>
+		
+		
+		</h:panelGrid>
+	
+	</div>
+</body> 
+</html>

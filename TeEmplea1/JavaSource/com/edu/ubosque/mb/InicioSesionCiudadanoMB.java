@@ -12,8 +12,12 @@ import org.primefaces.event.SelectEvent;
 
 import com.edu.ubosque.logica.CiudadanoLogica;
 import com.edu.ubosque.logica.DatosAcademicosLogica;
+import com.edu.ubosque.logica.EmpresaLogica;
+import com.edu.ubosque.logica.OfertaLaboralLogica;
 import com.edu.ubosque.model.Ciudadano;
+import com.edu.ubosque.model.Empresa;
 import com.edu.ubosque.model.InformacionAcademica;
+import com.edu.ubosque.model.OfertaLaboral;
 
 
 public class InicioSesionCiudadanoMB {
@@ -24,6 +28,10 @@ public class InicioSesionCiudadanoMB {
 	private CiudadanoLogica ciudadanoLogica;
 	private DatosAcademicosLogica datosAcademicosLogica;
 	private List<InformacionAcademica>  informacionAcademica;
+	private Empresa empresaSesion;
+	private EmpresaLogica empresaLogica;
+	private OfertaLaboralLogica ofertaLogica;
+	private List<OfertaLaboral> ofertas;
 	
 	private InformacionAcademica nuevaInformacionAcademica;
 	private InformacionAcademica informacionAcademicaAModificar;
@@ -37,6 +45,8 @@ public class InicioSesionCiudadanoMB {
 		ciudadanoLogica = new CiudadanoLogica();
 		datosAcademicosLogica = new DatosAcademicosLogica();
 		nuevaInformacionAcademica = new InformacionAcademica();
+		empresaLogica = new EmpresaLogica();
+		ofertaLogica = new OfertaLaboralLogica();
 
 	}
 
@@ -49,6 +59,19 @@ public class InicioSesionCiudadanoMB {
 		{
 			informacionAcademica = new ArrayList<InformacionAcademica>(ciudadanoSesion.getInformacionAcademicas());
 			return "/sesion/sesionCiudadano";
+			
+		} else if(ciudadanoSesion == null) {
+			
+			empresaSesion = empresaLogica.validarEmpresaClave(usuario, clave);
+			
+			if(empresaSesion != null) {
+				
+				return "/sesion/sesionEmpresa";
+			} else {
+				
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "No se puede Iniciar Sesión","Usuario y/o Contraseña incorrectas"));
+				return null;
+			}
 		}
 		else
 		{
@@ -183,11 +206,24 @@ public class InicioSesionCiudadanoMB {
 		this.idInfoAcademicaABuscar = idInfoAcademicaABuscar;
 	}
 
-	
-	
+
+	public Empresa getEmpresaSesion() {
+		return empresaSesion;
+	}
+
+
+	public void setEmpresaSesion(Empresa empresaSesion) {
+		this.empresaSesion = empresaSesion;
+	}
 
 	
-	
-	
-	
+	public List<OfertaLaboral> getOfertas() {
+		return ofertas;
+	}
+
+
+	public void setOfertas(List<OfertaLaboral> ofertas) {
+		this.ofertas = ofertas;
+	}
+
 }

@@ -37,6 +37,16 @@
   <managed-bean-class>com.edu.ubosque.mb.InformacionAcademicaMB</managed-bean-class>
   <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
+ <managed-bean>
+  <managed-bean-name>ofertaLaboralMB</managed-bean-name>
+  <managed-bean-class>com.edu.ubosque.mb.OfertaLaboralMB</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>empresaMB</managed-bean-name>
+  <managed-bean-class>com.edu.ubosque.mb.EmpresaMB</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
  <application>
   <action-listener>org.primefaces.application.DialogActionListener</action-listener>
   <navigation-handler>org.primefaces.application.DialogNavigationHandler</navigation-handler>

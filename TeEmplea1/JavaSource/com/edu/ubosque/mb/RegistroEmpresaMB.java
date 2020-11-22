@@ -67,8 +67,8 @@ public class RegistroEmpresaMB {
 		 Map<String, Object> opciones = new HashMap<String,Object>();
 		 	opciones.put("modal", true);
 		 	opciones.put("resizable", false);
-		 	opciones.put("width", 600);
-		 	opciones.put("height", 560);
+		 	opciones.put("width", 800);
+		 	opciones.put("height", 460);
 		 	opciones.put("contentWidth", "100%");
 		 	opciones.put("contentHeight", "100%");
 		 	opciones.put("headerElement", "customheader");

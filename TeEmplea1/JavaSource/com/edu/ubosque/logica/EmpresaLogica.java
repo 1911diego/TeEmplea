@@ -49,5 +49,25 @@ public class EmpresaLogica {
 		return dao.readEmpresaPorNombre(nombre);
 		
 	}
+	
+	public Empresa validarEmpresaClave(String nombre, String contrasena) {
+		
+		Empresa encontrado = empresaPorNombre(nombre);
+		
+		if(encontrado != null) {
+			
+			if(encontrado.getContrasena().equals(contrasena)) {
+				
+				return encontrado;
+			} else {
+				
+				return null;
+			}
+		} else {
+			
+			return null;
+		}
+		
+	}
 
 }

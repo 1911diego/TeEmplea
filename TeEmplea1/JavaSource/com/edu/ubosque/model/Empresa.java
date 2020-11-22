@@ -39,18 +39,6 @@ public class Empresa implements java.io.Serializable {
 		this.contrasena = contrasena;
 	}
 
-	public Empresa(int idempresa, String nombre, String perfil, String sector, String telefono, String correo, String contrasena,
-			Set<OfertaLaboral> ofertaLaborals) {
-		this.idempresa = idempresa;
-		this.nombre = nombre;
-		this.perfil = perfil;
-		this.sector = sector;
-		this.telefono = telefono;
-		this.correo = correo;
-		this.contrasena = contrasena;
-		this.ofertaLaborals = ofertaLaborals;
-	}
-
 	@Id
 
 	@Column(name = "idempresa", unique = true, nullable = false)
@@ -116,7 +104,7 @@ public class Empresa implements java.io.Serializable {
 		this.contrasena = contrasena;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "empresa")
 	public Set<OfertaLaboral> getOfertaLaborals() {
 		return this.ofertaLaborals;
 	}

@@ -23,7 +23,7 @@ public class OfertaLaboral implements java.io.Serializable {
 	private Empresa empresa;
 	private String cargo;
 	private String area;
-	private Date aniosExperiencia;
+	private int aniosExperiencia;
 	private String profesion;
 	private String nivelEstudios;
 	private String tipoContrato;
@@ -32,7 +32,7 @@ public class OfertaLaboral implements java.io.Serializable {
 	public OfertaLaboral() {
 	}
 
-	public OfertaLaboral(int idOferta, Empresa empresa, String cargo, String area, Date aniosExperiencia,
+	public OfertaLaboral(int idOferta, Empresa empresa, String cargo, String area, int aniosExperiencia,
 			String profesion, String nivelEstudios, String tipoContrato, double salario) {
 		this.idOferta = idOferta;
 		this.empresa = empresa;
@@ -84,13 +84,12 @@ public class OfertaLaboral implements java.io.Serializable {
 		this.area = area;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "anios_experiencia", nullable = false, length = 10)
-	public Date getAniosExperiencia() {
+	@Column(name = "anios_experiencia", nullable = false)
+	public int getAniosExperiencia() {
 		return this.aniosExperiencia;
 	}
 
-	public void setAniosExperiencia(Date aniosExperiencia) {
+	public void setAniosExperiencia(int aniosExperiencia) {
 		this.aniosExperiencia = aniosExperiencia;
 	}
 

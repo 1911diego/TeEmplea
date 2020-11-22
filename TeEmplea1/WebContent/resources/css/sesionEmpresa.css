@@ -1,0 +1,117 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+body{
+	background-color:#F8F8F8;
+}
+
+.ui-widget {
+    font-family: 'nunito',sans-serif;
+}
+
+.opciones {
+	height: 100%;
+	width: 240px;
+    position: fixed;
+    z-index: 1;
+	top: 0;
+	left: 0;
+	font-family: 'nunito', sans-serif;
+	background-color: #33393E;
+	overflow-x: hidden;
+	padding-top: 20px;
+	-webkit-box-shadow: 3px 1px 10px -5px rgba(56,56,56,1);
+	-moz-box-shadow: 3px 1px 10px -5px rgba(56,56,56,1);
+	box-shadow: 3px 1px 10px -5px rgba(56,56,56,1);
+}
+
+.opciones a {
+	padding: 6px 8px 6px 16px;
+  	text-decoration: none;
+  	font-size: 25px;
+  	color: #D5CDB0;
+  	display: block;
+}
+
+.opciones a:hover {
+	color: #f1f1f1;
+}
+
+.main {
+	margin-left: 240px; /* Same as the width of the sidenav */
+	font-size: 28px; /* Increased text to enable scrolling */
+ 	padding: 0px 10px;
+}
+
+.ui-toolbar {
+    padding: 0px;
+    margin: 0px;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    height: 60px;
+}
+
+.ui-widget-header {
+    border: none;
+    background: white;
+    color: #33393E;
+    font-family: 'Nunito', sans-serif;
+    font-weight: normal;
+    font-size: 15px;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+    -webkit-box-shadow: 0px 7px 5px -6px rgba(173,173,173,1);
+	-moz-box-shadow: 0px 7px 5px -6px rgba(173,173,173,1);
+	box-shadow: 0px 7px 5px -6px rgba(173,173,173,1);
+	display:list-item;
+}
+
+@media screen and (max-height: 450px) {
+  .opciones {padding-top: 15px;}
+  .opciones a {font-size: 18px;}
+}
+
+.infoEmpresa {
+	position: absolute;
+	top : 100px;
+	left: 300px;
+	background-color: white;
+	 -webkit-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	-moz-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+}
+
+.infoPerfil {
+	position: absolute;
+	top : 100px;
+	left: 870px;
+	background-color: white;
+	 -webkit-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	-moz-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
+	border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+}
+
+.ui-inputfield{
+	box-shadow: none;
+    border-color: #D5CDB0;
+    color: #33393E;
+    background: white;
+    font-family: 'nunito',sans-serif;
+}
+
+.ui-outputlabel .ui-widget{
+	font-size: 10px;
+}
+
+
+
+
+
