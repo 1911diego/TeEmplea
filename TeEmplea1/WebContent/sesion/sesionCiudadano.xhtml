@@ -107,12 +107,12 @@
 	
 	
 	
-	<h:form id="formInfoAcademica">
+	<h:form>
 	<p:growl id="growl" showDetail="true"/>
 	
 	<div class="botonAdd">
 		<h:panelGrid>
-			<p:commandLink action="#{ventanasEmergentesMB.ventanaAgregarInfoAcademica()}" update="@form">
+			<p:commandLink action="#{ventanasEmergentesMB.ventanaAgregarInfoAcademica()}">
 				<h:graphicImage value="/img/add.svg" style="width:40px;height:40px;" />
 				<p:ajax event="dialogReturn" listener="#{informacionAcademicaMB.mensajeInfoAgregada}" update="@form"/>
 			</p:commandLink>
@@ -120,8 +120,8 @@
 	</div>
 	
 	<div class="tablaInformacionAcademica" >
-	<h:panelGrid id="dataTableInfoAcademica" >
-		<h:dataTable var="academicaFila" value="#{informacionAcademicaMB.listaInformacionAcademica}">
+	<h:panelGrid  id="dataTableInfoAcademica">
+		<h:dataTable var="academicaFila" value="#{informacionAcademicaMB.listaInformacionAcademica}" >
 			<h:column headerClass="columnaId">
 				<f:facet name="header">
 					<h:outputText value="  Id  " styleClass="headerInfoAcademica"/>

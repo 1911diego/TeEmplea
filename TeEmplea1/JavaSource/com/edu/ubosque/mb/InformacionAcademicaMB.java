@@ -29,14 +29,19 @@ public class InformacionAcademicaMB {
 	private int idInfoAcademicaAEliminar;
 	private int idInfoAcademicaABuscar;
 	
-	public InformacionAcademicaMB() {
-		
+	public InformacionAcademicaMB() {		
 		session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		ciudadano = (Ciudadano) session.getAttribute("ciudadanoLogeado");
-		listaInformacionAcademica = new ArrayList<InformacionAcademica>(ciudadano.getInformacionAcademicas());
 		datosAcademicosLogica = new DatosAcademicosLogica();
 		nuevaInformacionAcademica = new InformacionAcademica();
 		ciudadanoLogica = new CiudadanoLogica();
+		inicializarLista();
+	}
+	
+	private void inicializarLista()
+	{
+		ciudadano = ciudadanoLogica.buscarCiudadanoPorId(ciudadano.getId());
+		listaInformacionAcademica = new ArrayList<InformacionAcademica>(ciudadano.getInformacionAcademicas());
 	}
 	
 	
@@ -46,7 +51,6 @@ public class InformacionAcademicaMB {
 		datosAcademicosLogica.createDatoAcademico(nuevaInformacionAcademica);
 		ciudadano = ciudadanoLogica.buscarCiudadanoPorId(ciudadano.getId());
 		listaInformacionAcademica = new ArrayList<InformacionAcademica>(ciudadano.getInformacionAcademicas());
-		
 		PrimeFaces.current().dialog().closeDynamic(nuevaInformacionAcademica);
 		
 	}

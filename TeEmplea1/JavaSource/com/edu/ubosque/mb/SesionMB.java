@@ -33,7 +33,6 @@ public class SesionMB {
 		if(ciudadano!=null)
 		{
 			session.setAttribute("ciudadanoLogeado", ciudadano);
-			System.out.println("si");
 			return "/sesion/sesionCiudadano";
 		}
 		else
