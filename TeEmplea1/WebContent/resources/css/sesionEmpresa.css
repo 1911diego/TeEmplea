@@ -39,8 +39,8 @@ body{
 }
 
 .main {
-	margin-left: 240px; /* Same as the width of the sidenav */
-	font-size: 28px; /* Increased text to enable scrolling */
+	margin-left: 240px;
+	font-size: 28px;
  	padding: 0px 10px;
 }
 
@@ -111,9 +111,16 @@ body{
 	font-size: 10px;
 }
 
+.botonAdd
+{
+	position: absolute;
+	top : 420px;
+	left: 350px;
+}
+
 .tablaOfertaLaboral{
 	position: absolute;
-	top : 740px;
+	top : 540px;
 	left: 350px;
 	background-color:white;
 	-webkit-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
@@ -193,13 +200,6 @@ body{
 	font-size: 15px;
 	color: #33393E;
 	font-weight: normal;
-}
-
-.botonAdd
-{
-	position: absolute;
-	top : 6400px;
-	left: 350px;
 }
 
 

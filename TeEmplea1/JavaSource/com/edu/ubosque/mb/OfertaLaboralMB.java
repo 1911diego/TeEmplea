@@ -8,6 +8,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 import org.primefaces.PrimeFaces;
+import org.primefaces.event.SelectEvent;
 
 import com.edu.ubosque.logica.EmpresaLogica;
 import com.edu.ubosque.logica.OfertaLaboralLogica;
@@ -53,6 +54,12 @@ public class OfertaLaboralMB {
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Proceso Éxitoso","Oferta Laboral Eliminada"); 
         FacesContext.getCurrentInstance().addMessage(null, message);
 	}
+	
+	public void mensajeOfertaAgregada(SelectEvent event) {
+        OfertaLaboral oferta = (OfertaLaboral) event.getObject();
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Oferta laboral agregada",oferta.getArea()); 
+        FacesContext.getCurrentInstance().addMessage(null, message);
+ }
 
 	public Empresa getEmpresa() {
 		return empresa;

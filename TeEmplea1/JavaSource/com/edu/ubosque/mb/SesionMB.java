@@ -24,7 +24,7 @@ public class SesionMB {
 	}
 	
 	
-	public String iniciarSesionCiudadano()
+	public String iniciarSesion()
 	{
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		
@@ -71,7 +71,7 @@ public class SesionMB {
 		}
 	}
 	
-	public String cerrarSesionCiudadano()
+	public String cerrarSesion()
 	{
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		

@@ -73,13 +73,13 @@
 		<h:panelGrid>
 			<p:commandLink action="#{ventanasEmergentesMB.ventanaAgregarOferta()}" update="@form">
 				<h:graphicImage value="/img/add.svg" style="width:40px;height:40px;" />
-				<p:ajax event="dialogReturn" update="@form"/>
+				<p:ajax event="dialogReturn" listener ="#{ofertaLaboralMB.mensajeOfertaAgregada}" update="@form"/>
 			</p:commandLink>
 		</h:panelGrid>
 	</div>
 	
 	<div class="tablaOfertaLaboral" >
-	<h:panelGrid id="dataTableOfertas" >
+	<h:panelGrid id="dataTableOfertas">
 		<h:dataTable var="ofertaFila" value="#{ofertaLaboralMB.listaOfertasLaborales}">
 			<h:column headerClass="columnaId">
 				<f:facet name="header">

@@ -39,7 +39,7 @@
 						<p:watermark for="usuario" value="Usuario"/>
 						<p:password id="clave" feedback="true" styleClass="textoUsuario" value="#{sesionMB.clave}" />
 						<p:watermark for="clave" value="Contraseña"/>
-						<p:commandButton id="ingreso" value="Iniciar Sesión" styleClass="botonInicioSesion" action="#{sesionMB.iniciarSesionCiudadano()}" update="@form"/>
+						<p:commandButton id="ingreso" value="Iniciar Sesión" styleClass="botonInicioSesion" action="#{sesionMB.iniciarSesion()}" update="@form"/>
 						<p:commandButton id="registro" value="Crear una Cuenta" styleClass="botonRegistrarse" action="#{ventanasEmergentesMB.ventanaRegistro()}" update="panelPrincipal"/>
 					</p:panelGrid>
 				
