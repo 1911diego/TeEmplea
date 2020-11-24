@@ -50,6 +50,32 @@ public class VentanasEmergentesMB {
 	      PrimeFaces.current().dialog().openDynamic("agregarInfoAcademica", opciones, null);
 	 }
 	 
+	 public void ventanaAgregarExperienciaLaboral()
+	 {
+		 Map<String, Object> opciones = new HashMap<String,Object>();
+		 	opciones.put("modal", true);
+		 	opciones.put("resizable", false);
+		 	opciones.put("width", 600);
+		 	opciones.put("height", 600);
+		 	opciones.put("contentWidth", "100%");
+		 	opciones.put("contentHeight", "100%");
+		 	opciones.put("headerElement", "customheader");
+	      PrimeFaces.current().dialog().openDynamic("agregarExperienciaLaboral", opciones, null);
+	 }
+	 
+	 public void ventanaAgregarReferencias()
+	 {
+		 Map<String, Object> opciones = new HashMap<String,Object>();
+		 	opciones.put("modal", true);
+		 	opciones.put("resizable", false);
+		 	opciones.put("width", 600);
+		 	opciones.put("height", 600);
+		 	opciones.put("contentWidth", "100%");
+		 	opciones.put("contentHeight", "100%");
+		 	opciones.put("headerElement", "customheader");
+	      PrimeFaces.current().dialog().openDynamic("agregarReferencias", opciones, null);
+	 }
+	 
 	 public void ventanaEditarInfoAcademica()
 	 {
 		 Map<String, Object> opciones = new HashMap<String,Object>();

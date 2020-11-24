@@ -1,5 +1,5 @@
 package com.edu.ubosque.model;
-// Generated 17/11/2020, 8:53:57 p. m. by Hibernate Tools 5.2.12.Final
+// Generated 23/11/2020, 6:36:43 p. m. by Hibernate Tools 5.2.12.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,7 +29,8 @@ public class Empresa implements java.io.Serializable {
 	public Empresa() {
 	}
 
-	public Empresa(int idempresa, String nombre, String perfil, String sector, String telefono, String correo, String contrasena) {
+	public Empresa(int idempresa, String nombre, String perfil, String sector, String telefono, String correo,
+			String contrasena) {
 		this.idempresa = idempresa;
 		this.nombre = nombre;
 		this.perfil = perfil;
@@ -37,6 +38,18 @@ public class Empresa implements java.io.Serializable {
 		this.telefono = telefono;
 		this.correo = correo;
 		this.contrasena = contrasena;
+	}
+
+	public Empresa(int idempresa, String nombre, String perfil, String sector, String telefono, String correo,
+			String contrasena, Set<OfertaLaboral> ofertaLaborals) {
+		this.idempresa = idempresa;
+		this.nombre = nombre;
+		this.perfil = perfil;
+		this.sector = sector;
+		this.telefono = telefono;
+		this.correo = correo;
+		this.contrasena = contrasena;
+		this.ofertaLaborals = ofertaLaborals;
 	}
 
 	@Id
@@ -94,17 +107,17 @@ public class Empresa implements java.io.Serializable {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	
+
 	@Column(name = "contrasena", nullable = false, length = 45)
 	public String getContrasena() {
-		return contrasena;
+		return this.contrasena;
 	}
 
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "empresa")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa")
 	public Set<OfertaLaboral> getOfertaLaborals() {
 		return this.ofertaLaborals;
 	}

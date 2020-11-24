@@ -1,13 +1,12 @@
 package com.edu.ubosque.model;
-// Generated 17/11/2020, 8:53:57 p. m. by Hibernate Tools 5.2.12.Final
-
-import static javax.persistence.GenerationType.IDENTITY;
+// Generated 23/11/2020, 6:36:43 p. m. by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -33,9 +32,19 @@ public class InformacionAcademica implements java.io.Serializable {
 	public InformacionAcademica() {
 	}
 
+	public InformacionAcademica(int id, Ciudadano ciudadano, Date fechaInicial, String institucion, String titulo,
+			String nivelEstudio) {
+		this.id = id;
+		this.ciudadano = ciudadano;
+		this.fechaInicial = fechaInicial;
+		this.institucion = institucion;
+		this.titulo = titulo;
+		this.nivelEstudio = nivelEstudio;
+	}
 
-	public InformacionAcademica(Ciudadano ciudadano, Date fechaInicial, Date fechaFinal, String institucion,
+	public InformacionAcademica(int id, Ciudadano ciudadano, Date fechaInicial, Date fechaFinal, String institucion,
 			String titulo, String nivelEstudio) {
+		this.id = id;
 		this.ciudadano = ciudadano;
 		this.fechaInicial = fechaInicial;
 		this.fechaFinal = fechaFinal;
@@ -45,7 +54,7 @@ public class InformacionAcademica implements java.io.Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID", unique = true, nullable = false)
 	public int getId() {
 		return this.id;

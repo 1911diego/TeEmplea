@@ -51,5 +51,11 @@ public class OfertaLaboralLogica {
 		return dao.deleteOferta(ofertaAEliminar);
 		
 	}
+	
+	public OfertaLaboral buscarOfertaPorId(int idOferta)
+	{
+		OfertaLaboral ofertaLaboralBuscada = dao.buscarOfertaPorId(idOferta);
+		return ofertaLaboralBuscada;
+	}
 
 }

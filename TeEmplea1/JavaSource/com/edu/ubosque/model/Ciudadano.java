@@ -1,5 +1,5 @@
 package com.edu.ubosque.model;
-// Generated 17/11/2020, 8:53:57 p. m. by Hibernate Tools 5.2.12.Final
+// Generated 23/11/2020, 6:36:43 p. m. by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -38,11 +38,11 @@ public class Ciudadano implements java.io.Serializable {
 	private String horario;
 	private Set<ExperienciaLaboral> experienciaLaborals = new HashSet<ExperienciaLaboral>(0);
 	private Set<Referencias> referenciases = new HashSet<Referencias>(0);
+	private Set<PostulacionLaboral> postulacionLaborals = new HashSet<PostulacionLaboral>(0);
 	private Set<InformacionAcademica> informacionAcademicas = new HashSet<InformacionAcademica>(0);
 
 	public Ciudadano() {
 	}
-
 
 	public Ciudadano(int id, String usuario, String clave, String primerNombre, String segundoNombre,
 			String primerApellido, String segundoApellido, Date fechaNacimiento, String lugarNacimiento,
@@ -65,6 +65,7 @@ public class Ciudadano implements java.io.Serializable {
 		this.aspiracionLaboral = aspiracionLaboral;
 		this.horario = horario;
 	}
+
 
 	@Id
 
@@ -231,7 +232,16 @@ public class Ciudadano implements java.io.Serializable {
 		this.referenciases = referenciases;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ciudadano", orphanRemoval = true)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ciudadano")
+	public Set<PostulacionLaboral> getPostulacionLaborals() {
+		return this.postulacionLaborals;
+	}
+
+	public void setPostulacionLaborals(Set<PostulacionLaboral> postulacionLaborals) {
+		this.postulacionLaborals = postulacionLaborals;
+	}
+
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ciudadano")
 	public Set<InformacionAcademica> getInformacionAcademicas() {
 		return this.informacionAcademicas;
 	}

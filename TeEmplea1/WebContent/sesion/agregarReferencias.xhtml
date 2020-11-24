@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" 
+ 		xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<h:outputStylesheet library ="css" name="sesion.css"/>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+</h:head> 
+<body style="text-align: center;" > 
+<div style="display: flex; justify-content: center; ">
+<h:form>
+
+	<h:panelGrid>
+		<h:outputText value="Tipo de Referencia" styleClass="labelAgregarInfoAcademica"/>
+		<p:inputText required="true" placeholder="Personal,Familiar" value="#{referenciaMB.nuevaReferencia.tipoReferencia}"/>
+		
+		<h:outputText value="Nombre" styleClass="labelAgregarInfoAcademica"/>
+		<p:inputText  required="true" placeholder="Título Obtenido" value="#{referenciaMB.nuevaReferencia.nombre}"/>
+		
+		<h:outputText value="Relación" styleClass="labelAgregarInfoAcademica"/>
+		<p:inputText required="true" placeholder="Técnico, Profesional, etc" value="#{referenciaMB.nuevaReferencia.relacion}"/>
+		
+		<h:outputText value="Cargo" styleClass="labelAgregarInfoAcademica"/>
+		<p:inputText required="true" placeholder="Técnico, Profesional, etc" value="#{referenciaMB.nuevaReferencia.cargo}"/>
+		
+		<h:outputText value="Teléfono" styleClass="labelAgregarInfoAcademica"/>
+		<p:inputNumber required="true" placeholder="Técnico, Profesional, etc" value="#{referenciaMB.nuevaReferencia.telefono}"/>
+		
+		<h:outputText value="Dirección" styleClass="labelAgregarInfoAcademica"/>
+		<p:inputText required="true" placeholder="Técnico, Profesional, etc" value="#{referenciaMB.nuevaReferencia.direccion}"/>
+		
+		<p:commandButton value="Agregar" action="#{referenciaMB.agregarReferencia()}"/>
+		
+	</h:panelGrid>
+
+
+</h:form>
+</div>
+</body>  
+</html>

@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"> 
+      xmlns:h="http://java.sun.com/jsf/html" 
+ 	  xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
 	<h:outputStylesheet library ="css" name="sesion.css"/>
@@ -25,7 +25,7 @@
 		<p:commandButton value="Experiencia Laboral" icon="pi pi-briefcase" action="experienciaLaboralCiudadano" />
 		<p:commandButton value="Referencias" icon="pi pi-users" action="referencias" />
 		<p:commandButton value="Mis Postulaciones" icon="pi pi-id-card" />
-		<p:commandButton value="Postularme" icon="pi pi-id-card" action="postularCiudadano"/>		
+		<p:commandButton value="Postularme" icon="pi pi-user-plus" action="postularCiudadano"/>		
 	</div> 
 	</h:form>
 	
@@ -47,7 +47,7 @@
 	<div class="divExperienciaLaboral">
 		<h:panelGrid columns="1">
 		<f:facet name="header">
-			<h:outputText value="Experiencia Laboral" styleClass="tituloInfoAcademica"/>
+			<h:outputText value="Referencias" styleClass="tituloInfoAcademica"/>
 		</f:facet>
 		</h:panelGrid>
 	</div>
@@ -60,62 +60,63 @@
 	
 	<div class="botonAddExpLaboral">
 		<h:panelGrid>
-			<p:commandLink action="#{ventanasEmergentesMB.ventanaAgregarExperienciaLaboral()}">
+			<p:commandLink action="#{ventanasEmergentesMB.ventanaAgregarReferencias()}">
 				<h:graphicImage value="/img/add.svg" style="width:40px;height:40px;" />
-				<p:ajax event="dialogReturn" listener= "#{experienciaLaboralMB.mensajeExpAgregada}" update="@form"/>
+				<p:ajax event="dialogReturn" listener= "#{referenciaMB.mensajeReferenciaAgregada()}" update="@form"/>
 			</p:commandLink>
 		</h:panelGrid>
 	</div>
 	
 	<div class="tablaExperienciaLaboral" >
 	<h:panelGrid id="dataTableExpLaboral" layout="">
-		<h:dataTable var="experienciaFila" value="#{experienciaLaboralMB.listaExperienciaLaboral}">
+		<h:dataTable var="referenciaFila" value="#{referenciaMB.listaReferencias}">
 			<h:column headerClass="columnaId">
 				<f:facet name="header">
 					<h:outputText value="  Id  " styleClass="headerInfoAcademica"/>
 				</f:facet>
-				<h:outputText value="#{experienciaFila.id}" styleClass="contenidoInfoAcademica"/>
-			</h:column>
-			<h:column headerClass="columnas">
-				<f:facet name="header">
-					<h:outputText value="  Fecha Inicial  " styleClass="headerInfoAcademica"/>
-				</f:facet>
-				<h:outputText value="#{experienciaFila.fechaInicial}" styleClass="contenidoInfoAcademica"/>
+				<h:outputText value="#{referenciaFila.id}" styleClass="contenidoInfoAcademica"/>
 			</h:column>
 			
 			<h:column headerClass="columnas">
 				<f:facet name="header">
-					<h:outputText value="  Fecha Final  " styleClass="headerInfoAcademica"/>
+					<h:outputText value="  Tipo de Referencia  " styleClass="headerInfoAcademica"/>
 				</f:facet>
-				<h:outputText value="#{experienciaFila.fechaFinal}" styleClass="contenidoInfoAcademica"/>
+					<h:outputText value="#{referenciaFila.tipoReferencia}" styleClass="contenidoInfoAcademica"/>
 			</h:column>
 			
 			<h:column headerClass="columnas">
 				<f:facet name="header">
-					<h:outputText value="  Empresa  " styleClass="headerInfoAcademica"/>
+					<h:outputText value=" Nombre " styleClass="headerInfoAcademica"/>
 				</f:facet>
-					<h:outputText value="#{experienciaFila.empresa}" styleClass="contenidoInfoAcademica"/>
+					<h:outputText value="#{referenciaFila.nombre}" styleClass="contenidoInfoAcademica"/>
 			</h:column>
 			
 			<h:column headerClass="columnas">
 				<f:facet name="header">
-					<h:outputText value="  Sector  " styleClass="headerInfoAcademica"/>
+					<h:outputText value="  Relación  " styleClass="headerInfoAcademica"/>
 				</f:facet>
-					<h:outputText value="#{experienciaFila.sector}" styleClass="contenidoInfoAcademica"/>
+					<h:outputText value="#{referenciaFila.relacion}" styleClass="contenidoInfoAcademica"/>
 			</h:column>
 			
 			<h:column headerClass="columnas">
 				<f:facet name="header">
 					<h:outputText value="  Cargo  " styleClass="headerInfoAcademica"/>
 				</f:facet>
-					<h:outputText value="#{experienciaFila.cargo}" styleClass="contenidoInfoAcademica"/>
+					<h:outputText value="#{referenciaFila.cargo}" styleClass="contenidoInfoAcademica"/>
 			</h:column>
 			
 			<h:column headerClass="columnas">
 				<f:facet name="header">
-					<h:outputText value="  Funciones  " styleClass="headerInfoAcademica"/>
+					<h:outputText value="  Telefono " styleClass="headerInfoAcademica"/>
 				</f:facet>
-					<h:outputText value="#{experienciaFila.funciones}" styleClass="contenidoInfoAcademica"/>
+					<h:outputText value="#{referenciaFila.telefono}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Dirección  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{referenciaFila.direccion}" styleClass="contenidoInfoAcademica"/>
 			</h:column>
 			
 			<h:column >
@@ -124,7 +125,7 @@
 				</f:facet>
 					<h:commandLink action="#{ventanasEmergentesMB.ventanaEditarInfoAcademica()}">
 						<h:graphicImage value="/img/edit.svg" style="width:50px;height:50px;"/>
-					 		<f:setPropertyActionListener value="#{academicaFila.id}" target="#{experienciaLaboralMB.idExpLaboralABuscar}"/>
+					 		<f:setPropertyActionListener value="#{academicaFila.id}" target="#{referenciaMB.idReferenciaABuscar}"/>
 							<!-- <f:actionListener  binding="#{inicioSesionCiudadanoMB.asignarInfoAcademicaAEditar()}"/> -->				
 					</h:commandLink>
 			</h:column>
@@ -133,9 +134,9 @@
 				<f:facet name="header">
 					<h:outputText value="" styleClass="headerInfoAcademica"/>
 				</f:facet>
-					<p:commandLink action="#{experienciaLaboralMB.eliminarExperienciaLaboral()}" update="@form">
+					<p:commandLink action="#{referenciaMB.eliminarReferencia()}" update="@form">
 						<h:graphicImage value="/img/delete.svg" style="width:50px;height:50px;"/>
-					  	<f:setPropertyActionListener value="#{experienciaFila.id}" target="#{experienciaLaboralMB.idExpLaboralAEliminar}"/>
+					  	<f:setPropertyActionListener value="#{referenciaFila.id}" target="#{referenciaMB.idReferenciaAEliminar}"/>
 						 <p:confirm header="Confirmación" message="¿Está Seguro?"/>
 					</p:commandLink>
 					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">

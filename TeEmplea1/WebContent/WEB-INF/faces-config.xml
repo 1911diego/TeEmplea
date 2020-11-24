@@ -13,11 +13,6 @@
   <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
  <managed-bean>
-  <managed-bean-name>inicioSesionCiudadanoMB</managed-bean-name>
-  <managed-bean-class>com.edu.ubosque.mb.InicioSesionCiudadanoMB</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
   <managed-bean-name>registroEmpresaMB</managed-bean-name>
   <managed-bean-class>com.edu.ubosque.mb.RegistroEmpresaMB</managed-bean-class>
   <managed-bean-scope>session</managed-bean-scope>
@@ -35,16 +30,31 @@
  <managed-bean>
   <managed-bean-name>informacionAcademicaMB</managed-bean-name>
   <managed-bean-class>com.edu.ubosque.mb.InformacionAcademicaMB</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
+  <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>ofertaLaboralMB</managed-bean-name>
   <managed-bean-class>com.edu.ubosque.mb.OfertaLaboralMB</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
+  <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>empresaMB</managed-bean-name>
   <managed-bean-class>com.edu.ubosque.mb.EmpresaMB</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>experienciaLaboralMB</managed-bean-name>
+  <managed-bean-class>com.edu.ubosque.mb.ExperienciaLaboralMB</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>referenciaMB</managed-bean-name>
+  <managed-bean-class>com.edu.ubosque.mb.ReferenciaMB</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>postulacionMB</managed-bean-name>
+  <managed-bean-class>com.edu.ubosque.mb.PostulacionMB</managed-bean-class>
   <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
  <application>

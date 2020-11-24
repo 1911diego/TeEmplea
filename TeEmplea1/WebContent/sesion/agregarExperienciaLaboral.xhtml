@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library ="css" name="sesion.css"/>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+</h:head> 
+<body style="text-align: center;" > 
+<div style="display: flex; justify-content: center; ">
+<h:form>
+
+	<h:panelGrid>
+		<h:outputText value="Fecha Inicial" styleClass="labelAgregarInfoAcademica"/>
+		<p:calendar pattern="yyyy/MM/dd" mask="true" required="true" placeholder="yyyy/mm/dd" value="#{experienciaLaboralMB.nuevaExperienciaLaboral.fechaInicial}"/>
+		
+		<h:outputText value="Fecha Final" styleClass="labelAgregarInfoAcademica" />
+		<p:calendar pattern="yyyy/MM/dd" mask="true" placeholder="yyyy/mm/dd" value="#{experienciaLaboralMB.nuevaExperienciaLaboral.fechaFinal}" />
+		
+		<h:outputText value="Empresa" styleClass="labelAgregarInfoAcademica"/>
+		<p:inputText required="true" placeholder="Empresa" value="#{experienciaLaboralMB.nuevaExperienciaLaboral.empresa}"/>
+		
+		<h:outputText value="Sector" styleClass="labelAgregarInfoAcademica"/>
+		<p:inputText  required="true" placeholder="Sector de la empresa" value="#{experienciaLaboralMB.nuevaExperienciaLaboral.sector}"/>
+		
+		<h:outputText value="Cargo" styleClass="labelAgregarInfoAcademica"/>
+		<p:inputText required="true" placeholder="Cargo" value="#{experienciaLaboralMB.nuevaExperienciaLaboral.cargo}"/>
+		
+		<h:outputText value="funciones" styleClass="labelAgregarInfoAcademica"/>
+		<p:inputText required="true" placeholder="Funciones en la empresa" value="#{experienciaLaboralMB.nuevaExperienciaLaboral.funciones}"/>
+		
+		<p:commandButton value="Agregar" action="#{experienciaLaboralMB.agregarExperienciaLaboral()}"/>
+		
+	</h:panelGrid>
+
+
+</h:form>
+</div>
+</body> 
+</html>
