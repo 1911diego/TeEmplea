@@ -117,7 +117,7 @@ public class Empresa implements java.io.Serializable {
 		this.contrasena = contrasena;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "empresa")
 	public Set<OfertaLaboral> getOfertaLaborals() {
 		return this.ofertaLaborals;
 	}

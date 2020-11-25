@@ -7,9 +7,11 @@ import java.util.Map;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.primefaces.PrimeFaces;
 
 import com.edu.ubosque.logica.CiudadanoLogica;
+import com.edu.ubosque.logica.Correo;
 import com.edu.ubosque.model.Ciudadano;
 
 public class ValidacionDeRegistroMB {
@@ -31,33 +33,34 @@ public class ValidacionDeRegistroMB {
 	private double aspiracionLaboral;
 	private String horario;
 	private String clave;
-
+	private Correo correo;
 	
 	
 	public ValidacionDeRegistroMB() {
 		ciudadanoLogica = new CiudadanoLogica();
-		
+		correo = new Correo();
 	}
 
 	
 	public void registrarCiudadano()
 	{
-		
+		String encript = DigestUtils.sha1Hex(clave);
 
-			Ciudadano ciudadanoNuevo = new Ciudadano(id,usuario,clave,primerNombre,segundoNombre, primerApellido,
-			segundoApellido,fechaNacimiento,lugarNacimiento,direccion,telefono,estadoCivil,correoElectronico,perfilProfesional,aspiracionLaboral,horario); 
+		Ciudadano ciudadanoNuevo = new Ciudadano(id,usuario,encript,primerNombre,segundoNombre, primerApellido,
+		segundoApellido,fechaNacimiento,lugarNacimiento,direccion,telefono,estadoCivil,correoElectronico,perfilProfesional,aspiracionLaboral,horario); 
 			
-			boolean registrado = ciudadanoLogica.createCiudadano(ciudadanoNuevo);
+		boolean correoRegistro = correo.enviarCorreoRegistroExitoso("", "", correoElectronico, usuario, clave);
+		boolean registrado = ciudadanoLogica.createCiudadano(ciudadanoNuevo);
 
-			if(registrado)
-			{
-				System.out.println("Registrado");
-			}
-			else
-			{
-				System.out.println("No registrado");
+		if(registrado && correoRegistro)
+		{
+			System.out.println("Registrado");
+		}
+		else
+		{
+			System.out.println("No registrado");
 				
-			}
+		}
 	}
 	
 	public void mensajes()

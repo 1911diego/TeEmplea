@@ -4,6 +4,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import com.edu.ubosque.logica.CiudadanoLogica;
 import com.edu.ubosque.logica.EmpresaLogica;
 import com.edu.ubosque.model.Ciudadano;
@@ -28,7 +30,9 @@ public class SesionMB {
 	{
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		
-		ciudadano = ciudadanoLogica.validarUsuarioClave(usuario,clave);
+		String encript = DigestUtils.sha1Hex(clave);
+		
+		ciudadano = ciudadanoLogica.validarUsuarioClave(usuario,encript);
 		
 		if(ciudadano!=null)
 		{
@@ -42,7 +46,6 @@ public class SesionMB {
 			if(empresa != null) {
 				
 				session.setAttribute("empresaLogueada", empresa);
-				System.out.println("si");
 				return "/sesion/sesionEmpresa";
 				
 			} else {

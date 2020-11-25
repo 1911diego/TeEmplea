@@ -44,6 +44,7 @@ public class OfertaLaboralMB {
 		empresa = empresaLogica.empresaPorId(empresa.getIdempresa());
 		listaOfertasLaborales = new ArrayList<OfertaLaboral>(empresa.getOfertaLaborals());
 		PrimeFaces.current().dialog().closeDynamic(ofertaLaboralNueva);
+		ofertaLaboralNueva = new OfertaLaboral();
 	}
 	
 	public void eliminarOfertaLaboral() {

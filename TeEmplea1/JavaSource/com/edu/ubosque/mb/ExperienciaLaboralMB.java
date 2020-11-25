@@ -53,7 +53,7 @@ public class ExperienciaLaboralMB {
 		ciudadano = ciudadanoLogica.buscarCiudadanoPorId(ciudadano.getId());
 		listaExperienciaLaboral = new ArrayList<ExperienciaLaboral>(ciudadano.getExperienciaLaborals());
 		PrimeFaces.current().dialog().closeDynamic(nuevaExperienciaLaboral);
-		
+		nuevaExperienciaLaboral = new ExperienciaLaboral();
 	}
 	
 	public void eliminarExperienciaLaboral()

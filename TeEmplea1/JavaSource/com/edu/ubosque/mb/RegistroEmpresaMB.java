@@ -6,8 +6,10 @@ import java.util.Map;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.primefaces.PrimeFaces;
 
+import com.edu.ubosque.logica.Correo;
 import com.edu.ubosque.logica.EmpresaLogica;
 import com.edu.ubosque.model.Empresa;
 
@@ -21,18 +23,23 @@ public class RegistroEmpresaMB {
 	private String telefono;
 	private String correo;
 	private String contrasena;
+	private Correo correoEnviado;
 	
 	public RegistroEmpresaMB() {
 		empresaLogica = new EmpresaLogica();
+		correoEnviado = new Correo();
 	}
 	
 	public void regEmpresa() {
 		
-		Empresa empresaNueva = new Empresa(id, nombre, perfil, sector, telefono, correo, contrasena);
+		String encript = DigestUtils.sha1Hex(contrasena);
 		
+		Empresa empresaNueva = new Empresa(id, nombre, perfil, sector, telefono, correo, encript);
+		
+		boolean correoRegistro = correoEnviado.enviarCorreoRegistroExitoso("", "", correo, nombre, contrasena);
 		boolean reg = empresaLogica.createEmpresa(empresaNueva);
 		
-		if(reg) {
+		if(reg && correoRegistro) {
 			System.out.println("Empresa registrada");
 		} else {
 			System.out.println("No se registro la empresa");

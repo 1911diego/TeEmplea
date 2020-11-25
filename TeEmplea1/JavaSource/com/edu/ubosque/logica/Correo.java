@@ -1,4 +1,4 @@
-package com.edu.ubosque.model;
+package com.edu.ubosque.logica;
 
 import java.util.Properties;
 import javax.activation.DataHandler;

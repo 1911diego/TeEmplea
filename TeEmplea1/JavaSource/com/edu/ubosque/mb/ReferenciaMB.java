@@ -53,7 +53,7 @@ public class ReferenciaMB {
 		ciudadano = ciudadanoLogica.buscarCiudadanoPorId(ciudadano.getId());
 		listaReferencias = new ArrayList<Referencias>(ciudadano.getReferenciases());
 		PrimeFaces.current().dialog().closeDynamic(nuevaReferencia);
-		
+		nuevaReferencia = new Referencias();
 	}
 	
 	public void eliminarReferencia()
@@ -68,8 +68,8 @@ public class ReferenciaMB {
 	
 	
 	 public void mensajeReferenciaAgregada(SelectEvent event) {
-	        InformacionAcademica info = (InformacionAcademica) event.getObject();
-	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Información Académica Agregada",info.getInstitucion()); 
+	        Referencias info = (Referencias) event.getObject();
+	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Información Académica Agregada",info.getNombre()); 
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	 }
 	 

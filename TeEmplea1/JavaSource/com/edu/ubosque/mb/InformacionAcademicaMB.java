@@ -52,7 +52,7 @@ public class InformacionAcademicaMB {
 		ciudadano = ciudadanoLogica.buscarCiudadanoPorId(ciudadano.getId());
 		listaInformacionAcademica = new ArrayList<InformacionAcademica>(ciudadano.getInformacionAcademicas());
 		PrimeFaces.current().dialog().closeDynamic(nuevaInformacionAcademica);
-		
+		nuevaInformacionAcademica = new InformacionAcademica();
 	}
 	
 	public void eliminarInformacionAcademica()

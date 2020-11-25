@@ -17,5 +17,6 @@
   <mapping class="com.edu.ubosque.model.Referencias"/>
   <mapping class="com.edu.ubosque.model.Empresa"/>
   <mapping class="com.edu.ubosque.model.OfertaLaboral"/>
+  <mapping class="com.edu.ubosque.model.PostulacionLaboral"/>
  </session-factory>
 </hibernate-configuration>

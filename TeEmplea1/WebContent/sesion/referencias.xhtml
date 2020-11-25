@@ -62,7 +62,7 @@
 		<h:panelGrid>
 			<p:commandLink action="#{ventanasEmergentesMB.ventanaAgregarReferencias()}">
 				<h:graphicImage value="/img/add.svg" style="width:40px;height:40px;" />
-				<p:ajax event="dialogReturn" listener= "#{referenciaMB.mensajeReferenciaAgregada()}" update="@form"/>
+				<p:ajax event="dialogReturn" listener= "#{referenciaMB.mensajeReferenciaAgregada}" update="@form"/>
 			</p:commandLink>
 		</h:panelGrid>
 	</div>
