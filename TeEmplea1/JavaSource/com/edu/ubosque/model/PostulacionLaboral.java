@@ -39,7 +39,7 @@ public class PostulacionLaboral implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_ciudadano", nullable = false)
 	public Ciudadano getCiudadano() {
 		return this.ciudadano;
@@ -49,7 +49,7 @@ public class PostulacionLaboral implements java.io.Serializable {
 		this.ciudadano = ciudadano;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_oferta", nullable = false)
 	public OfertaLaboral getOfertaLaboral() {
 		return this.ofertaLaboral;

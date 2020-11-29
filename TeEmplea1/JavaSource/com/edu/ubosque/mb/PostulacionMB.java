@@ -6,7 +6,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-
+import com.edu.ubosque.logica.CiudadanoLogica;
 import com.edu.ubosque.logica.OfertaLaboralLogica;
 import com.edu.ubosque.logica.PostulacionLaboralLogica;
 import com.edu.ubosque.model.Ciudadano;
@@ -22,11 +22,17 @@ public class PostulacionMB {
 	private List<OfertaLaboral> ofertasFiltradas;
 	private PostulacionLaboralLogica postulacionLaboralLogica;
 	private OfertaLaboralLogica ofertaLaboralLogica;
+	private List<PostulacionLaboral> listaPostulacionesCiudadano;
 	
 	private PostulacionLaboral nuevaPostulacion;
 	private OfertaLaboral ofertaNuevaPostulacion;
+	private CiudadanoLogica ciudadanoLogica;
 	
-	private int idNuevaPostulacion;
+	private int idOfertaNuevaPostulacion;
+	
+	
+	private OfertaLaboral nuevo;
+	private PostulacionLaboral postulacionAEliminar;
 
 	
 	public PostulacionMB() {		
@@ -34,23 +40,59 @@ public class PostulacionMB {
 		ciudadano = (Ciudadano) session.getAttribute("ciudadanoLogeado");
 		ofertaLaboralLogica = new OfertaLaboralLogica();
 		postulacionLaboralLogica = new PostulacionLaboralLogica();
-		inicializarLista();
+		ciudadanoLogica = new CiudadanoLogica();
+		inicializarListas();
 		
 	}
 	
-	private void inicializarLista()
+	private void inicializarListas()
 	{
 		listaOfertasLaborales = ofertaLaboralLogica.readOferta();
+		listaPostulacionesCiudadano = postulacionLaboralLogica.buscarPostulacionesPorCiudadanoOEmpresa(ciudadano.getId(),1);
 	}
 	
 	
 	public void agregarEmpleo()
 	{
-		ofertaNuevaPostulacion = ofertaLaboralLogica.buscarOfertaPorId(idNuevaPostulacion);
+		ofertaNuevaPostulacion = ofertaLaboralLogica.buscarOfertaPorId(idOfertaNuevaPostulacion);
 		nuevaPostulacion = new PostulacionLaboral(ciudadano,ofertaNuevaPostulacion);
-		postulacionLaboralLogica.createOferta(nuevaPostulacion);	
-		 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Proceso Éxitoso","Has agregado una nueva postulación"); 
-	        FacesContext.getCurrentInstance().addMessage(null, message);
+		boolean agregado = postulacionLaboralLogica.createPostulacionLaboral(nuevaPostulacion,idOfertaNuevaPostulacion);
+		
+		if(agregado)
+		{
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Proceso Éxitoso","Has agregado una nueva postulación"); 
+		    FacesContext.getCurrentInstance().addMessage(null, message);
+		    System.out.println("Agregado exitoso");
+		}
+		else
+		{
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "No se puede Agregar","ya has agregado esta postulación"); 
+		    FacesContext.getCurrentInstance().addMessage(null, message);
+		    System.out.println("No agregado");
+		}
+		
+	}
+	
+	public void eliminarEmpleo()
+	{
+		boolean eliminado = postulacionLaboralLogica.deletePostulacionLaboral(postulacionAEliminar);
+		
+		
+		if(eliminado)
+		{
+			ciudadano = ciudadanoLogica.buscarCiudadanoPorId(ciudadano.getId());
+			listaPostulacionesCiudadano = postulacionLaboralLogica.buscarPostulacionesPorCiudadanoOEmpresa(ciudadano.getId(),1);
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Proceso Éxitoso","Has eliminado esta postulación"); 
+		    FacesContext.getCurrentInstance().addMessage(null, message);
+		    System.out.println("Eliminado exitoso");
+		}
+		
+		else
+		{
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "No se puede Eliminar!","ya has agregado esta postulación"); 
+		    FacesContext.getCurrentInstance().addMessage(null, message);
+		    System.out.println("No Eliminado");
+		}
 	}
 	
 	
@@ -58,6 +100,7 @@ public class PostulacionMB {
 	public List<OfertaLaboral> getListaOfertasLaborales() {
 		return listaOfertasLaborales;
 	}
+	
 
 	public void setListaOfertasLaborales(List<OfertaLaboral> listaOfertasLaborales) {
 		this.listaOfertasLaborales = listaOfertasLaborales;
@@ -80,11 +123,35 @@ public class PostulacionMB {
 	}
 
 	public int getIdNuevaPostulacion() {
-		return idNuevaPostulacion;
+		return idOfertaNuevaPostulacion;
 	}
 
 	public void setIdNuevaPostulacion(int idNuevaPostulacion) {
-		this.idNuevaPostulacion = idNuevaPostulacion;
+		this.idOfertaNuevaPostulacion = idNuevaPostulacion;
+	}
+
+	public List<PostulacionLaboral> getListaPostulacionesCiudadano() {
+		return listaPostulacionesCiudadano;
+	}
+
+	public void setListaPostulacionesCiudadano(List<PostulacionLaboral> listaPostulacionesCiudadano) {
+		this.listaPostulacionesCiudadano = listaPostulacionesCiudadano;
+	}
+
+	public OfertaLaboral getNuevo() {
+		return nuevo;
+	}
+
+	public void setNuevo(OfertaLaboral nuevo) {
+		this.nuevo = nuevo;
+	}
+
+	public PostulacionLaboral getPostulacionAEliminar() {
+		return postulacionAEliminar;
+	}
+
+	public void setPostulacionAEliminar(PostulacionLaboral postulacionAEliminar) {
+		this.postulacionAEliminar = postulacionAEliminar;
 	}
 	
 	

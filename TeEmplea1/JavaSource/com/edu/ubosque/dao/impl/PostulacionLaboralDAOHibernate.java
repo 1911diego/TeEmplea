@@ -7,6 +7,7 @@ import org.hibernate.query.Query;
 
 import com.edu.ubosque.baseDatos.SesionHibernate;
 import com.edu.ubosque.dao.IPostulacionLaboralDAO;
+import com.edu.ubosque.model.OfertaLaboral;
 import com.edu.ubosque.model.PostulacionLaboral;
 
 public class PostulacionLaboralDAOHibernate implements IPostulacionLaboralDAO {
@@ -19,10 +20,18 @@ public class PostulacionLaboralDAOHibernate implements IPostulacionLaboralDAO {
 	public boolean createPostulacionLaboral(PostulacionLaboral crearPostulacionLaboral) {
 		Session session = SesionHibernate.getSf().getCurrentSession();
 		session.beginTransaction();
-		session.persist(crearPostulacionLaboral);
-		session.getTransaction().commit();
-		session.close();
-		return true;
+		try
+		{
+			session.persist(crearPostulacionLaboral);
+			session.getTransaction().commit();
+			session.close();
+			return true;
+		}
+		catch(Exception e)
+		{
+			session.close();
+			return false;
+		}
 	}
 
 	@Override
@@ -51,14 +60,32 @@ public class PostulacionLaboralDAOHibernate implements IPostulacionLaboralDAO {
 	}
 
 	@Override
-	public PostulacionLaboral buscarPostulacionLaboralPorId(int idPostulacionLaboral) {
-		String hql = "Select p FROM PostulacionLaboral p WHERE p.id = "+idPostulacionLaboral;
+	public PostulacionLaboral buscarPostulacionLaboralPorId(int id, int opcion) {
+		String hql = null;
+		switch(opcion)
+			{
+				case 1:
+				{
+					hql = "SELECT p FROM PostulacionLaboral p WHERE p.id = "+id;
+					break;
+				}
+		
+				case 2:
+				{
+					hql = "SELECT p FROM PostulacionLaboral p WHERE p.ofertaLaboral = "+id;
+					System.out.println("entra al case 2");
+					System.out.println("id= "+id);
+					break;
+				}
+			}
+			
 		Session session = SesionHibernate.getSf().getCurrentSession();
 		session.beginTransaction();
 		
 		try {
 		Query<PostulacionLaboral> query = session.createQuery(hql);
 		PostulacionLaboral postulacionLaboralBuscada = query.getSingleResult();
+		System.out.println("postulacion buscada = "+postulacionLaboralBuscada.getId());
 		
 		session.getTransaction().commit();
 		session.close();
@@ -71,5 +98,47 @@ public class PostulacionLaboralDAOHibernate implements IPostulacionLaboralDAO {
 			return null;
 		}
 	}
+
+	@Override
+	public List<PostulacionLaboral> buscarPostulacionLaboralPorCiudadanoOEmpresa(int id,int opcion) {
+		String hql = null;
+		switch(opcion)
+		{
+			case 1:
+			{
+				hql = "SELECT p FROM PostulacionLaboral p WHERE p.ciudadano = "+id;
+				break;
+			}
+			
+			case 2:
+			{
+				hql = "SELECT p FROM PostulacionLaboral p WHERE p.ofertaLaboral.empresa.idempresa = "+id;
+				System.out.println("Entra en el case 2 empresaid");
+				break;
+			}
+		}
+		
+		Session session = SesionHibernate.getSf().getCurrentSession();
+		session.beginTransaction();
+		
+		try {
+		Query<PostulacionLaboral> query = session.createQuery(hql);
+		List<PostulacionLaboral> lista = query.getResultList();
+		session.getTransaction().commit();
+		session.close();
+		return lista;
+		}
+		catch(Exception e)
+		{
+			session.close();
+			return null;
+		}
+		
+	}
+	
+	
+	
+
+	
 
 }

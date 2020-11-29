@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">  
+
+<h:head>
+	<h:outputStylesheet library ="css" name="sesionEmpresa.css"/>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+</h:head> 
+<body> 
+	<h:form>
+		<div class="opciones">
+			<div style="text-align:center;">
+			<h:graphicImage value="/img/logo_te_emplea.svg" style="width:190px;height:100px;"/>
+			<hr style="width:210px;height:1px; background-color:#5C6165;border:0;" />
+			<h:graphicImage value="/img/company.svg" style="width:125px;height:125px;"/>
+			<br/>
+			<h:outputText value="Bienvenido" styleClass="bienvenido"/>
+			<hr style="width:210px;height:1px; background-color:#5C6165; border:0" />
+			<br/>
+			</div>
+			<p:commandButton value="Mi Cuenta" icon="pi pi-user" action="sesionEmpresa" />
+			<p:commandButton value="Postulaciones Recibidas" icon="pi pi-users" action="postulacionesRecibidasEmpresa" />
+		</div>
+	</h:form>
+	<h:form>
+		<div class="main">
+			<p:toolbar>
+				<f:facet name="right">
+				<h:outputText value="Nombre del Usuario" styleClass="textoBarraSuperior"/>
+				<span class="ui-separator">
+	                <span class="ui-icon pi pi-ellipsis-v" />
+	            </span>
+				<h:commandLink value="Cerrar Sesión" styleClass="textoBarraSuperior"/>
+				</f:facet>
+			</p:toolbar>
+		</div>
+	</h:form>
+	
+	
+	<div class="divPostulacionesRecibidas">
+		<h:panelGrid columns="1">
+		<f:facet name="header">
+			<h:outputText value="Postulaciones Recibidas" styleClass="tituloInfoAcademica"/>
+		</f:facet>
+		</h:panelGrid>
+	</div>
+	
+	
+	<h:form>
+	<p:growl id="growl" showDetail="true"/>
+	<div class="tablaPostulacionesRecibidas" >
+		<h:panelGrid id="dataTableExpLaboral" layout="">
+			<p:dataTable var="postulacionesFila" value="#{postulacionesRecibidasEmpresaMB.listaPostulacionesRecibidas}"
+			widgetVar="postulaciones" emptyMessage="Sin resultados" filteredValue="#{postulacionesRecibidasEmpresaMB.listaPostulacionesFiltradas}">
+			
+			 <p:column filterBy="#{postulacionesFila.ofertaLaboral.idOferta}" headerText="Id Oferta" filterMatchMode="contains">
+             	<h:outputText value="#{postulacionesFila.ofertaLaboral.idOferta}" />
+        	 </p:column>
+        	 
+        	  <p:column filterBy="#{postulacionesFila.ciudadano.primerNombre}" headerText="Nombre" filterMatchMode="contains">
+             	<h:outputText value="#{postulacionesFila.ciudadano.primerNombre}" />
+        	 </p:column>
+        	 
+        	  <p:column filterBy="#{postulacionesFila.ciudadano.primerApellido}" headerText="Apellido" filterMatchMode="contains">
+             	<h:outputText value="#{postulacionesFila.ciudadano.primerApellido}" />
+        	 </p:column>
+        	 
+        	 <p:column filterBy="#{postulacionesFila.ciudadano.telefono}" headerText="Teléfono" filterMatchMode="contains">
+             	<h:outputText value="#{postulacionesFila.ciudadano.telefono}" />
+        	 </p:column>
+        	 
+        	  <p:column filterBy="#{postulacionesFila.ciudadano.correoElectronico}" headerText="E-Mail" filterMatchMode="contains">
+             	<h:outputText value="#{postulacionesFila.ciudadano.correoElectronico}" />
+        	 </p:column>
+        	 
+        	  <p:column >
+				<f:facet name="header">
+					<h:outputText value="Perfil Profesional" styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<p:commandLink action="#{ventanasEmergentesMB.ventanaDetallesPostulacionCiudadano('perfilProfesional')}" update="@form">
+						<h:graphicImage value="/img/details.svg" style="width:50px;height:50px;"/>
+					 		<f:setPropertyActionListener value="#{postulacionesFila}" target="#{postulacionesRecibidasEmpresaMB.postulacionRecibida}"/> 		
+					</p:commandLink>
+			</p:column>
+        	
+        	 <p:column >
+				<f:facet name="header">
+					<h:outputText value="Información Académica" styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<p:commandLink action="#{ventanasEmergentesMB.ventanaDetallesPostulacionCiudadano('infoAcademica')}" update="@form">
+						<h:graphicImage value="/img/details.svg" style="width:50px;height:50px;"/>
+					 		<f:setPropertyActionListener value="#{postulacionesFila}" target="#{postulacionesRecibidasEmpresaMB.postulacionRecibida}"/> 		
+					</p:commandLink>
+			</p:column>
+			
+			 <p:column >
+				<f:facet name="header">
+					<h:outputText value="Experiencia Laboral" styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<p:commandLink action="#{ventanasEmergentesMB.ventanaDetallesPostulacionCiudadano('expLaboral')}" update="@form">
+						<h:graphicImage value="/img/details.svg" style="width:50px;height:50px;"/>
+					 		<f:setPropertyActionListener value="#{postulacionesFila}" target="#{postulacionesRecibidasEmpresaMB.postulacionRecibida}"/> 		
+					</p:commandLink>
+			</p:column>
+			
+			 <p:column >
+				<f:facet name="header">
+					<h:outputText value="Ver Referencias" styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<p:commandLink action="#{ventanasEmergentesMB.ventanaDetallesPostulacionCiudadano('referencias')}" update="@form">
+						<h:graphicImage value="/img/details.svg" style="width:50px;height:50px;"/>
+					 		<f:setPropertyActionListener value="#{postulacionesFila}" target="#{postulacionesRecibidasEmpresaMB.postulacionRecibida}"/> 		
+					</p:commandLink>
+			</p:column>
+			
+			 <p:column >
+				<f:facet name="header">
+					<h:outputText value="" styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<p:commandLink  update="@form">
+						<h:graphicImage value="/img/add.svg" style="width:50px;height:50px;"/>
+					
+					</p:commandLink>
+			</p:column>
+			
+			<p:column >
+				<f:facet name="header">
+					<h:outputText value="" styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<p:commandLink  update="@form">
+						<h:graphicImage value="/img/delete.svg" style="width:50px;height:50px;"/>
+					 		
+					</p:commandLink>
+			</p:column>
+			
+		
+		
+			</p:dataTable>
+		</h:panelGrid>
+	</div>
+</h:form>
+
+	
+
+</body> 
+</html>

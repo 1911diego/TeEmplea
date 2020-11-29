@@ -74,7 +74,7 @@ public class OfertaLaboral implements java.io.Serializable {
 		this.idOferta = idOferta;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_empresa", nullable = false)
 	public Empresa getEmpresa() {
 		return this.empresa;
@@ -147,7 +147,7 @@ public class OfertaLaboral implements java.io.Serializable {
 		this.salario = salario;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ofertaLaboral")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ofertaLaboral")
 	public Set<PostulacionLaboral> getPostulacionLaborals() {
 		return this.postulacionLaborals;
 	}

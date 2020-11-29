@@ -17,10 +17,19 @@ public class PostulacionLaboralLogica {
 		dao = new PostulacionLaboralDAOHibernate();
 	}
 	
-public boolean createOferta(PostulacionLaboral postulacionLaboralACrear) {
+public boolean createPostulacionLaboral(PostulacionLaboral postulacionLaboralACrear, int idOferta) {
 		
-		return dao.createPostulacionLaboral(postulacionLaboralACrear);
-		
+	PostulacionLaboral postulacionBuscada = dao.buscarPostulacionLaboralPorId(idOferta, 2);
+	
+	if(postulacionBuscada == null)
+	{
+		dao.createPostulacionLaboral(postulacionLaboralACrear);
+		return true;
+	}
+		else
+		{
+			return false;
+		}
 	}
 	
 	public List<OfertaLaboral> readPostulacionLaboral(){
@@ -35,22 +44,16 @@ public boolean createOferta(PostulacionLaboral postulacionLaboralACrear) {
 		
 	}
 	
-	public boolean deletePostulacionLaboral(int idPostulacionLaboral, Ciudadano ciudadanoRelacionado) {
-		
-		List<PostulacionLaboral> postulaciones = new ArrayList<PostulacionLaboral>(ciudadanoRelacionado.getPostulacionLaborals());
-		PostulacionLaboral postulacionLaboralAEliminar = null;
-		
-		for (int i = 0; i < postulaciones.size(); i++) {
-			
-			if(postulaciones.get(i).getId() == idPostulacionLaboral) {
-				
-				postulacionLaboralAEliminar = postulaciones.get(i);
-			}
-			
-		}
-		
-		return dao.deletePostulacionLaboral(postulacionLaboralAEliminar);
-		
+	
+	public boolean deletePostulacionLaboral(PostulacionLaboral postulacionAEliminar)
+	{
+			return dao.deletePostulacionLaboral(postulacionAEliminar);
+	}
+	
+	
+	public List<PostulacionLaboral> buscarPostulacionesPorCiudadanoOEmpresa(int id, int opcion)
+	{
+		return dao.buscarPostulacionLaboralPorCiudadanoOEmpresa(id,opcion);
 	}
 
 }

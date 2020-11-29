@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">  
+
+<h:head>
+	<h:outputStylesheet library ="css" name="sesionEmpresa.css"/>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+</h:head> 
+<body> 
+<h:form rendered="#{ventanasEmergentesMB.render eq perfilProfesional}">	
+	<div id="perfilProfesional">
+		<h:panelGrid>
+			<f:facet name="header">
+				<h:outputText value="Perfil Profesional" />
+			</f:facet>
+				<h:inputText value="#{postulacionesRecibidasEmpresaMB.postulacionRecibida.ciudadano.perfilProfesional}" />
+		</h:panelGrid>
+	</div>
+</h:form>
+	
+<h:form rendered="#{ventanasEmergentesMB.render eq 'infoAcademica'}">
+	<div id="infoAcademica" >
+		<div class="tablaInformacionAcademica" >
+	<h:panelGrid  id="dataTableInfoAcademica">
+		<h:dataTable var="academicaFila" value="#{postulacionesRecibidasEmpresaMB.postulacionRecibida.ciudadano.informacionAcademicas}" >
+			<h:column headerClass="columnaId">
+				<f:facet name="header">
+					<h:outputText value="  Id  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+				<h:outputText value="#{academicaFila.id}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Fecha Inicial  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+				<h:outputText value="#{academicaFila.fechaInicial}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Fecha Final  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+				<h:outputText value="#{academicaFila.fechaFinal}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Institución  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{academicaFila.institucion}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Título Adquirido  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{academicaFila.titulo}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Nivel de Estudios  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{academicaFila.nivelEstudio}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+		
+		</h:dataTable>
+		
+		
+		</h:panelGrid>
+	
+	</div>
+		
+	</div>
+	
+</h:form>	
+
+<h:form rendered="#{ventanasEmergentesMB.render eq 'expLaboral'}">
+	
+	<div id="expLaboral"  >
+			<div class="tablaExperienciaLaboral" >
+	<h:panelGrid id="dataTableExpLaboral" layout="">
+		<h:dataTable var="experienciaFila" value="#{postulacionesRecibidasEmpresaMB.postulacionRecibida.ciudadano.experienciaLaborals}">
+			<h:column headerClass="columnaId">
+				<f:facet name="header">
+					<h:outputText value="  Id  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+				<h:outputText value="#{experienciaFila.id}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Fecha Inicial  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+				<h:outputText value="#{experienciaFila.fechaInicial}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Fecha Final  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+				<h:outputText value="#{experienciaFila.fechaFinal}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Empresa  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{experienciaFila.empresa}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Sector  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{experienciaFila.sector}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Cargo  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{experienciaFila.cargo}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Funciones  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{experienciaFila.funciones}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+		</h:dataTable>
+		
+		
+		</h:panelGrid>
+	
+	</div>
+			
+	</div>
+</h:form>
+
+<h:form rendered="#{ventanasEmergentesMB.render eq 'referencias'}">
+	
+	<div id="referencias" >
+		<div class="tablaExperienciaLaboral" >
+	<h:panelGrid id="dataTableExpLaboral" layout="">
+		<h:dataTable var="referenciaFila" value="#{postulacionesRecibidasEmpresaMB.postulacionRecibida.ciudadano.referenciases}">
+			<h:column headerClass="columnaId">
+				<f:facet name="header">
+					<h:outputText value="  Id  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+				<h:outputText value="#{referenciaFila.id}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Tipo de Referencia  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{referenciaFila.tipoReferencia}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value=" Nombre " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{referenciaFila.nombre}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Relación  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{referenciaFila.relacion}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Cargo  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{referenciaFila.cargo}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Telefono " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{referenciaFila.telefono}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+			<h:column headerClass="columnas">
+				<f:facet name="header">
+					<h:outputText value="  Dirección  " styleClass="headerInfoAcademica"/>
+				</f:facet>
+					<h:outputText value="#{referenciaFila.direccion}" styleClass="contenidoInfoAcademica"/>
+			</h:column>
+			
+		
+		</h:dataTable>
+		
+		
+		</h:panelGrid>
+	
+	</div>
+	</div>
+	</h:form>
+</body> 
+</html>

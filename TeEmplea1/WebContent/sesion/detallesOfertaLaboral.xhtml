@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" 
+	  xmlns:p="http://primefaces.org/ui"> 
+	  
+	  
+<h:head>
+	<h:outputStylesheet library ="css" name="sesion.css"/>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+</h:head> 
+<body> 
+
+	<h:panelGrid>
+		<h:outputText value="Perfil"/>
+		<h:outputText value="#{postulacionMB.nuevo.empresa.perfil}"/>
+		<h:outputText value="Años de Experiencia"/>
+		<h:outputText value="#{postulacionMB.nuevo.aniosExperiencia}"/>
+		<h:outputText value="Tipo de Contrato"/>
+		<h:outputText value="#{postulacionMB.nuevo.tipoContrato}"/>
+		<h:outputText value="Salario"/>
+		<h:outputText value="#{postulacionMB.nuevo.salario}"/>
+	</h:panelGrid>
+
+</body> 
+</html>
