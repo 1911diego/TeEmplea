@@ -18,9 +18,6 @@
   <mapping class="com.edu.ubosque.model.Empresa"/>
   <mapping class="com.edu.ubosque.model.OfertaLaboral"/>
   <mapping class="com.edu.ubosque.model.PostulacionLaboral"/>
-<<<<<<< Upstream, based on branch 'master' of https://github.com/1911diego/TeEmplea.git
-=======
-  
->>>>>>> d3dc004 tablas completas
+
  </session-factory>
 </hibernate-configuration>
