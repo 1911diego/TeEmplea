@@ -10,18 +10,19 @@
 	<h:outputStylesheet library ="css" name="sesion.css"/>
 	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
 </h:head> 
-<body> 
+<body style="text-align: center;" > 
+<div style="display: flex; justify-content: center; "> 
 
 	<h:panelGrid>
-		<h:outputText value="Perfil"/>
-		<h:outputText value="#{postulacionMB.nuevo.empresa.perfil}"/>
-		<h:outputText value="Años de Experiencia"/>
-		<h:outputText value="#{postulacionMB.nuevo.aniosExperiencia}"/>
-		<h:outputText value="Tipo de Contrato"/>
-		<h:outputText value="#{postulacionMB.nuevo.tipoContrato}"/>
-		<h:outputText value="Salario"/>
-		<h:outputText value="#{postulacionMB.nuevo.salario}"/>
+		<h:outputText value="Perfil" styleClass="tituloInfoPersonal"/>
+		<h:outputText value="#{postulacionMB.nuevo.empresa.perfil}" styleClass="textInfo"/>
+		<h:outputText value="Años de Experiencia" styleClass="tituloInfoPersonal" />
+		<h:outputText value="#{postulacionMB.nuevo.aniosExperiencia}" styleClass="textInfo"/>
+		<h:outputText value="Tipo de Contrato" styleClass="tituloInfoPersonal" />
+		<h:outputText value="#{postulacionMB.nuevo.tipoContrato}" styleClass="textInfo"/>
+		<h:outputText value="Salario" styleClass="tituloInfoPersonal"/>
+		<h:outputText value="#{postulacionMB.nuevo.salario}" styleClass="textInfo"/>
 	</h:panelGrid>
-
+</div>
 </body> 
 </html>

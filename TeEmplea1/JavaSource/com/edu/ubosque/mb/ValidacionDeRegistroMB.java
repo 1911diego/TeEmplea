@@ -9,10 +9,12 @@ import javax.faces.context.FacesContext;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.primefaces.PrimeFaces;
+import org.primefaces.event.SelectEvent;
 
 import com.edu.ubosque.logica.CiudadanoLogica;
 import com.edu.ubosque.logica.Correo;
 import com.edu.ubosque.model.Ciudadano;
+import com.edu.ubosque.model.InformacionAcademica;
 
 public class ValidacionDeRegistroMB {
 
@@ -35,6 +37,8 @@ public class ValidacionDeRegistroMB {
 	private String clave;
 	private Correo correo;
 	
+	private Ciudadano ciudadanoNuevo;
+	
 	
 	public ValidacionDeRegistroMB() {
 		ciudadanoLogica = new CiudadanoLogica();
@@ -46,7 +50,7 @@ public class ValidacionDeRegistroMB {
 	{
 		String encript = DigestUtils.sha1Hex(clave);
 
-		Ciudadano ciudadanoNuevo = new Ciudadano(id,usuario,encript,primerNombre,segundoNombre, primerApellido,
+		ciudadanoNuevo = new Ciudadano(id,usuario,encript,primerNombre,segundoNombre, primerApellido,
 		segundoApellido,fechaNacimiento,lugarNacimiento,direccion,telefono,estadoCivil,correoElectronico,perfilProfesional,aspiracionLaboral,horario); 
 			
 		boolean correoRegistro = correo.enviarCorreoRegistroExitoso("", "", correoElectronico, usuario, clave);
@@ -54,7 +58,7 @@ public class ValidacionDeRegistroMB {
 
 		if(registrado && correoRegistro)
 		{
-			System.out.println("Registrado");
+			PrimeFaces.current().dialog().closeDynamic(ciudadanoNuevo);
 		}
 		else
 		{
@@ -63,10 +67,19 @@ public class ValidacionDeRegistroMB {
 		}
 	}
 	
-	public void mensajes()
+	public void cerrarVentana()
 	{
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario Registrado!","Inicie sesión con su Usuario y Contraseña"));
+		PrimeFaces.current().dialog().closeDynamic(ciudadanoNuevo);
 	}
+	
+	public void mensajes(SelectEvent event)
+	{
+		Ciudadano ciudadano = (Ciudadano) event.getObject();
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido! "+ciudadano.getPrimerNombre(),"Inicie sesión con su Usuario y Contraseña");
+        FacesContext.getCurrentInstance().addMessage(null, message);
+	}
+	
+	 
 	
 	public String validarCiudadano()
 	{
@@ -328,6 +341,16 @@ public class ValidacionDeRegistroMB {
 
 	public void setClave(String clave) {
 		this.clave = clave;
+	}
+
+
+	public Ciudadano getCiudadanoNuevo() {
+		return ciudadanoNuevo;
+	}
+
+
+	public void setCiudadanoNuevo(Ciudadano ciudadanoNuevo) {
+		this.ciudadanoNuevo = ciudadanoNuevo;
 	}
 	
 	

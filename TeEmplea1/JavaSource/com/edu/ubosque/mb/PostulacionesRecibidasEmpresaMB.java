@@ -111,7 +111,15 @@ public class PostulacionesRecibidasEmpresaMB {
 		this.render = render;
 	}
 
-	
+	public Empresa getEmpresa() {
+		return empresa;
+	}
 
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+
+	
+	
 	
 }

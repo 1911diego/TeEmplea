@@ -13,8 +13,10 @@
 	<h:form>
 	<div class="sidenav">
 		<div style="text-align:center;">
+		<h:commandLink action="/Principal/principal">
 		<h:graphicImage value="/img/logo_te_emplea.svg" style="width:190px;height:100px;"/>
-		<hr style="width:210px;height:1px; background-color:#5C6165;border:0;" />
+		</h:commandLink>
+		<hr style="width:210px;height:1px; background-color:#5C6165;border:0;" />	
 		<h:graphicImage value="/img/avatar.svg" style="width:125px;height:125px;"/>
 		<br/>
 		<h:outputText value="Bienvenido" styleClass="bienvenido"/>
@@ -24,7 +26,7 @@
 		<p:commandButton value="Mi Cuenta" icon="pi pi-user" action="sesionCiudadano"/>
 		<p:commandButton value="Experiencia Laboral" icon="pi pi-briefcase" action="experienciaLaboralCiudadano" />
 		<p:commandButton value="Referencias" icon="pi pi-users" action="referencias" />
-		<p:commandButton value="Mis Postulaciones" icon="pi pi-id-card" />
+		<p:commandButton value="Mis Postulaciones" icon="pi pi-id-card" action="misPostulaciones" />
 		<p:commandButton value="Postularme" icon="pi pi-user-plus" action="postularCiudadano"/>		
 	</div> 
 	</h:form>

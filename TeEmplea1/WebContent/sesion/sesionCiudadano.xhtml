@@ -13,7 +13,9 @@
 	<h:form>
 	<div class="sidenav">
 		<div style="text-align:center;">
+		<h:commandLink action="/Principal/principal">
 		<h:graphicImage value="/img/logo_te_emplea.svg" style="width:190px;height:100px;"/>
+		</h:commandLink>
 		<hr style="width:210px;height:1px; background-color:#5C6165;border:0;" />
 		<h:graphicImage value="/img/avatar.svg" style="width:125px;height:125px;"/>
 		<br/>
@@ -170,8 +172,7 @@
 				</f:facet>
 					<h:commandLink action="#{ventanasEmergentesMB.ventanaEditarInfoAcademica()}">
 						<h:graphicImage value="/img/edit.svg" style="width:50px;height:50px;"/>
-					 		<f:setPropertyActionListener value="#{academicaFila.id}" target="#{informacionAcademicaMB.idInfoAcademicaABuscar}"/>
-							<f:actionListener  binding="#{informacionAcademicaMB.asignarInfoAcademicaAEditar()}"/>				
+					 		<f:setPropertyActionListener value="#{academicaFila.id}" target="#{informacionAcademicaMB.idInfoAcademicaABuscar}"/>				
 					</h:commandLink>
 			</h:column>
 			

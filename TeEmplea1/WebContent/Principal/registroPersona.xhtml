@@ -106,7 +106,7 @@
 				</p:panelGrid>
 				
 				<p:commandButton value="Registrarse" action="#{validacionDeRegistroMB.registrarCiudadano()}">
-					<p:ajax event="dialogReturn" listener="#{validacionDeRegistroMB.mensajes()}" update="growl" />
+					<p:ajax event="dialogReturn" listener="#{validacionDeRegistroMB.mensajes}"/>
 				</p:commandButton>
 			</p:panel>
 		</p:tab>

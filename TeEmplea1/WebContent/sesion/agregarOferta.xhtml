@@ -5,35 +5,39 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"> 
 
-<h:head></h:head> 
-<body> 
+<h:head>
+	<h:outputStylesheet library ="css" name="sesionEmpresa.css"/>
+</h:head> 
+<body style="text-align: center;" > 
+<div style="display: flex; justify-content: center; ">
 	<div>
 		<h:form>
 			<h:panelGrid columns="2">
-				<h:outputText value="Cargo" />
+				<h:outputText value="Cargo" styleClass="tituloInfoEmpresa" />
 				<p:inputText required="true" placeholder="Cargo" value="#{ofertaLaboralMB.ofertaLaboralNueva.cargo}"/>
 				
-				<h:outputText value="Area" />
+				<h:outputText value="Area" styleClass="tituloInfoEmpresa" />
 				<p:inputText required="true" placeholder="Area" value="#{ofertaLaboralMB.ofertaLaboralNueva.area}"/>
 				
-				<h:outputText value="Años de experiencia" />
+				<h:outputText value="Años de experiencia" styleClass="tituloInfoEmpresa" />
 				<p:inputText required="true" placeholder="Años experiencia" value="#{ofertaLaboralMB.ofertaLaboralNueva.aniosExperiencia}"/>
 				
-				<h:outputText value="Profesion" />
+				<h:outputText value="Profesion" styleClass="tituloInfoEmpresa" />
 				<p:inputText required="true" placeholder="Profesion" value="#{ofertaLaboralMB.ofertaLaboralNueva.profesion}"/>
 				
-				<h:outputText value="Nivel de estudios" />
+				<h:outputText value="Nivel de estudios" styleClass="tituloInfoEmpresa" />
 				<p:inputText required="true" placeholder="Nivel de estudios" value="#{ofertaLaboralMB.ofertaLaboralNueva.nivelEstudios}"/>
 				
-				<h:outputText value="Tipo contrato" />
+				<h:outputText value="Tipo contrato" styleClass="tituloInfoEmpresa" />
 				<p:inputText required="true" placeholder="Tipo contrato" value="#{ofertaLaboralMB.ofertaLaboralNueva.tipoContrato}"/>
 				
-				<h:outputText value="Salario" />
+				<h:outputText value="Salario" styleClass="tituloInfoEmpresa" />
 				<p:inputNumber required="true" placeholder="Salario" value="#{ofertaLaboralMB.ofertaLaboralNueva.salario}"/>
 				
 				<p:commandButton value="Agregar" action="#{ofertaLaboralMB.agregarOfertaLaboral()}"/>
 			</h:panelGrid>  
 		</h:form>
+	</div>
 	</div>
 </body> 
 </html>

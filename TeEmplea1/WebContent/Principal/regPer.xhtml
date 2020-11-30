@@ -18,7 +18,9 @@
 			</f:facet>
 			<p:inputText id="documento" styleClass="nombre" required="true" value="#{validacionDeRegistroMB.id}" placeholder="N de Documento"/>
 			<p:inputText id="usuario" styleClass="nombre" required="true" value="#{validacionDeRegistroMB.usuario}" placeholder="Usuario"/>					
-			<p:commandButton id="registro" value="Registrarse" styleClass="botonRegistrarse" action="#{validacionDeRegistroMB.validarCiudadano()}"/>
+			<p:commandButton id="registro" value="Registrarse" styleClass="botonRegistrarse" action="#{validacionDeRegistroMB.validarCiudadano()}">
+				<p:ajax event="dialogReturn" listener="#{validacionDeRegistroMB.cerrarVentana()}"/>
+			</p:commandButton>
 						
 		</p:panelGrid>
 	

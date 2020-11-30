@@ -6,24 +6,25 @@
       xmlns:p="http://primefaces.org/ui">  
 
 <h:head>
-	<h:outputStylesheet library ="css" name="sesion.css"/>
+	<h:outputStylesheet library ="css" name="sesionEmpresa.css"/>
 	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
 </h:head> 
-<body> 
+<body style="text-align: center;" > 
+<div style="display: flex; justify-content: center; ">
 <h:form rendered="#{postulacionesRecibidasEmpresaMB.render==1}">	
 	<div id="perfilProfesional">
 		<h:panelGrid >
 			<f:facet name="header">
-				<h:outputText value="Perfil Profesional" />
+				<h:outputText value="Perfil Profesional" styleClass="labelPerfilProfesional"/>
 			</f:facet>
-				<h:inputText value="#{postulacionesRecibidasEmpresaMB.postulacionRecibida.ciudadano.perfilProfesional}" />
+				<h:outputText value="#{postulacionesRecibidasEmpresaMB.postulacionRecibida.ciudadano.perfilProfesional}" styleClass="contenidoPerfilProfesional" />
 		</h:panelGrid>
 	</div>
 </h:form>
 	
 <h:form rendered="#{postulacionesRecibidasEmpresaMB.render==2}">
 	<div id="infoAcademica" >
-		<div class="tablaInformacionAcademica" >
+		<div class="tablasPostulacion" >
 	<h:panelGrid  id="dataTableInfoAcademica">
 		<h:dataTable var="academicaFila" value="#{postulacionesRecibidasEmpresaMB.listaInformacionAcademicaCiudadano}" >
 			<h:column headerClass="columnaId">
@@ -81,7 +82,7 @@
 <h:form rendered="#{postulacionesRecibidasEmpresaMB.render==3}" >
 	
 	<div id="expLaboral"  >
-			<div class="tablaExperienciaLaboral" >
+			<div class="tablasPostulacion" >
 	<h:panelGrid id="dataTableExpLaboral" layout="" >
 		<h:dataTable var="experienciaFila" value="#{postulacionesRecibidasEmpresaMB.listaExperienciaLaboralCiudadano}">
 			<h:column headerClass="columnaId">
@@ -145,7 +146,7 @@
 <h:form rendered="#{postulacionesRecibidasEmpresaMB.render==4}" >
 	
 	<div id="referencias" >
-		<div class="tablaExperienciaLaboral" >
+		<div class="tablasPostulacion" >
 	<h:panelGrid id="dataTableExpLaboral" layout="">
 		<h:dataTable var="referenciaFila" value="#{postulacionesRecibidasEmpresaMB.listaReferenciasCiudadano}">
 			<h:column headerClass="columnaId">
@@ -206,5 +207,6 @@
 	</div>
 	</div>
 	</h:form>
+	</div>
 </body> 
 </html>

@@ -283,7 +283,7 @@ body
 {
 	position: absolute;
 	top : 240px;
-	left: 300px;
+	left: 260px;
 	background-color:white;
 	-webkit-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
 	-moz-box-shadow: 7px 5px 5px -5px rgba(173,173,173,1);
@@ -293,6 +293,7 @@ body
 	-webkit-border-radius: 6px 6px 6px 6px;
 	z-index: 1;
 	text-align: center;
+	font-size: 12px;
 }
 
 .botonExportarPdf
@@ -331,6 +332,8 @@ body
 	color: #33393E;
 	font-weight: normal;
 }
+
+
 
 
 

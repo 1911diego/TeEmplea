@@ -109,8 +109,8 @@ public class VentanasEmergentesMB {
 		 Map<String, Object> opciones = new HashMap<String, Object>();
 		 opciones.put("modal", true);
 		 opciones.put("resizable", false);
-		 opciones.put("width", 700);
-		 opciones.put("height", 600);
+		 opciones.put("width", 650);
+		 opciones.put("height", 400);
 		 opciones.put("contentWidth", "100%");
 		 opciones.put("contentHeight", "100%");
 		 opciones.put("headerElement", "customheader");
@@ -122,8 +122,8 @@ public class VentanasEmergentesMB {
 		 Map<String, Object> opciones = new HashMap<String, Object>();
 		 opciones.put("modal", true);
 		 opciones.put("resizable", false);
-		 opciones.put("width", 700);
-		 opciones.put("height", 600);
+		 opciones.put("width", 400);
+		 opciones.put("height",450);
 		 opciones.put("contentWidth", "100%");
 		 opciones.put("contentHeight", "100%");
 		 opciones.put("headerElement", "customheader");
