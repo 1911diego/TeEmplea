@@ -15,6 +15,11 @@ import com.edu.ubosque.logica.ExperienciaLaboralLogica;
 import com.edu.ubosque.model.Ciudadano;
 import com.edu.ubosque.model.ExperienciaLaboral;
 
+/**
+ * Clase manage bean de experiencia laboral
+ * @author Nicolás Ávila, Sebastián Moncaleano, Diego Torres | Universidad El Bosque
+ *
+ */
 public class ExperienciaLaboralMB {
 
 	private Ciudadano ciudadano;
@@ -29,6 +34,9 @@ public class ExperienciaLaboralMB {
 	private int idExpLaboralAEliminar;
 	private int idExpLaboralABuscar;
 	
+	/**
+	 * Metodo constructor de ExperienciaLaboralMB
+	 */
 	public ExperienciaLaboralMB() {	
 		
 		session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
@@ -39,6 +47,9 @@ public class ExperienciaLaboralMB {
 		inicializarLista();
 	}
 	
+	/**
+	 * Metodo que inicializa las listas
+	 */
 	private void inicializarLista()
 	{
 		ciudadano = ciudadanoLogica.buscarCiudadanoPorId(ciudadano.getId());
@@ -46,6 +57,9 @@ public class ExperienciaLaboralMB {
 	}
 	
 	
+	/**
+	 * Metodo que agrega una experiencia laboral
+	 */
 	public void agregarExperienciaLaboral()
 	{
 		nuevaExperienciaLaboral.setCiudadano(ciudadano);
@@ -56,6 +70,9 @@ public class ExperienciaLaboralMB {
 		nuevaExperienciaLaboral = new ExperienciaLaboral();
 	}
 	
+	/**
+	 * Metodo que elimina una experiencia laboral
+	 */
 	public void eliminarExperienciaLaboral()
 	{	
 		expLaboralLogica.deleteExperienciaLaboral(idExpLaboralAEliminar,ciudadano);
@@ -65,22 +82,29 @@ public class ExperienciaLaboralMB {
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 	
-	
-	
-	 public void mensajeExpAgregada(SelectEvent event) {
+	 /**
+	  * Metodo que muestra un mensaje 
+	 * @param event evento de la pagina
+	 */
+	public void mensajeExpAgregada(SelectEvent event) {
 	        ExperienciaLaboral info = (ExperienciaLaboral) event.getObject();
 	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Experiencia Laboral Agregada",info.getEmpresa()); 
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	 }
 	 
-	 
-	 public void asignarExperienciaLaboralAEditar()
+	 /**
+	 * Metodo que asigna la exp laboral a editar
+	 */
+	public void asignarExperienciaLaboralAEditar()
 	 {
 		 experienciaLaboralaAModificar = expLaboralLogica.buscarInfoAcademicaPorId(idExpLaboralABuscar);
 		 System.out.println(experienciaLaboralaAModificar.getId());
 	 }
 	 
-	 public void editarInfoAcademica()
+	 /**
+	 * Metodo que edita una exp laboral
+	 */
+	public void editarInfoAcademica()
 	 {
 		 expLaboralLogica.updateExperienciaLaboral(experienciaLaboralaAModificar);
 	 }

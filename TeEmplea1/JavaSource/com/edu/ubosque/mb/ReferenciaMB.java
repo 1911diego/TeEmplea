@@ -16,6 +16,11 @@ import com.edu.ubosque.model.Ciudadano;
 import com.edu.ubosque.model.InformacionAcademica;
 import com.edu.ubosque.model.Referencias;
 
+/**
+ * Clase manage bean de referencia
+ * @author Nicolás Ávila, Sebastián Moncaleano, Diego Torres | Universidad El Bosque
+ *
+ */
 public class ReferenciaMB {
 
 	private Ciudadano ciudadano;
@@ -30,6 +35,9 @@ public class ReferenciaMB {
 	private int idReferenciaAEliminar;
 	private int idReferenciaABuscar;
 	
+	/**
+	 * Metodo constructor de ReferenciaMB
+	 */
 	public ReferenciaMB() {		
 		session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		ciudadano = (Ciudadano) session.getAttribute("ciudadanoLogeado");
@@ -39,13 +47,18 @@ public class ReferenciaMB {
 		inicializarLista();
 	}
 	
+	/**
+	 * Metotdo que inicializa las listas
+	 */
 	private void inicializarLista()
 	{
 		ciudadano = ciudadanoLogica.buscarCiudadanoPorId(ciudadano.getId());
 		listaReferencias = new ArrayList<Referencias>(ciudadano.getReferenciases());
 	}
 	
-	
+	/**
+	 * Metodo que agrega una referencia
+	 */
 	public void agregarReferencia()
 	{
 		nuevaReferencia.setCiudadano(ciudadano);
@@ -56,6 +69,9 @@ public class ReferenciaMB {
 		nuevaReferencia = new Referencias();
 	}
 	
+	/**
+	 * Metodo que elimina una referencia
+	 */
 	public void eliminarReferencia()
 	{	
 		referenciaLogica.deleteReferencia(idReferenciaAEliminar,ciudadano);
@@ -65,22 +81,29 @@ public class ReferenciaMB {
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 	
-	
-	
-	 public void mensajeReferenciaAgregada(SelectEvent event) {
+	 /**
+	  * Metodo que muestra un mensaje
+	 * @param event evento en la pagina
+	 */
+	public void mensajeReferenciaAgregada(SelectEvent event) {
 	        Referencias info = (Referencias) event.getObject();
 	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Información Académica Agregada",info.getNombre()); 
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	 }
 	 
-	 
-	 public void asignarReferenciaAEditar()
+	 /**
+	 * Metodo que asigna una referencia a editar
+	 */
+	public void asignarReferenciaAEditar()
 	 {
 		 referenciaAModificar = referenciaLogica.buscarReferencia(idReferenciaABuscar);
 		 System.out.println(referenciaAModificar.getId());
 	 }
 	 
-	 public void editarReferencia()
+	 /**
+	 * Metodo que edita una referencia
+	 */
+	public void editarReferencia()
 	 {
 		 referenciaLogica.updateReferencia(referenciaAModificar);
 	 }

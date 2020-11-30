@@ -14,6 +14,11 @@ import com.edu.ubosque.model.InformacionAcademica;
 import com.edu.ubosque.model.PostulacionLaboral;
 import com.edu.ubosque.model.Referencias;
 
+/**
+ * Clase manage bean de las postulaciones laborales
+ * @author Nicolás Ávila, Sebastián Moncaleano, Diego Torres | Universidad El Bosque
+ *
+ */
 public class PostulacionesRecibidasEmpresaMB {
 
 	private Empresa empresa;
@@ -29,6 +34,9 @@ public class PostulacionesRecibidasEmpresaMB {
 	private List<Referencias> listaReferenciasCiudadano;
 	private int render;
 	
+	/**
+	 * Metodo constructor de PostulacionesRecibidasEmpresaMB
+	 */
 	public PostulacionesRecibidasEmpresaMB() {
 		session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		empresa = (Empresa) session.getAttribute("empresaLogueada");
@@ -36,12 +44,19 @@ public class PostulacionesRecibidasEmpresaMB {
 		inicializarLista();
 	}
 	
+	/**
+	 * Metodo que inicializa la lista
+	 */
 	private void inicializarLista()
 	{
 		listaPostulacionesRecibidas = postulacionLaboralLogica.buscarPostulacionesPorCiudadanoOEmpresa(empresa.getIdempresa(),2);
 		
 	}
 	
+	/**
+	 * Metodo que llena la lista del ciudadano
+	 * @param render numero de render
+	 */
 	public void llenarListasCiudadano(int render)
 	{
 		

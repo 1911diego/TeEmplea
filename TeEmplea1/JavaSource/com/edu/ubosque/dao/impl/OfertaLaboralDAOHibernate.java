@@ -8,12 +8,25 @@ import com.edu.ubosque.baseDatos.SesionHibernate;
 import com.edu.ubosque.dao.IOfertaLaboralDAO;
 import com.edu.ubosque.model.OfertaLaboral;
 
+/**
+ * Clase dao de la oferta laboral
+ * @author Nicolás Ávila, Sebastián Moncaleano, Diego Torres | Universidad El Bosque
+ *
+ */
 public class OfertaLaboralDAOHibernate implements IOfertaLaboralDAO {
 
+	/**
+	 * Metodo constructor de OfertaLaboralDAOHibernate
+	 */
 	public OfertaLaboralDAOHibernate() {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Metodo que crea una nueva oferta laboral
+	 * @param ofertaACrear Objeto de oferta laboral a crear
+	 * @return true sí la creó, false sí ocurrio algun error
+	 */
 	@Override
 	public boolean createOferta(OfertaLaboral ofertaACrear) {
 		
@@ -24,6 +37,10 @@ public class OfertaLaboralDAOHibernate implements IOfertaLaboralDAO {
 		return true;
 	}
 
+	/**
+	 * Metodo que lista las ofertas laborales
+	 * @return lista de las ofertas
+	 */
 	@Override
 	public List<OfertaLaboral> readOferta() {
 
@@ -36,6 +53,11 @@ public class OfertaLaboralDAOHibernate implements IOfertaLaboralDAO {
 		return lista;
 	}
 
+	/**
+	 * Modifica una oferta laboral
+	 * @param ofertaAModificar Objeto de la oferta a modificar
+	 * @return true sí la modificó, false sí ocurrio algun error
+	 */
 	@Override
 	public boolean updateOferta(OfertaLaboral ofertaAModificar) {
 		
@@ -46,6 +68,12 @@ public class OfertaLaboralDAOHibernate implements IOfertaLaboralDAO {
 		return true;
 	}
 
+	/**
+	 * Metodo que elimina una oferta laboral
+	 * @param idOferta id de la oferta
+	 * @param empresaRelacionada Empresa relacionada a la ofeta
+	 * @return
+	 */
 	@Override
 	public boolean deleteOferta(OfertaLaboral ofertaAEliminar) {
 		
@@ -56,6 +84,11 @@ public class OfertaLaboralDAOHibernate implements IOfertaLaboralDAO {
 		return true;
 	}
 
+	/**
+	 * Metodo que busca una oferta por la id
+	 * @param idOferta id de la oferta
+	 * @return Objeto de oferta encontrado
+	 */
 	@Override
 	public OfertaLaboral buscarOfertaPorId(int idOferta) {
 		

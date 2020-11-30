@@ -7,15 +7,24 @@ import javax.faces.application.FacesMessage;
 
 import org.primefaces.PrimeFaces;
 	
+/**
+ * clase manage bean de las ventanas emergentes
+ * @author Nicolás Ávila, Sebastián Moncaleano, Diego Torres | Universidad El Bosque
+ *
+ */
 public class VentanasEmergentesMB {
 
-
-	
+	/**
+	 * Metodo constructor de VentanasEmergentesMB
+	 */
 	public VentanasEmergentesMB() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	 public void ventanaRegistro() {
+	 /**
+	 * Ventana de registro
+	 */
+	public void ventanaRegistro() {
 		 Map<String, Object> opciones = new HashMap<String,Object>();
 		 	opciones.put("modal", true);
 		 	opciones.put("width", 340);
@@ -26,7 +35,10 @@ public class VentanasEmergentesMB {
 	      PrimeFaces.current().dialog().openDynamic("registro", opciones, null);
 	  }
 	 
-	 public void ventanaRegistroPersonas()
+	 /**
+	 * Ventana de registro de personas
+	 */
+	public void ventanaRegistroPersonas()
 	 {
 		 Map<String, Object> opciones = new HashMap<String,Object>();
 		 	opciones.put("modal", true);
@@ -39,7 +51,10 @@ public class VentanasEmergentesMB {
 	      PrimeFaces.current().dialog().openDynamic("regPer", opciones, null);
 	 }
 	 
-	 public void ventanaAgregarInfoAcademica()
+	 /**
+	 * Ventana para agregar info academica
+	 */
+	public void ventanaAgregarInfoAcademica()
 	 {
 		 Map<String, Object> opciones = new HashMap<String,Object>();
 		 	opciones.put("modal", true);
@@ -52,7 +67,10 @@ public class VentanasEmergentesMB {
 	      PrimeFaces.current().dialog().openDynamic("agregarInfoAcademica", opciones, null);
 	 }
 	 
-	 public void ventanaAgregarExperienciaLaboral()
+	 /**
+	 * Ventana para agregar experiencia laboral
+	 */
+	public void ventanaAgregarExperienciaLaboral()
 	 {
 		 Map<String, Object> opciones = new HashMap<String,Object>();
 		 	opciones.put("modal", true);
@@ -65,7 +83,10 @@ public class VentanasEmergentesMB {
 	      PrimeFaces.current().dialog().openDynamic("agregarExperienciaLaboral", opciones, null);
 	 }
 	 
-	 public void ventanaAgregarReferencias()
+	 /**
+	 * Ventana para agregar referencias
+	 */
+	public void ventanaAgregarReferencias()
 	 {
 		 Map<String, Object> opciones = new HashMap<String,Object>();
 		 	opciones.put("modal", true);
@@ -78,7 +99,10 @@ public class VentanasEmergentesMB {
 	      PrimeFaces.current().dialog().openDynamic("agregarReferencias", opciones, null);
 	 }
 	 
-	 public void ventanaEditarInfoAcademica()
+	 /**
+	 * Ventana para editar info academica
+	 */
+	public void ventanaEditarInfoAcademica()
 	 {
 		 Map<String, Object> opciones = new HashMap<String,Object>();
 		 	opciones.put("modal", true);
@@ -91,7 +115,10 @@ public class VentanasEmergentesMB {
 	      PrimeFaces.current().dialog().openDynamic("editarInfoAcademica", opciones, null);
 	 }
 	 
-	 public void registroEmpresa() 
+	 /**
+	 * Ventana de registro de empresa
+	 */
+	public void registroEmpresa() 
 	 {
 		 Map<String, Object> opciones = new HashMap<String, Object>();
 		 opciones.put("modal", true);
@@ -104,7 +131,10 @@ public class VentanasEmergentesMB {
 	     PrimeFaces.current().dialog().openDynamic("registroEmpresa", opciones, null);     
 	 }
 	 
-	 public void ventanaAgregarOferta() 
+	 /**
+	 * Ventana para agregar ofertas laborales
+	 */
+	public void ventanaAgregarOferta() 
 	 {
 		 Map<String, Object> opciones = new HashMap<String, Object>();
 		 opciones.put("modal", true);
@@ -117,7 +147,10 @@ public class VentanasEmergentesMB {
 		 PrimeFaces.current().dialog().openDynamic("agregarOferta", opciones, null);
 	 }
 	 
-	 public void ventanaDetallesOfertaLaboral() 
+	 /**
+	 * Ventana para los detalles de las ofertas laborales
+	 */
+	public void ventanaDetallesOfertaLaboral() 
 	 {
 		 Map<String, Object> opciones = new HashMap<String, Object>();
 		 opciones.put("modal", true);
@@ -130,7 +163,10 @@ public class VentanasEmergentesMB {
 		 PrimeFaces.current().dialog().openDynamic("detallesOfertaLaboral", opciones, null);
 	 }
 
-	 public void ventanaDetallesPostulacionCiudadano()
+	 /**
+	 * Ventana de los detalles de postulacion del ciudadano
+	 */
+	public void ventanaDetallesPostulacionCiudadano()
 	 {
 		 Map<String, Object> opciones = new HashMap<String, Object>();
 		 opciones.put("modal", true);

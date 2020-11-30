@@ -17,6 +17,11 @@ public class CiudadanoDAOHibernate implements ICiudadanoDAO {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Metodo que crea un ciudadano
+	 * @param ciudadanoACrear objeto de ciudadano a crear
+	 * @return true si lo creo, false si ocurrio algun error
+	 */
 	@Override
 	public boolean createCiudadano(Ciudadano ciudadanoACrear) {
 		Session session = SesionHibernate.getSf().getCurrentSession();
@@ -26,6 +31,10 @@ public class CiudadanoDAOHibernate implements ICiudadanoDAO {
 		return true;
 	}
 
+	/**
+	 * Metodo que lista a los ciudadanos
+	 * @return Lista de los ciudadanos
+	 */
 	@Override
 	public List<Ciudadano> readCiudadano() {
 		String hql = "Select c FROM Ciudadano c";
@@ -40,6 +49,11 @@ public class CiudadanoDAOHibernate implements ICiudadanoDAO {
 		return lista;
 	}
 
+	/**
+	 * Metodo que modifica un ciudadano
+	 * @param ciudadanoAModificar objeto de ciudadano a modificar
+	 * @return true si lo modifico, false si ocurrio algun error
+	 */
 	@Override
 	public boolean updateCiudadano(Ciudadano ciudadanoAModificar) {
 
@@ -50,6 +64,11 @@ public class CiudadanoDAOHibernate implements ICiudadanoDAO {
 		return true;
 	}
 
+	/**
+	 * Metodo que elimina un ciudadano
+	 * @param ciudadanoAEliminar objeto de ciudadano a eliminar
+	 * @return true si lo elimino, false si ocurrio algun error
+	 */
 	@Override
 	public boolean deleteCiudadano(Ciudadano ciudadanoAEliminar) {
 		Session session = SesionHibernate.getSf().getCurrentSession();
@@ -59,6 +78,11 @@ public class CiudadanoDAOHibernate implements ICiudadanoDAO {
 		return true;
 	}
 
+	/**
+	 * Metodo que busca un ciudadano por su id
+	 * @param id id del ciudadano
+	 * @return objeto del ciudadano encontrado
+	 */
 	@Override
 	public Ciudadano buscarCiudadanoPorId(int id) {
 		String hql = "Select c FROM Ciudadano c WHERE c.id = "+id;
@@ -81,7 +105,11 @@ public class CiudadanoDAOHibernate implements ICiudadanoDAO {
 		}
 	}
 
-
+	/**
+	 * Metodo que busca un ciudadano por su usuario
+	 * @param usuario el usuario del ciudadano
+	 * @return objeto de ciudadano encontrado
+	 */
 	@Override
 	public Ciudadano buscarCiudadanoPorUsuario(String usuario) {
 		String hql = "Select c FROM Ciudadano c WHERE c.usuario= '"+usuario+"'";

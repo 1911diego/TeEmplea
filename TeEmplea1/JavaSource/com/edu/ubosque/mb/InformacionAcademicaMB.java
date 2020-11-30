@@ -15,6 +15,11 @@ import com.edu.ubosque.logica.DatosAcademicosLogica;
 import com.edu.ubosque.model.Ciudadano;
 import com.edu.ubosque.model.InformacionAcademica;
 
+/**
+ * clase manage bean de la info academica
+ * @author Nicolás Ávila, Sebastián Moncaleano, Diego Torres | Universidad El Bosque
+ *
+ */
 public class InformacionAcademicaMB {
 
 	private Ciudadano ciudadano;
@@ -29,6 +34,9 @@ public class InformacionAcademicaMB {
 	private int idInfoAcademicaAEliminar;
 	private int idInfoAcademicaABuscar;
 	
+	/**
+	 * Metodo constructor de InformacionAcademicaMB
+	 */
 	public InformacionAcademicaMB() {		
 		session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		ciudadano = (Ciudadano) session.getAttribute("ciudadanoLogeado");
@@ -38,13 +46,18 @@ public class InformacionAcademicaMB {
 		inicializarLista();
 	}
 	
+	/**
+	 * Metodo que inicializa las listas
+	 */
 	private void inicializarLista()
 	{
 		ciudadano = ciudadanoLogica.buscarCiudadanoPorId(ciudadano.getId());
 		listaInformacionAcademica = new ArrayList<InformacionAcademica>(ciudadano.getInformacionAcademicas());
 	}
 	
-	
+	/**
+	 * Metodo que agrega info academica
+	 */
 	public void agregarInformacionAcademica()
 	{
 		nuevaInformacionAcademica.setCiudadano(ciudadano);
@@ -55,6 +68,9 @@ public class InformacionAcademicaMB {
 		nuevaInformacionAcademica = new InformacionAcademica();
 	}
 	
+	/**
+	 * Metodo que elimina info academica
+	 */
 	public void eliminarInformacionAcademica()
 	{	
 		datosAcademicosLogica.deleteInfoAcademica(idInfoAcademicaAEliminar,ciudadano);
@@ -64,22 +80,29 @@ public class InformacionAcademicaMB {
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 	
-	
-	
-	 public void mensajeInfoAgregada(SelectEvent event) {
+	 /**
+	  * Metodo que muestra un mensaje
+	 * @param event evento de la pagina
+	 */
+	public void mensajeInfoAgregada(SelectEvent event) {
 	        InformacionAcademica info = (InformacionAcademica) event.getObject();
 	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Información Académica Agregada",info.getInstitucion()); 
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	 }
 	 
-	 
-	 public void asignarInfoAcademicaAEditar()
+	 /**
+	 * Metodo que asigna la info academica a modificar
+	 */
+	public void asignarInfoAcademicaAEditar()
 	 {
 		 informacionAcademicaAModificar = datosAcademicosLogica.buscarInfoAcademicaPorId(idInfoAcademicaABuscar);
 		 System.out.println(informacionAcademicaAModificar.getId());
 	 }
 	 
-	 public void editarInfoAcademica()
+	 /**
+	 * Edita una info academica
+	 */
+	public void editarInfoAcademica()
 	 {
 		 datosAcademicosLogica.updateInfoAcademica(informacionAcademicaAModificar);
 	 }

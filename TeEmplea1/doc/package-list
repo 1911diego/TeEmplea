@@ -1,0 +1,6 @@
+com.edu.ubosque.baseDatos
+com.edu.ubosque.dao
+com.edu.ubosque.dao.impl
+com.edu.ubosque.logica
+com.edu.ubosque.mb
+com.edu.ubosque.model

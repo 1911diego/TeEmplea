@@ -13,6 +13,11 @@ import com.edu.ubosque.logica.Correo;
 import com.edu.ubosque.logica.EmpresaLogica;
 import com.edu.ubosque.model.Empresa;
 
+/**
+ * Clase manage bean del registro de la empresa
+ * @author Nicolás Ávila, Sebastián Moncaleano, Diego Torres | Universidad El Bosque
+ *
+ */
 public class RegistroEmpresaMB {
 
 	private EmpresaLogica empresaLogica;
@@ -25,11 +30,17 @@ public class RegistroEmpresaMB {
 	private String contrasena;
 	private Correo correoEnviado;
 	
+	/**
+	 * Metodo constructor de RegistroEmpresaMB
+	 */
 	public RegistroEmpresaMB() {
 		empresaLogica = new EmpresaLogica();
 		correoEnviado = new Correo();
 	}
 	
+	/**
+	 * Metodo que registra una empresa
+	 */
 	public void regEmpresa() {
 		
 		String encript = DigestUtils.sha1Hex(contrasena);
@@ -47,6 +58,9 @@ public class RegistroEmpresaMB {
 		
 	}
 	
+	/** Metodo que valida una empresa
+	 * @return null
+	 */
 	public String validarEmpresa() {
 		
 		Empresa empresaId = empresaLogica.empresaPorId(id);
@@ -69,6 +83,9 @@ public class RegistroEmpresaMB {
 		return null;
 	}
 	
+	/**
+	 * Ventan de regostro de la info adicinal de una empresa
+	 */
 	private void ventanaRegistroInfoEmpresa() {
 		
 		 Map<String, Object> opciones = new HashMap<String,Object>();

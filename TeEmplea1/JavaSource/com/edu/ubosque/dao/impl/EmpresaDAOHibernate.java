@@ -9,12 +9,25 @@ import com.edu.ubosque.baseDatos.SesionHibernate;
 import com.edu.ubosque.dao.IEmpresaDAO;
 import com.edu.ubosque.model.Empresa;
 
+/**
+ * Clase dao de empresa
+ * @author Nicolás Ávila, Sebastián Moncaleano, Diego Torres | Universidad El Bosque
+ *
+ */
 public class EmpresaDAOHibernate implements IEmpresaDAO {
 
+	/**
+	 * Metodo cosnstructor de EmpresaDAOHibernate
+	 */
 	public EmpresaDAOHibernate() {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Metodo que almacena la empresa en la base de datos
+	 * @param empresaACrear objeto de la empresa a crear
+	 * @returntrue sí logro guardar la empresa, false si ocurrio algun error
+	 */
 	@Override
 	public boolean createEmpresa(Empresa empresaACrear) {
 		
@@ -25,6 +38,10 @@ public class EmpresaDAOHibernate implements IEmpresaDAO {
 		return true;
 	}
 
+	/**
+	 * Metodo que lista las empresa
+	 * @return devuelve una lista de las empresa
+	 */
 	@Override
 	public List<Empresa> readEmpresa() {
 
@@ -36,6 +53,11 @@ public class EmpresaDAOHibernate implements IEmpresaDAO {
 		return lista;
 	}
 
+	/**
+	 * Metodo que modifica una empresa
+	 * @param empresaAModificar obejeto de la empresa a modificar
+	 * @return true si la modifcó, false sí ocurrio algún error 
+	 */
 	@Override
 	public boolean updateEmpresa(Empresa empresaAModificar) {
 		
@@ -46,6 +68,11 @@ public class EmpresaDAOHibernate implements IEmpresaDAO {
 		return true;
 	}
 
+	/**
+	 * Metodo que elimina una empresa
+	 * @param empresaAEliminar Objeto de la empresa a eliminar
+	 * @return true sí la eliminó, false sí ocurrio algun error
+	 */
 	@Override
 	public boolean deleteEmpresa(Empresa empresaAEliminar) {
 		
@@ -56,6 +83,11 @@ public class EmpresaDAOHibernate implements IEmpresaDAO {
 		return true;
 	}
 
+	/**
+	 * Metodo que busca una empresa por la id
+	 * @param id Es el NIT de la empresa
+	 * @return Objeto de la empresa encontrada
+	 */
 	@Override
 	public Empresa readEmpresaPorId(int id) {
 		
@@ -80,6 +112,11 @@ public class EmpresaDAOHibernate implements IEmpresaDAO {
 		}
 	}
 
+	/**
+	 * Metodo que busca una empresa por su nombre
+	 * @param nombre Es el nombre de la empresa
+	 * @return Objeto de la empresa encontrado
+	 */
 	@Override
 	public Empresa readEmpresaPorNombre(String nombre) {
 		

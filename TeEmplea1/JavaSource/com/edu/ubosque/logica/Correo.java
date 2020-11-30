@@ -24,7 +24,7 @@ import javax.mail.internet.MimeMultipart;
 public class Correo {
 	
 	/**
-	 * Método que envía un correo cuando un cupo de tarjeta ha sido aprobado
+	 * Método que envía un correo cuando un usuario se registra
 	 * @param adjuntoRuta ruta del archivo a adjuntar
 	 * @param nombreAdjunto nombre del documento a adjuntar
 	 * @param destino correo al que se enviará el mail
@@ -91,15 +91,6 @@ public class Correo {
 			
 			
 		}
-	
-	public static void main (String []args) {
-		
-		Correo c = new Correo();
-		
-		c.enviarCorreoRegistroExitoso("", "", "nicolas.jav@hotmail.com", "nicolas.jav@hotmail.com", "123123");
-		
-	}
-	
 	
 	
 }

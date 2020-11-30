@@ -15,6 +15,11 @@ import com.edu.ubosque.logica.OfertaLaboralLogica;
 import com.edu.ubosque.model.Empresa;
 import com.edu.ubosque.model.OfertaLaboral;
 
+/**
+ * Clase manage bean de la oferta laboral
+ * @author Nicolás Ávila, Sebastián Moncaleano, Diego Torres | Universidad El Bosque
+ *
+ */
 public class OfertaLaboralMB {
 
 	private Empresa empresa;
@@ -27,6 +32,9 @@ public class OfertaLaboralMB {
 	private int idOfertaAModificar;
 	private int idOfertaAEliminar;
 	
+	/**
+	 * Metodo constructor de OfertaLaboralMB
+	 */
 	public OfertaLaboralMB() {
 
 		session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
@@ -37,6 +45,9 @@ public class OfertaLaboralMB {
 		empresaLogica = new EmpresaLogica();
 	}
 	
+	/**
+	 * Metodo que agrega un oferta laboral
+	 */
 	public void agregarOfertaLaboral() {
 		
 		ofertaLaboralNueva.setEmpresa(empresa);
@@ -47,6 +58,9 @@ public class OfertaLaboralMB {
 		ofertaLaboralNueva = new OfertaLaboral();
 	}
 	
+	/**
+	 * Metodo que elimina una oferta laboral
+	 */
 	public void eliminarOfertaLaboral() {
 		
 		ofertaLogica.deleteOferta(idOfertaAEliminar, empresa);
@@ -56,6 +70,10 @@ public class OfertaLaboralMB {
         FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 	
+	/**
+	 * Metodo que muestra un mensaje
+	 * @param event evento de la pagina
+	 */
 	public void mensajeOfertaAgregada(SelectEvent event) {
         OfertaLaboral oferta = (OfertaLaboral) event.getObject();
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Oferta laboral agregada",oferta.getArea()); 

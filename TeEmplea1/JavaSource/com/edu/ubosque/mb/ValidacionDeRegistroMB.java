@@ -16,6 +16,11 @@ import com.edu.ubosque.logica.Correo;
 import com.edu.ubosque.model.Ciudadano;
 import com.edu.ubosque.model.InformacionAcademica;
 
+/**
+ * clase manage bean del registro de un ciudadano
+ * @author Nicolás Ávila, Sebastián Moncaleano, Diego Torres | Universidad El Bosque
+ *
+ */
 public class ValidacionDeRegistroMB {
 
 	private CiudadanoLogica ciudadanoLogica;
@@ -40,12 +45,18 @@ public class ValidacionDeRegistroMB {
 	private Ciudadano ciudadanoNuevo;
 	
 	
+	/**
+	 * Metodo constructor de ValidacionDeRegistroMB
+	 */
 	public ValidacionDeRegistroMB() {
 		ciudadanoLogica = new CiudadanoLogica();
 		correo = new Correo();
 	}
 
 	
+	/**
+	 * Metodo que registra un ciudadano
+	 */
 	public void registrarCiudadano()
 	{
 		String encript = DigestUtils.sha1Hex(clave);
@@ -67,11 +78,18 @@ public class ValidacionDeRegistroMB {
 		}
 	}
 	
+	/**
+	 * Metodo que cierra la ventana del registro
+	 */
 	public void cerrarVentana()
 	{
 		PrimeFaces.current().dialog().closeDynamic(ciudadanoNuevo);
 	}
 	
+	/**
+	 * Metodo que muestra un mensaje
+	 * @param event evento de la pagina
+	 */
 	public void mensajes(SelectEvent event)
 	{
 		Ciudadano ciudadano = (Ciudadano) event.getObject();
@@ -79,8 +97,10 @@ public class ValidacionDeRegistroMB {
         FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 	
-	 
-	
+	/**
+	 * Metodo que valida el ciudadano
+	 * @return cadena
+	 */
 	public String validarCiudadano()
 	{
 		
@@ -104,6 +124,9 @@ public class ValidacionDeRegistroMB {
 	}
 
 	
+	/**
+	 * ventana de registro de los datos adicionales del ciudadano
+	 */
 	private void ventanaRegistroPersonasDatosAdicionales()
 	 {
 		 Map<String, Object> opciones = new HashMap<String,Object>();

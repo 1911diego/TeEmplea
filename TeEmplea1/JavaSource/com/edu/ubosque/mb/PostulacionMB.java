@@ -13,7 +13,11 @@ import com.edu.ubosque.model.Ciudadano;
 import com.edu.ubosque.model.OfertaLaboral;
 import com.edu.ubosque.model.PostulacionLaboral;
 
-
+/**
+ * Clase manage bean de las postulaciones
+ * @author Nicolás Ávila, Sebastián Moncaleano, Diego Torres | Universidad El Bosque
+ *
+ */
 public class PostulacionMB {
 
 	private Ciudadano ciudadano;
@@ -34,7 +38,9 @@ public class PostulacionMB {
 	private OfertaLaboral nuevo;
 	private PostulacionLaboral postulacionAEliminar;
 
-	
+	/**
+	 * Metodo constructor de PostulacionMB
+	 */
 	public PostulacionMB() {		
 		session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		ciudadano = (Ciudadano) session.getAttribute("ciudadanoLogeado");
@@ -45,13 +51,18 @@ public class PostulacionMB {
 		
 	}
 	
+	/**
+	 * Metodo que inicializa las listas
+	 */
 	private void inicializarListas()
 	{
 		listaOfertasLaborales = ofertaLaboralLogica.readOferta();
 		listaPostulacionesCiudadano = postulacionLaboralLogica.buscarPostulacionesPorCiudadanoOEmpresa(ciudadano.getId(),1);
 	}
 	
-	
+	/**
+	 * Metodo que agrega un empleo
+	 */
 	public void agregarEmpleo()
 	{
 		ofertaNuevaPostulacion = ofertaLaboralLogica.buscarOfertaPorId(idOfertaNuevaPostulacion);
@@ -74,6 +85,9 @@ public class PostulacionMB {
 		
 	}
 	
+	/**
+	 * Metodo que elimina un empleo
+	 */
 	public void eliminarEmpleo()
 	{
 		boolean eliminado = postulacionLaboralLogica.deletePostulacionLaboral(postulacionAEliminar);

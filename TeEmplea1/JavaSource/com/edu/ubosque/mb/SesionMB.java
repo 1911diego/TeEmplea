@@ -11,6 +11,11 @@ import com.edu.ubosque.logica.EmpresaLogica;
 import com.edu.ubosque.model.Ciudadano;
 import com.edu.ubosque.model.Empresa;
 
+/**
+ * clase manage bean de la sesion
+ * @author Nicolás Ávila, Sebastián Moncaleano, Diego Torres | Universidad El Bosque
+ *
+ */
 public class SesionMB {
 
 	private Ciudadano ciudadano;
@@ -20,12 +25,19 @@ public class SesionMB {
 	private String usuario;
 	private String clave;
 	
+	/**
+	 * Metodo constructor de SesionMB
+	 */
 	public SesionMB() {
 		ciudadanoLogica = new CiudadanoLogica();
 		empresaLogica = new EmpresaLogica();
 	}
 	
 	
+	/**
+	 * Metodo de inicio de sesion
+	 * @return la pagina a la que se dirige
+	 */
 	public String iniciarSesion()
 	{
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
@@ -41,7 +53,7 @@ public class SesionMB {
 		}
 		else
 		{
-			empresa = empresaLogica.validarEmpresaClave(usuario, clave);
+			empresa = empresaLogica.validarEmpresaClave(usuario, encript);
 			
 			if(empresa != null) {
 				
@@ -58,7 +70,11 @@ public class SesionMB {
 		
 	}
 	
-	public boolean verificarSesionCiudadano()
+	/**
+	 * Metodo que verifica el usuario
+	 * @return true si esta, false si no
+	 */
+	public boolean verificarUsuario()
 	{
 		if(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("ciudadano") != null)
 		{
@@ -73,6 +89,10 @@ public class SesionMB {
 		}
 	}
 	
+	/**
+	 * Metodo de cerrar sesion
+	 * @return se dirige a la pagina de inicio
+	 */
 	public String cerrarSesion()
 	{
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();

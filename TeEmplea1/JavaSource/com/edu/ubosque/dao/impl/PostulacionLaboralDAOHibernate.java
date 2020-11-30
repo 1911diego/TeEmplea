@@ -10,12 +10,26 @@ import com.edu.ubosque.dao.IPostulacionLaboralDAO;
 import com.edu.ubosque.model.OfertaLaboral;
 import com.edu.ubosque.model.PostulacionLaboral;
 
+/**
+ * Clase dao de la postulacion laboral
+ * @author Nicolás Ávila, Sebastián Moncaleano, Diego Torres | Universidad El Bosque
+ *
+ */
 public class PostulacionLaboralDAOHibernate implements IPostulacionLaboralDAO {
 
+	/**
+	 * Metodo constructor de PostulacionLaboralDAOHibernate
+	 */
 	public PostulacionLaboralDAOHibernate() {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Metodo que crea una postulacion laboral
+	 * @param postulacionLaboralACrear Objeto de la postulacion laboral
+	 * @param idOferta id de la oferta laboral
+	 * @return true sí la creó, false sí ocurri algun error
+	 */
 	@Override
 	public boolean createPostulacionLaboral(PostulacionLaboral crearPostulacionLaboral) {
 		Session session = SesionHibernate.getSf().getCurrentSession();
@@ -34,12 +48,18 @@ public class PostulacionLaboralDAOHibernate implements IPostulacionLaboralDAO {
 		}
 	}
 
+	
 	@Override
 	public List<PostulacionLaboral> readPostulacionLaboral(int idPostulacionLaboral) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * Metodo que modifica una postulacion laboral
+	 * @param postulacionLaboralAModificar Objeto de postulacion laboral a modificar
+	 * @return true si la modifico, false si ocurrio algun error
+	 */
 	@Override
 	public boolean updatePostulacionLaboral(PostulacionLaboral modificarPostulacionLaboral) {
 		Session session = SesionHibernate.getSf().getCurrentSession();
@@ -49,6 +69,11 @@ public class PostulacionLaboralDAOHibernate implements IPostulacionLaboralDAO {
 		return true;
 	}
 
+	/**
+	 * Metodo que elimina un postulacion laboral
+	 * @param postulacionAEliminar Objeto de postulacion laboral a eliminar
+	 * @return true si la elimino, false si ocurrio algun error
+	 */
 	@Override
 	public boolean deletePostulacionLaboral(PostulacionLaboral eliminarPostulacionLaboral) {
 		Session session = SesionHibernate.getSf().getCurrentSession();
@@ -99,6 +124,12 @@ public class PostulacionLaboralDAOHibernate implements IPostulacionLaboralDAO {
 		}
 	}
 
+	/**
+	 * Metodo que busca una postulacion por ciudadano o empresa
+	 * @param id id de la postulacion
+	 * @param opcion opcion de busqueda
+	 * @return Objeto de la postulacion laboral
+	 */
 	@Override
 	public List<PostulacionLaboral> buscarPostulacionLaboralPorCiudadanoOEmpresa(int id,int opcion) {
 		String hql = null;
