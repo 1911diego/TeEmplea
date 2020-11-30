@@ -63,6 +63,7 @@ public class PostulacionMB {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Proceso Éxitoso","Has agregado una nueva postulación"); 
 		    FacesContext.getCurrentInstance().addMessage(null, message);
 		    System.out.println("Agregado exitoso");
+		    listaPostulacionesCiudadano = postulacionLaboralLogica.buscarPostulacionesPorCiudadanoOEmpresa(ciudadano.getId(),1);
 		}
 		else
 		{
@@ -152,6 +153,14 @@ public class PostulacionMB {
 
 	public void setPostulacionAEliminar(PostulacionLaboral postulacionAEliminar) {
 		this.postulacionAEliminar = postulacionAEliminar;
+	}
+
+	public Ciudadano getCiudadano() {
+		return ciudadano;
+	}
+
+	public void setCiudadano(Ciudadano ciudadano) {
+		this.ciudadano = ciudadano;
 	}
 	
 	

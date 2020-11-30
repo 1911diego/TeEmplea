@@ -77,7 +77,7 @@ public class SesionMB {
 	{
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		
-		return "Principal/principal";
+		return "/Principal/principal";
 	}
 
 

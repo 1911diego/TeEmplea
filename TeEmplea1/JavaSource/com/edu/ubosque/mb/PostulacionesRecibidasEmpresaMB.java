@@ -1,13 +1,18 @@
 package com.edu.ubosque.mb;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 import com.edu.ubosque.logica.PostulacionLaboralLogica;
+import com.edu.ubosque.model.Ciudadano;
 import com.edu.ubosque.model.Empresa;
+import com.edu.ubosque.model.ExperienciaLaboral;
+import com.edu.ubosque.model.InformacionAcademica;
 import com.edu.ubosque.model.PostulacionLaboral;
+import com.edu.ubosque.model.Referencias;
 
 public class PostulacionesRecibidasEmpresaMB {
 
@@ -19,6 +24,10 @@ public class PostulacionesRecibidasEmpresaMB {
 	
 
 	private PostulacionLaboral postulacionRecibida;
+	private List<InformacionAcademica> listaInformacionAcademicaCiudadano;
+	private List<ExperienciaLaboral> listaExperienciaLaboralCiudadano;
+	private List<Referencias> listaReferenciasCiudadano;
+	private int render;
 	
 	public PostulacionesRecibidasEmpresaMB() {
 		session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
@@ -31,10 +40,19 @@ public class PostulacionesRecibidasEmpresaMB {
 	{
 		listaPostulacionesRecibidas = postulacionLaboralLogica.buscarPostulacionesPorCiudadanoOEmpresa(empresa.getIdempresa(),2);
 		
-		for(int i=0;i<listaPostulacionesRecibidas.size();i++)
-		{
-			System.out.println(listaPostulacionesRecibidas.get(i).getCiudadano().getPrimerNombre());
-		}
+	}
+	
+	public void llenarListasCiudadano(int render)
+	{
+		
+		listaInformacionAcademicaCiudadano = new ArrayList<InformacionAcademica>(postulacionRecibida.getCiudadano().getInformacionAcademicas());
+		listaExperienciaLaboralCiudadano = new ArrayList<ExperienciaLaboral>(postulacionRecibida.getCiudadano().getExperienciaLaborals());
+		listaReferenciasCiudadano = new ArrayList<Referencias>(postulacionRecibida.getCiudadano().getReferenciases());
+		
+		this.render = render;
+		VentanasEmergentesMB ventanaemergente = new VentanasEmergentesMB();
+		
+		ventanaemergente.ventanaDetallesPostulacionCiudadano();
 	}
 
 	public List<PostulacionLaboral> getListaPostulacionesRecibidas() {
@@ -60,6 +78,40 @@ public class PostulacionesRecibidasEmpresaMB {
 	public void setPostulacionRecibida(PostulacionLaboral postulacionRecibida) {
 		this.postulacionRecibida = postulacionRecibida;
 	}
+
+	public List<InformacionAcademica> getListaInformacionAcademicaCiudadano() {
+		return listaInformacionAcademicaCiudadano;
+	}
+
+	public void setListaInformacionAcademicaCiudadano(List<InformacionAcademica> listaInformacionAcademicaCiudadano) {
+		this.listaInformacionAcademicaCiudadano = listaInformacionAcademicaCiudadano;
+	}
+
+	public List<ExperienciaLaboral> getListaExperienciaLaboralCiudadano() {
+		return listaExperienciaLaboralCiudadano;
+	}
+
+	public void setListaExperienciaLaboralCiudadano(List<ExperienciaLaboral> listaExperienciaLaboralCiudadano) {
+		this.listaExperienciaLaboralCiudadano = listaExperienciaLaboralCiudadano;
+	}
+
+	public List<Referencias> getListaReferenciasCiudadano() {
+		return listaReferenciasCiudadano;
+	}
+
+	public void setListaReferenciasCiudadano(List<Referencias> listaReferenciasCiudadano) {
+		this.listaReferenciasCiudadano = listaReferenciasCiudadano;
+	}
+
+	public int getRender() {
+		return render;
+	}
+
+	public void setRender(int render) {
+		this.render = render;
+	}
+
+	
 
 	
 }

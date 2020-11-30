@@ -141,6 +141,14 @@ public class ExperienciaLaboralMB {
 		this.idExpLaboralABuscar = idExpLaboralABuscar;
 	}
 
+	public Ciudadano getCiudadano() {
+		return ciudadano;
+	}
+
+	public void setCiudadano(Ciudadano ciudadano) {
+		this.ciudadano = ciudadano;
+	}
+
 	 
 	 
 }

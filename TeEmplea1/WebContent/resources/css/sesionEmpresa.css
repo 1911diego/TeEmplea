@@ -235,3 +235,10 @@ body{
 	-webkit-border-radius: 6px 6px 6px 6px;
 	z-index: 1;
 }
+
+.botonExportarPdf
+{
+	position: absolute;
+	top : 150px;
+	left: 1000px;
+}

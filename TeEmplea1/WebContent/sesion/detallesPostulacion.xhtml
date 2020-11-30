@@ -6,13 +6,13 @@
       xmlns:p="http://primefaces.org/ui">  
 
 <h:head>
-	<h:outputStylesheet library ="css" name="sesionEmpresa.css"/>
+	<h:outputStylesheet library ="css" name="sesion.css"/>
 	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
 </h:head> 
 <body> 
-<h:form rendered="#{ventanasEmergentesMB.render eq perfilProfesional}">	
+<h:form rendered="#{postulacionesRecibidasEmpresaMB.render==1}">	
 	<div id="perfilProfesional">
-		<h:panelGrid>
+		<h:panelGrid >
 			<f:facet name="header">
 				<h:outputText value="Perfil Profesional" />
 			</f:facet>
@@ -21,11 +21,11 @@
 	</div>
 </h:form>
 	
-<h:form rendered="#{ventanasEmergentesMB.render eq 'infoAcademica'}">
+<h:form rendered="#{postulacionesRecibidasEmpresaMB.render==2}">
 	<div id="infoAcademica" >
 		<div class="tablaInformacionAcademica" >
 	<h:panelGrid  id="dataTableInfoAcademica">
-		<h:dataTable var="academicaFila" value="#{postulacionesRecibidasEmpresaMB.postulacionRecibida.ciudadano.informacionAcademicas}" >
+		<h:dataTable var="academicaFila" value="#{postulacionesRecibidasEmpresaMB.listaInformacionAcademicaCiudadano}" >
 			<h:column headerClass="columnaId">
 				<f:facet name="header">
 					<h:outputText value="  Id  " styleClass="headerInfoAcademica"/>
@@ -78,12 +78,12 @@
 	
 </h:form>	
 
-<h:form rendered="#{ventanasEmergentesMB.render eq 'expLaboral'}">
+<h:form rendered="#{postulacionesRecibidasEmpresaMB.render==3}" >
 	
 	<div id="expLaboral"  >
 			<div class="tablaExperienciaLaboral" >
-	<h:panelGrid id="dataTableExpLaboral" layout="">
-		<h:dataTable var="experienciaFila" value="#{postulacionesRecibidasEmpresaMB.postulacionRecibida.ciudadano.experienciaLaborals}">
+	<h:panelGrid id="dataTableExpLaboral" layout="" >
+		<h:dataTable var="experienciaFila" value="#{postulacionesRecibidasEmpresaMB.listaExperienciaLaboralCiudadano}">
 			<h:column headerClass="columnaId">
 				<f:facet name="header">
 					<h:outputText value="  Id  " styleClass="headerInfoAcademica"/>
@@ -142,12 +142,12 @@
 	</div>
 </h:form>
 
-<h:form rendered="#{ventanasEmergentesMB.render eq 'referencias'}">
+<h:form rendered="#{postulacionesRecibidasEmpresaMB.render==4}" >
 	
 	<div id="referencias" >
 		<div class="tablaExperienciaLaboral" >
 	<h:panelGrid id="dataTableExpLaboral" layout="">
-		<h:dataTable var="referenciaFila" value="#{postulacionesRecibidasEmpresaMB.postulacionRecibida.ciudadano.referenciases}">
+		<h:dataTable var="referenciaFila" value="#{postulacionesRecibidasEmpresaMB.listaReferenciasCiudadano}">
 			<h:column headerClass="columnaId">
 				<f:facet name="header">
 					<h:outputText value="  Id  " styleClass="headerInfoAcademica"/>

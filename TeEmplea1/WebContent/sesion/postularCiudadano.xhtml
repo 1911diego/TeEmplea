@@ -33,11 +33,11 @@
 	<div class="main">
 		<p:toolbar>
 			<f:facet name="right">
-			<h:outputText value="Nombre del Usuario" styleClass="textoBarraSuperior"/>
+			<h:outputText value="#{postulacionMB.ciudadano.usuario}" styleClass="textoBarraSuperior"/>
 			<span class="ui-separator">
                 <span class="ui-icon pi pi-ellipsis-v" />
             </span>
-			<h:commandLink value="Cerrar Sesión" styleClass="textoBarraSuperior"/>
+			<h:commandLink value="Cerrar Sesión" action="#{sesionMB.cerrarSesion()}" styleClass="textoBarraSuperior"/>
 			</f:facet>
 		</p:toolbar>
 	</div>
@@ -54,11 +54,11 @@
 	<h:form>
 	<p:growl id="growl" showDetail="true"/>
 	<div class="tablaExperienciaLaboral" >
-		<h:panelGrid id="dataTableExpLaboral" layout="">
-			<p:dataTable var="postulacionesFila" value="#{postulacionMB.listaOfertasLaborales}" 
+		
+			<p:dataTable id="tabla" var="postulacionesFila" value="#{postulacionMB.listaOfertasLaborales}" 
 			widgetVar="ofertas" emptyMessage="Sin resultados" filteredValue="#{postulacionMB.ofertasFiltradas}">
 				
-			<f:facet name="header">
+			<f:facet name="header" exportable="false">
             	<p:outputPanel>
                 <h:outputText value="Buscar en toda la Tabla:" />
                 <p:inputText id="globalFilter" onkeyup="PF('ofertas').filter()" style="width:150px" placeholder="Enter keyword"/>
@@ -101,7 +101,7 @@
              	<h:outputText value="#{postulacionesFila.salario}" />
         	 </p:column>   --> 
         	 
-        	  <p:column >
+        	  <p:column exportable="false">
 				<f:facet name="header">
 					<h:outputText value="" styleClass="headerInfoAcademica"/>
 				</f:facet>
@@ -111,7 +111,7 @@
 					</p:commandLink>
 			</p:column>
         	 
-        	 <p:column >
+        	 <p:column exportable="false" >
 				<f:facet name="header">
 					<h:outputText value="" styleClass="headerInfoAcademica"/>
 				</f:facet>
@@ -127,8 +127,19 @@
 			</p:column>
 		
 			</p:dataTable>
-		</h:panelGrid>
+			
 	</div>
+	
+	<div class="botonExportarPdf">
+		<h:commandLink>
+					<h:graphicImage value="/img/pdf.svg" style="width:50px;height:50px;"/>
+					<p:dataExporter type="pdf" target="tabla" fileName="Busqueda_ofertas_te_emplea" pageOnly="true"/>
+		</h:commandLink>
+	</div>
+	
 </h:form>
+	
+	
+	
 </body> 
 </html>

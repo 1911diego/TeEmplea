@@ -33,11 +33,11 @@
 	<div class="main">
 		<p:toolbar>
 			<f:facet name="right">
-			<h:outputText value="Nombre del Usuario" styleClass="textoBarraSuperior"/>
+			<h:outputText value="#{postulacionMB.ciudadano.usuario}" styleClass="textoBarraSuperior"/>
 			<span class="ui-separator">
                 <span class="ui-icon pi pi-ellipsis-v" />
             </span>
-			<h:commandLink value="Cerrar Sesión" styleClass="textoBarraSuperior"/>
+			<h:commandLink value="Cerrar Sesión" action="#{sesionMB.cerrarSesion()}" styleClass="textoBarraSuperior"/>
 			</f:facet>
 		</p:toolbar>
 	</div>
@@ -92,7 +92,7 @@
 				</f:facet>
 					<p:commandLink action="#{ventanasEmergentesMB.ventanaDetallesOfertaLaboral()}" update="@form">
 						<h:graphicImage value="/img/details.svg" style="width:50px;height:50px;"/>
-					 		<f:setPropertyActionListener value="#{postulacionesFila}" target="#{postulacionMB.nuevo}"/> 		
+					 		<f:setPropertyActionListener value="#{postulacionesFila.ofertaLaboral}" target="#{postulacionMB.nuevo}"/> 		
 					</p:commandLink>
 			</p:column>
         	 

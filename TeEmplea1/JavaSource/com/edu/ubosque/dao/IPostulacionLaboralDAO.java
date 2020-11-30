@@ -15,7 +15,7 @@ public interface IPostulacionLaboralDAO {
 	
 	boolean deletePostulacionLaboral(PostulacionLaboral eliminarPostulacionLaboral);
 	
-	PostulacionLaboral buscarPostulacionLaboralPorId(int id,int opcion);
+	PostulacionLaboral buscarPostulacionLaboralPorId(int idOferta,int idCiudadano, int opcion);
 	
 	List<PostulacionLaboral> buscarPostulacionLaboralPorCiudadanoOEmpresa(int idCiudadano, int opcion);
 	

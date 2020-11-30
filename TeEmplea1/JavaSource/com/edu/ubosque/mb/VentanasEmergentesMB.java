@@ -9,7 +9,7 @@ import org.primefaces.PrimeFaces;
 	
 public class VentanasEmergentesMB {
 
-	private String render;
+
 	
 	public VentanasEmergentesMB() {
 		// TODO Auto-generated constructor stub
@@ -130,30 +130,19 @@ public class VentanasEmergentesMB {
 		 PrimeFaces.current().dialog().openDynamic("detallesOfertaLaboral", opciones, null);
 	 }
 
-	 public void ventanaDetallesPostulacionCiudadano(String datosVentana)
+	 public void ventanaDetallesPostulacionCiudadano()
 	 {
-		 render = datosVentana;
-		 System.out.println(render);
 		 Map<String, Object> opciones = new HashMap<String, Object>();
 		 opciones.put("modal", true);
-		 opciones.put("resizable", false);
+		 opciones.put("resizable", true);
 		 opciones.put("width", 500);
 		 opciones.put("height", 300);
 		 opciones.put("contentWidth", "100%");
 		 opciones.put("contentHeight", "100%");
 		 opciones.put("headerElement", "customheader");
 		 PrimeFaces.current().dialog().openDynamic("detallesPostulacion", opciones, null);
+		
 	 }
-	 
-	 
-	public String getRender() {
-		return render;
-	}
-
-	public void setRender(String render) {
-		this.render = render;
-	}
-	 
 	 
 	 
 }

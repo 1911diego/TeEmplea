@@ -5,7 +5,7 @@
  <managed-bean>
   <managed-bean-name>ventanasEmergentesMB</managed-bean-name>
   <managed-bean-class>com.edu.ubosque.mb.VentanasEmergentesMB</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
+  <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>validacionDeRegistroMB</managed-bean-name>

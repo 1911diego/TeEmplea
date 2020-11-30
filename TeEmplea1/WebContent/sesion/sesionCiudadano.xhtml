@@ -32,11 +32,11 @@
 	<div class="main">
 		<p:toolbar>
 			<f:facet name="right">
-			<h:outputText value="Nombre del Usuario" styleClass="textoBarraSuperior"/>
+			<h:outputText value="#{ciudadanoMB.ciudadano.usuario}" styleClass="textoBarraSuperior"/>
 			<span class="ui-separator">
                 <span class="ui-icon pi pi-ellipsis-v" />
             </span>
-			<h:commandLink value="Cerrar Sesión" styleClass="textoBarraSuperior"/>
+			<h:commandLink value="Cerrar Sesión" action="#{sesionMB.cerrarSesion()}" styleClass="textoBarraSuperior"/>
 			</f:facet>
 		</p:toolbar>
 	</div>

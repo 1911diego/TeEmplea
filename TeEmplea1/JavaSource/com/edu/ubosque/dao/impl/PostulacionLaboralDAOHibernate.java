@@ -60,21 +60,21 @@ public class PostulacionLaboralDAOHibernate implements IPostulacionLaboralDAO {
 	}
 
 	@Override
-	public PostulacionLaboral buscarPostulacionLaboralPorId(int id, int opcion) {
+	public PostulacionLaboral buscarPostulacionLaboralPorId(int idOferta,int idCiudadano, int opcion) {
 		String hql = null;
 		switch(opcion)
 			{
 				case 1:
 				{
-					hql = "SELECT p FROM PostulacionLaboral p WHERE p.id = "+id;
+					hql = "SELECT p FROM PostulacionLaboral p WHERE p.id = "+idOferta;
 					break;
 				}
 		
 				case 2:
 				{
-					hql = "SELECT p FROM PostulacionLaboral p WHERE p.ofertaLaboral = "+id;
+					hql = "SELECT p FROM PostulacionLaboral p WHERE p.ofertaLaboral = "+idOferta+" AND p.ciudadano = "+idCiudadano;
 					System.out.println("entra al case 2");
-					System.out.println("id= "+id);
+					System.out.println("id= "+idOferta);
 					break;
 				}
 			}

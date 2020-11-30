@@ -295,6 +295,13 @@ body
 	text-align: center;
 }
 
+.botonExportarPdf
+{
+	position: absolute;
+	top : 150px;
+	left: 1000px;
+}
+
 .botonAdd
 {
 	position: absolute;

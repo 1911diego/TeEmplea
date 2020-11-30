@@ -19,7 +19,7 @@ public class PostulacionLaboralLogica {
 	
 public boolean createPostulacionLaboral(PostulacionLaboral postulacionLaboralACrear, int idOferta) {
 		
-	PostulacionLaboral postulacionBuscada = dao.buscarPostulacionLaboralPorId(idOferta, 2);
+	PostulacionLaboral postulacionBuscada = dao.buscarPostulacionLaboralPorId(idOferta,postulacionLaboralACrear.getCiudadano().getId(), 2);
 	
 	if(postulacionBuscada == null)
 	{

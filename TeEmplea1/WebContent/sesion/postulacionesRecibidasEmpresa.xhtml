@@ -52,9 +52,8 @@
 	<h:form>
 	<p:growl id="growl" showDetail="true"/>
 	<div class="tablaPostulacionesRecibidas" >
-		<h:panelGrid id="dataTableExpLaboral" layout="">
-			<p:dataTable var="postulacionesFila" value="#{postulacionesRecibidasEmpresaMB.listaPostulacionesRecibidas}"
-			widgetVar="postulaciones" emptyMessage="Sin resultados" filteredValue="#{postulacionesRecibidasEmpresaMB.listaPostulacionesFiltradas}">
+			<p:dataTable var="postulacionesFila" id ="tabla" value="#{postulacionesRecibidasEmpresaMB.listaPostulacionesRecibidas}"
+			widgetVar="postulaciones" emptyMessage="Sin resultados" filteredValue="#{postulacionesRecibidasEmpresaMB.listaPostulacionesFiltradas}">	
 			
 			 <p:column filterBy="#{postulacionesFila.ofertaLaboral.idOferta}" headerText="Id Oferta" filterMatchMode="contains">
              	<h:outputText value="#{postulacionesFila.ofertaLaboral.idOferta}" />
@@ -76,47 +75,48 @@
              	<h:outputText value="#{postulacionesFila.ciudadano.correoElectronico}" />
         	 </p:column>
         	 
-        	  <p:column >
+        	  <p:column exportable="false" >
 				<f:facet name="header">
 					<h:outputText value="Perfil Profesional" styleClass="headerInfoAcademica"/>
 				</f:facet>
-					<p:commandLink action="#{ventanasEmergentesMB.ventanaDetallesPostulacionCiudadano('perfilProfesional')}" update="@form">
+					<p:commandLink action="#{postulacionesRecibidasEmpresaMB.llenarListasCiudadano(1)}" update="@form">
 						<h:graphicImage value="/img/details.svg" style="width:50px;height:50px;"/>
 					 		<f:setPropertyActionListener value="#{postulacionesFila}" target="#{postulacionesRecibidasEmpresaMB.postulacionRecibida}"/> 		
 					</p:commandLink>
 			</p:column>
         	
-        	 <p:column >
+        	 <p:column exportable="false">
 				<f:facet name="header">
 					<h:outputText value="Información Académica" styleClass="headerInfoAcademica"/>
 				</f:facet>
-					<p:commandLink action="#{ventanasEmergentesMB.ventanaDetallesPostulacionCiudadano('infoAcademica')}" update="@form">
+					<p:commandLink action="#{postulacionesRecibidasEmpresaMB.llenarListasCiudadano(2)}" update="@form">
 						<h:graphicImage value="/img/details.svg" style="width:50px;height:50px;"/>
 					 		<f:setPropertyActionListener value="#{postulacionesFila}" target="#{postulacionesRecibidasEmpresaMB.postulacionRecibida}"/> 		
 					</p:commandLink>
 			</p:column>
 			
-			 <p:column >
+			 <p:column exportable="false">
 				<f:facet name="header">
 					<h:outputText value="Experiencia Laboral" styleClass="headerInfoAcademica"/>
 				</f:facet>
-					<p:commandLink action="#{ventanasEmergentesMB.ventanaDetallesPostulacionCiudadano('expLaboral')}" update="@form">
+					<p:commandLink action="#{postulacionesRecibidasEmpresaMB.llenarListasCiudadano(3)}" update="@form">
 						<h:graphicImage value="/img/details.svg" style="width:50px;height:50px;"/>
-					 		<f:setPropertyActionListener value="#{postulacionesFila}" target="#{postulacionesRecibidasEmpresaMB.postulacionRecibida}"/> 		
+					 		<f:setPropertyActionListener value="#{postulacionesFila}" target="#{postulacionesRecibidasEmpresaMB.postulacionRecibida}"/> 
+					 		
 					</p:commandLink>
 			</p:column>
 			
-			 <p:column >
+			 <p:column exportable="false">
 				<f:facet name="header">
 					<h:outputText value="Ver Referencias" styleClass="headerInfoAcademica"/>
 				</f:facet>
-					<p:commandLink action="#{ventanasEmergentesMB.ventanaDetallesPostulacionCiudadano('referencias')}" update="@form">
+					<p:commandLink action="#{postulacionesRecibidasEmpresaMB.llenarListasCiudadano(4)}" update="@form">
 						<h:graphicImage value="/img/details.svg" style="width:50px;height:50px;"/>
-					 		<f:setPropertyActionListener value="#{postulacionesFila}" target="#{postulacionesRecibidasEmpresaMB.postulacionRecibida}"/> 		
+					 		<f:setPropertyActionListener value="#{postulacionesFila}" target="#{postulacionesRecibidasEmpresaMB.postulacionRecibida}"/>		
 					</p:commandLink>
-			</p:column>
+			</p:column >
 			
-			 <p:column >
+			 <p:column exportable="false">
 				<f:facet name="header">
 					<h:outputText value="" styleClass="headerInfoAcademica"/>
 				</f:facet>
@@ -126,7 +126,7 @@
 					</p:commandLink>
 			</p:column>
 			
-			<p:column >
+			<p:column  exportable="false">
 				<f:facet name="header">
 					<h:outputText value="" styleClass="headerInfoAcademica"/>
 				</f:facet>
@@ -136,11 +136,16 @@
 					</p:commandLink>
 			</p:column>
 			
-		
-		
 			</p:dataTable>
-		</h:panelGrid>
 	</div>
+	
+	<div class="botonExportarPdf">
+		<h:commandLink>
+					<h:graphicImage value="/img/pdf.svg" style="width:50px;height:50px;"/>
+					<p:dataExporter type="pdf" target="tabla" fileName="Busqueda_ofertas_te_emplea" pageOnly="true"/>
+		</h:commandLink>
+	</div>
+	
 </h:form>
 
 	
